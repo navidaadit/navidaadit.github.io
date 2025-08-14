@@ -1,0 +1,22 @@
+/* Wider content area on desktop */
+.page__content,
+.splash {
+  max-width: 1100px;
+}
+
+/* Slightly wider sidebar so text doesn't clip */
+.sidebar {
+  max-width: 280px;
+}
+
+/* Nicer avatar sizing */
+.author__avatar img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Tighten top spacing under hero */
+.page__hero--overlay + .page {
+  margin-top: 1rem;
+}
