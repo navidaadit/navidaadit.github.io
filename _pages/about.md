@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Muhammad Navid Anjum Aadit"
+title: "Navid Anjum Aadit"
 author_profile: true
 redirect_from:
   - /about/
