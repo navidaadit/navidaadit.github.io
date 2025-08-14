@@ -1,28 +1,63 @@
-/* Make sure the hero actually shows and looks right */
-.page__hero,
-.page__hero--overlay {
-  min-height: 260px;              /* ensures visible strip even if content short */
-  background-size: cover;
-  background-position: center;
+/* ------------------------------
+   Site-wide layout tweaks
+   ------------------------------ */
+
+/* Wider readable content; reduce empty right whitespace */
+.page__content { 
+  max-width: 1100px; 
 }
 
-/* If the theme misses the inline background, hard-set your image as a fallback */
-.page__hero--overlay {
-  background-image: url("/images/hero.jpeg");
+/* Sidebar: prevent clipping, keep identity strong */
+.sidebar { 
+  max-width: 300px; 
 }
 
-/* Wider readable content on desktop */
-.page__content { max-width: 1100px; }
-
-/* Slightly wider sidebar; keep your headshot visible and clean */
-.sidebar { max-width: 280px; }
-
+/* Avatar sizing + crop fix */
 .author__avatar img {
-  width: 160px;
-  height: 160px;
+  width: 168px;
+  height: 168px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* Tighten spacing below banner */
-.page__hero--overlay + .page { margin-top: 1rem; }
+/* Tighten spacing below top area */
+.page { 
+  margin-top: 1rem;
+}
+
+/* If the theme still injects a default hero, keep it minimal and out of the way */
+.page__hero, .page__hero--overlay {
+  min-height: 0;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+/* ------------------------------
+   Custom hero that always renders
+   ------------------------------ */
+
+/* Uses your uploaded image at /images/hero.jpeg */
+.hero-landing {
+  background-image: url("/images/hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  /* Responsive 16:9 strip: scales with viewport, not too tall */
+  width: 100%;
+  height: 28vw;            /* responsive height */
+  min-height: 220px;       /* don’t disappear on small screens */
+  max-height: 360px;       /* keep classy on large screens */
+  border-bottom: 1px solid #cbd5e1;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.25); /* subtle dark overlay for text legibility if needed later */
+}
+
+/* Ensure the main container doesn’t crowd the sidebar under the hero */
+.initial-content {
+  display: block;
+}
+
+/* Optional: hide the masthead title text (navbar left) if you dislike the duplication */
+.masthead__title {
+  display: none;
+}
