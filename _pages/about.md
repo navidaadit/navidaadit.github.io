@@ -1,10 +1,13 @@
 ---
 permalink: /
-layout: single               # keeps the left-profile (headshot) visible
-title: ""                    # no giant page title
+layout: single
+title: ""                 # no giant page title
 author_profile: true
+classes: wide             # ensures the hero block renders full-width
 header:
-  overlay_image: /images/hero.jpeg   # upload a wide banner (≈16:9)
+  # Some builds look for `image`, others for `overlay_image` — include both.
+  image: /images/hero.jpeg
+  overlay_image: /images/hero.jpeg
   overlay_filter: 0.25
   caption: ""
 ---
