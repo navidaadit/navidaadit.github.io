@@ -22,7 +22,7 @@ repository               : "navidaadit/navidaadit.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"   # put a square headshot at /images/profile.jpg
+  avatar           : "headshot.jpeg"   # put a square headshot at /images/profile.jpg
   name             : "Navid Anjum Aadit"
   pronouns         :                  # optional, e.g., "he/him"
   bio              : "PhD Candidate, UCSB ECE — probabilistic computers (Ising/Boltzmann), FPGA acceleration, and large-scale distributed architectures."
