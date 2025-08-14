@@ -1,0 +1,1 @@
+Place your headshot at images/headshot.jpeg (square 800x800).

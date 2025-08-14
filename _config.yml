@@ -1,201 +1,56 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve -l -H localhost`. If you change this file, please restart the 
-# server process.
-
 # Basic Site Settings
-locale                   : "en-US"
-site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Navid Anjum Aadit"
-title_separator          : "-"
-name                     : &name "Navid Anjum Aadit"
-description              : &description "Probabilistic computing · Distributed p-computers · AI/ML · Quantum-inspired optimization"
-url                      : https://navidaadit.github.io
-baseurl                  : "" # for user site keep empty
-repository               : "navidaadit/navidaadit.github.io"
+locale: "en-US"
+site_theme: "default"
+title: "Navid Anjum Aadit"
+title_separator: "-"
+name: &name "Navid Anjum Aadit"
+description: &description "Probabilistic computing · Distributed p-computers · AI/ML · Quantum-inspired optimization"
+url: https://navidaadit.github.io
+baseurl: ""
+repository: "navidaadit/navidaadit.github.io"
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  # Biographic information
-  avatar           : "headshot.jpeg"   # put a square headshot at /images/profile.jpg
-  name             : "Navid Anjum Aadit"
-  pronouns         :                  # optional, e.g., "he/him"
-  bio              : "PhD Candidate, UCSB ECE — probabilistic computers (Ising/Boltzmann), FPGA acceleration, and large-scale distributed architectures."
-  location         : "University of California, Santa Barbara"
-  employer         : "Department of Electrical & Computer Engineering"
-  uri              :                  # personal site if different
-  email            : "maadit@ucsb.edu" 
+  avatar: "headshot.jpeg"
+  name: "Navid Anjum Aadit"
+  bio: "PhD Candidate, UCSB ECE — probabilistic computers (Ising/Boltzmann), FPGA acceleration, and large-scale distributed architectures."
+  location: "University of California, Santa Barbara"
+  employer: "Department of Electrical & Computer Engineering"
+  email: "maadit@ucsb.edu"
+  googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
+  github: "navidaadit"
+  linkedin: "navidanjumaadit"
 
-  # Academic websites
-  academia         : 
-  arxiv            : 
-  googlescholar    : "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
-  inspire-hep      : 
-  impactstory      : 
-  orcid            :                  # add your ORCID if you want it shown
-  semantic         : 
-  pubmed           : 
-  researchgate     : 
-  scopus           : 
-
-  # Repositories and software development
-  bitbucket        : 
-  codepen          : 
-  dribbble         : 
-  github           : "navidaadit"
-  kaggle           : 
-  stackoverflow    :                 
-
-  # Social media
-  artstation       : 
-  bluesky          :                  # e.g., "yourname.bsky.social"
-  facebook         : 
-  flickr           : 
-  foursquare       : 
-  goodreads        : 
-  google_plus      : 
-  keybase          : 
-  instagram        : 
-  lastfm           : 
-  linkedin         : "navidanjumaadit"
-  mastodon         : 
-  medium           : 
-  pinterest        : 
-  soundcloud       : 
-  steam            : 
-  telegram         : 
-  tumblr           : 
-  twitter          :                  # X / Twitter handle (no @)
-  vine             : 
-  weibo            : 
-  wikipedia        : 
-  xing             : 
-  youtube          : 
-  zhihu            : 
-
-# Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
     title: 'Books'
   manuscripts:
-    title: 'Journal Articles'    
+    title: 'Journal Articles'
   conferences:
     title: 'Conference Papers'
 
-# Site Settings
-teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
-breadcrumbs              : false # true, false (default)
-words_per_minute         : 160
-future                   : true
-read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      # change to true to add link to talkmap on talks page
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
-  disqus:
-    shortname            :
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963
-  facebook:
-    appid                :
-    num_posts            : 
-    colorscheme          : 
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601"
+breadcrumbs: false
+words_per_minute: 160
+future: true
+read_more: "disabled"
+talkmap_link: false
 atom_feed:
-  hide                   : false
-  path                   : 
+  hide: false
+  path: 
 
-# SEO Related
-google_site_verification :
-bing_site_verification   :
-alexa_site_verification  :
-yandex_site_verification :
-
-# Social Sharing
-twitter:
-  username               : &twitter
-facebook:
-  username               :
-  app_id                 :
-  publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
-social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : 
-  links: 
-
-# Analytics
-analytics:
-  provider               : "false" # "google", "google-universal", "google-analytics-4", "custom"
-  google:
-    tracking_id          :
-
-# Reading Files
 include:
   - .htaccess
   - _pages
   - files
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .asset-cache
-  - .bundle
-  - .github
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - CHANGELOG
-  - Capfile
-  - config
-  - Dockerfile
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - local
-  - log
-  - node_modules
-  - package.json*
-  - Rakefile
-  - README
-  - tmp
-  - vendor
-keep_files:
-  - .git
-  - .svn
+
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-# Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -206,7 +61,6 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-# These settings control the types of collections used by the template
 collections:
   teaching:
     output: true
@@ -221,9 +75,7 @@ collections:
     output: true
     permalink: /:collection/:path/
 
-# These settings control how pages and collections are included in the site
 defaults:
-  # _posts
   - scope:
       path: ""
       type: posts
@@ -234,14 +86,12 @@ defaults:
       comments: true
       share: true
       related: true
-  # _pages
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: true
-  # _teaching
   - scope:
       path: ""
       type: teaching
@@ -250,7 +100,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _publications
   - scope:
       path: ""
       type: publications
@@ -259,7 +108,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
   - scope:
       path: ""
       type: portfolio
@@ -268,7 +116,6 @@ defaults:
       author_profile: true
       share: true
       comment: true
-  # _talks
   - scope:
       path: ""
       type: talks
@@ -277,18 +124,9 @@ defaults:
       author_profile: true
       share: true
 
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Outputting
 permalink: /:categories/:title/
-# paginate: 5
-# paginate_path: /page:num/
 timezone: Etc/UTC
 
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -297,34 +135,13 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
-# Mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jemoji
-
-# Archives
 category_archive:
   type: liquid
   path: /categories/
 tag_archive:
   type: liquid
   path: /tags/
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
 
-# HTML Compression
 compress_html:
   clippings: all
   ignore:
