@@ -4,7 +4,7 @@ layout: single               # keeps the left-profile (headshot) visible
 title: ""                    # no giant page title
 author_profile: true
 header:
-  overlay_image: /images/hero.jpg   # upload a wide banner (≈1800×600)
+  overlay_image: /images/hero.jpeg   # upload a wide banner (≈16:9)
   overlay_filter: 0.25
   caption: ""
 ---
