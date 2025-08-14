@@ -1,14 +1,22 @@
+/* Make sure the hero actually shows and looks right */
+.page__hero,
+.page__hero--overlay {
+  min-height: 260px;              /* ensures visible strip even if content short */
+  background-size: cover;
+  background-position: center;
+}
+
+/* If the theme misses the inline background, hard-set your image as a fallback */
+.page__hero--overlay {
+  background-image: url("/images/hero.jpeg");
+}
+
 /* Wider readable content on desktop */
-.page__content {
-  max-width: 1100px;
-}
+.page__content { max-width: 1100px; }
 
-/* Slightly wider sidebar so text doesn’t clip */
-.sidebar {
-  max-width: 280px;
-}
+/* Slightly wider sidebar; keep your headshot visible and clean */
+.sidebar { max-width: 280px; }
 
-/* Headshot sizing (prevent crop weirdness) */
 .author__avatar img {
   width: 160px;
   height: 160px;
@@ -16,7 +24,5 @@
   border-radius: 50%;
 }
 
-/* Tighten spacing below the banner */
-.page__hero--overlay + .page {
-  margin-top: 1rem;
-}
+/* Tighten spacing below banner */
+.page__hero--overlay + .page { margin-top: 1rem; }
