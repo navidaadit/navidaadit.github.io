@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-<img src="/images/headshot.jpg" alt="Navid Aadit" style="width:200px; border-radius:50%; margin-bottom:20px;">
+<img src="/images/headshot.jpeg" alt="Navid Aadit" style="width:200px; border-radius:50%; margin-bottom:20px;">
 
 I am a PhD Candidate in Electrical and Computer Engineering at the **University of California, Santa Barbara** (expected Fall 2025), specializing in **probabilistic computing** and **extreme-scale distributed architectures**. My research combines ideas from **statistical physics**, **machine learning**, and **quantum-inspired optimization** to push the limits of large-scale combinatorial problem solving.
 
