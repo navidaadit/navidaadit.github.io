@@ -5,40 +5,103 @@ title: "Research"
 author_profile: true
 ---
 
-<!-- ---------- Page-scoped styles (theme-aware; no global side effects) ---------- -->
+<!-- ---------- Page-scoped styles (theme-aware; content unchanged) ---------- -->
 <style>
-.research-lead{font-size:1.06rem;line-height:1.65;margin:.25rem 0 1.15rem;}
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
-.card{border:1px solid var(--footer-border,#e5e7eb);border-radius:10px;padding:14px;background:var(--footer-bg,#f8fafc);}
-.card h4{margin:.1rem 0 .35rem;font-size:1.02rem;}
-.stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 1.1rem;}
-.stat-badge{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
-.pill-list{list-style:none;padding:0;margin:.1rem 0 .9rem 0;display:flex;flex-wrap:wrap;gap:6px 8px;}
-.pill-list li{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
-.section-h{margin-top:.6rem;}
-.small-note{font-size:.92rem;opacity:.9}
+:root{
+  --g:14px;                 /* grid gap */
+  --radius:12px;            /* card radius */
+  --shadow:0 6px 20px rgba(0,0,0,.06);
+  --card-bg:var(--footer-bg,#f8fafc);
+  --card-br:var(--footer-border,#e5e7eb);
+  --pill-bg:var(--tag-bg,#f3f4f6);
+  --pill-br:var(--tag-border,#e5e7eb);
+  --pill-fg:var(--tag-fg,#111827);
+  --media-bg:rgba(0,0,0,.04); /* shows behind letterboxed images */
+}
 
-/* Kill “double underline” on acronyms — keep tooltip only */
-abbr[title]{text-decoration:none;border:0;cursor:help}
+/* lead paragraph */
+.research-lead{font-size:1.06rem;line-height:1.65;margin:.25rem 0 1.15rem}
 
-/* Spotlight gallery */
-.gallery-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
-.figure-card{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);}
-.figure-card img{display:block;width:100%;height:220px;object-fit:cover;}
-.figcap{padding:8px 10px;font-size:.92rem;border-top:1px solid var(--footer-border,#e5e7eb);}
+/* responsive 3-up grid (collapses gracefully) */
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:var(--g);
+  margin:.75rem 0 1.2rem;
+}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--g);
+  margin:.75rem 0 1.2rem;
+}
 
-/* Dark tweaks */
+/* modern card */
+.card{
+  border:1px solid var(--card-br);
+  border-radius:var(--radius);
+  padding:16px 16px 14px;
+  background:var(--card-bg);
+  box-shadow:var(--shadow);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.10) }
+.card h4{ margin:.1rem 0 .45rem; font-size:1.02rem }
+
+/* stat badges */
+.stat-row{ display:flex; flex-wrap:wrap; gap:8px; margin:.35rem 0 1.1rem }
+.stat-badge{
+  font-size:.9rem; padding:6px 10px; border-radius:999px;
+  border:1px solid var(--pill-br); background:var(--pill-bg); color:var(--pill-fg);
+  white-space:nowrap
+}
+
+/* method pills */
+.pill-list{ list-style:none; padding:0; margin:.1rem 0 .9rem 0; display:flex; flex-wrap:wrap; gap:6px 8px }
+.pill-list li{
+  font-size:.9rem; padding:6px 10px; border-radius:999px; white-space:nowrap;
+  border:1px solid var(--pill-br); background:var(--pill-bg); color:var(--pill-fg)
+}
+
+/* kill browser underline on acronyms; keep tooltip */
+abbr[title]{ text-decoration:none; border:0; cursor:help }
+
+/* ---------- Spotlight gallery: NO CROPPING (keeps 16:9 fully) ---------- */
+.gallery-3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px; margin:.6rem 0 1.2rem
+}
+.figure-card{
+  position:relative; overflow:hidden; border-radius:var(--radius);
+  border:1px solid var(--card-br); background:var(--card-bg); box-shadow:var(--shadow)
+}
+
+/* Show full image without cropping. Aspect-ratio ensures consistent height. */
+.figure-card img{
+  display:block; width:100%; height:auto;
+  aspect-ratio:16/9;         /* consistent frame */
+  object-fit:contain;         /* NO CROP */
+  background:var(--media-bg); /* subtle letterbox fill */
+}
+.figcap{
+  padding:10px 12px; font-size:.92rem;
+  border-top:1px solid var(--card-br)
+}
+
+/* dark tweaks for borders/backgrounds */
 html[data-theme="dark"] .figure-card,
 html.dark .figure-card,
 body.dark .figure-card,
-:root.theme-dark .figure-card{border-color:#1f2937;background:#0b1220;}
+:root.theme-dark .figure-card{ border-color:#1f2937; background:#0b1220 }
 html[data-theme="dark"] .figcap,
 html.dark .figcap,
 body.dark .figcap,
-:root.theme-dark .figcap{border-top-color:#1f2937;}
+:root.theme-dark .figcap{ border-top-color:#1f2937 }
+:root.theme-dark{ --media-bg:rgba(255,255,255,.06) }
 
-@media (max-width:980px){.grid-3,.grid-2,.gallery-3{grid-template-columns:1fr;}}
+/* responsive collapse */
+@media (max-width:980px){ .grid-3,.grid-2,.gallery-3{ grid-template-columns:1fr } }
 </style>
 
 <div class="research-lead">
@@ -135,15 +198,13 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   </figure>
 </div>
 
-<!--
-Place three images at:
+<!-- Images expected at:
 - /images/research/sparse-ising.jpeg
 - /images/research/dbm-hardware.jpeg
 - /images/research/all-to-all.jpeg
-Aim for ~1200×700px each (landscape), JPG/WEBP.
--->
+Use 16:9 (e.g., 1280×720 or 1600×900). They’ll be letterboxed, not cropped. -->
 
-## Methods I use 
+## Methods I use
 
 <ul class="pill-list">
   <li>Massively parallel (graph-colored) Gibbs</li>
