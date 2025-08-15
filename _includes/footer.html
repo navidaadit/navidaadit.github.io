@@ -1,7 +1,10 @@
-{% assign this_year = site.time | date: '%Y' %}
-<footer class="page__footer">
-  <div class="page__footer-copyright footer-bar">
-    <span class="footer-left">© {{ this_year }} {{ site.name | default: site.title }}</span>
-    <span class="footer-right">Last updated {{ "now" | date: '%Y-%m-%d' }}</span>
-  </div>
-</footer>
+{% include base_path %}
+
+<div class="footer-bar">
+  <span class="footer-left">
+    © {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}
+  </span>
+  <span class="footer-right">
+    Last updated {{ "now" | date: '%Y-%m-%d' }}
+  </span>
+</div>
