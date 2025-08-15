@@ -6,7 +6,7 @@ site_theme: "air"
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: &description "PhD Candidate, UCSB — probabilistic computing, Ising machines, AI/ML, quantum computing"
+description: &description "PhD Candidate, UCSB — Probabilistic Computing, Ising Machines, AI/ML, Quantum Computing"
 
 url: https://navidaadit.github.io
 baseurl: ""
