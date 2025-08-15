@@ -89,13 +89,13 @@
 .page__hero--overlay,
 .hero-landing { display: none !important; }
 
-/* Hero image (no crop, 80%, centered) */
+/* Hero image (no crop, 80%, centered, no extra gap) */
 .hero-img {
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 1rem auto;
-  border-bottom: 1px solid #cbd5e1;
+  margin: 0 auto 0 auto;  /* no bottom margin */
+  border-bottom: none;    /* remove line */
 }
 
 /* ---------- Download CV button (muted, still visible) ---------- */
