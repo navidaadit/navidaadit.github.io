@@ -40,6 +40,7 @@ My recent work scales p-computers across **multi-FPGA systems** with delay-toler
 - *Nature Electronics* (2022): **Massively parallel probabilistic computing with sparse Ising machines**.  
 - *Nature Communications* (2024): **All-to-all reconfigurability with sparse & higher-order Ising machines**.  
 - *VLSI Symposium* (2023): **Accelerating Adaptive Parallel Tempering with FPGA-based p-bits**.  
+- *IEDM* (2022): **Experimental evaluation of simulated quantum annealing with MTJ-augmented p-bits**.
 - *IEDM* (2021): **Computing with invertible logic: Combinatorial optimization with probabilistic bits**.
 
 ---
