@@ -136,15 +136,19 @@
   color: var(--tag-fg) !important;
 }
 
-/* ---------- Spotlight / Research gallery images ----------
-   Keep 16:9 framing, no cropping. Use !important to beat any page-inline CSS. */
+/* ---------- Spotlight / Research gallery images ---------- */
+/* Safari-safe, taller fixed height (~4:3 feel), no cropping. */
 .figure-card { overflow: hidden; border-radius: 10px; }
 .figure-card img {
   width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 16/9 !important;
-  object-fit: contain !important;  /* no crop; shows full image */
+  height: 280px !important;          /* desktop */
+  object-fit: contain !important;     /* never crop */
+  object-position: center !important;
   background: transparent !important;
+}
+/* Shorter on phones */
+@media (max-width:980px){
+  .figure-card img{ height: 220px !important; }
 }
 
 /* If you prefer uniform heights with subtle letterboxing color, uncomment:
