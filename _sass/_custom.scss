@@ -229,3 +229,6 @@ body.dark,
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
 }
+
+/* ===== ONE-LINE GLOBAL FONT SHRINK ===== */
+html { font-size: 15px; }
