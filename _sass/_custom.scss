@@ -47,7 +47,7 @@
 }
 
 /* Limit inner content width to ~75% (not the hero or keyword pills) */
-.layout--single .page__content > *:not(.hero-img):not(.keyword-pills) {
+.layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
   max-width: var(--content-max);
 }
 
@@ -87,6 +87,29 @@
   border-bottom: 1px solid #cbd5e1;
 }
 
+/* ---- Download CV (muted blue; only this button is styled) ---- */
+.cv-row { margin: 0.5rem 0 1rem 0; }
+
+.page__content .btn--cv {
+  display: inline-block;
+  background-color: #4a6fdd;   /* muted blue */
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #3f5fc0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.02s ease;
+}
+.page__content .btn--cv:hover {
+  background-color: #3f5fc0;   /* slightly darker */
+  border-color: #3552a6;
+}
+.page__content .btn--cv:active {
+  transform: translateY(1px);
+}
+
 /* Keyword pills */
 .keyword-pills {
   list-style: none;
@@ -110,23 +133,6 @@
 .page__content i.fas {
   color: #3b82f6;
   margin-right: 6px;
-}
-
-/* Download CV button only */
-.page__content a.btn {
-  display: inline-block;
-  background-color: #e5e7eb;   /* light gray */
-  color: #111827;              /* dark text */
-  border-radius: 4px;
-  padding: 8px 14px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
-  border: 1px solid #d1d5db;
-  transition: background-color 0.2s ease;
-}
-.page__content a.btn:hover {
-  background-color: #d1d5db;
 }
 
 /* Slightly tighter top spacing */
