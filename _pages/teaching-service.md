@@ -16,6 +16,7 @@ author_profile: true
 .course-item{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);border-radius:10px;margin:.35rem 0}
 .badge{display:inline-block;font-size:.84rem;padding:2px 8px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);margin-left:auto;white-space:nowrap}
 .role{font-weight:600;opacity:.9}
+.role--plain{font-weight:400;opacity:.85}  /* non-bold variant for NDUB roles */
 .small-note{font-size:.92rem;opacity:.9;margin-top:.6rem}
 @media (max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
 </style>
@@ -81,14 +82,14 @@ I enjoy teaching core hardware–software topics and contributing to the academi
     <li class="course-item">
       <div>
         <div>Lecturer, Department of Computer Science &amp; Engineering (CSE)</div>
-        <div class="role">Undergraduate teaching</div>
+        <div class="role role--plain">Undergraduate teaching</div>
       </div>
       <span class="badge">NDUB</span>
     </li>
     <li class="course-item">
       <div>
-        <div>Founder &amp; Moderator — NDUB Computer Club</div>
-        <div class="role">Built and led the university’s first student-run technology & innovation society, organizing workshops, hackathons, and outreach events.</div>
+        <div>Founder &amp; moderator — NDUB Computer Club</div>
+        <div class="role role--plain">Organized workshops, hackathons, and outreach.</div>
       </div>
       <span class="badge">NDUB</span>
     </li>
