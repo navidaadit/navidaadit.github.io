@@ -14,10 +14,10 @@ repository: "navidaadit/navidaadit.github.io"
 
 # Hide the brand text in the masthead (prevents your name showing again at top-left)
 masthead_title: ""   # leave empty to suppress navbar title text
-# If you later want a small logo instead, add a file and uncomment:
-# logo: "/images/logo.svg"
+# logo: "/images/logo.svg"  # (optional) small logo instead of text
 
 author:
+  name: ""                      # << hide name under the headshot
   avatar: "headshot.jpeg"
   bio: "PhD Candidate, UCSB ECE — probabilistic computers, Ising machines, FPGA acceleration, and large-scale distributed architectures."
   location: "Santa Barbara"
