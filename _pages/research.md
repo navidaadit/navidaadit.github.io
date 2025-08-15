@@ -59,16 +59,16 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   <div class="card">
     <h4>Probabilistic AI & NQS</h4>
     <ul>
-      <li>Hardware-aware Deep Boltzmann Machines (DBMs): compact, trainable, generative</li>
+      <li>Hardware-aware Deep Boltzmann Machines (DBMs)</li>
       <li>Contrastive-divergence at extreme sweep counts</li>
-      <li>Neural Quantum States (NQS) for quantum / scientific data</li>
+      <li>Neural Quantum States (NQS) for quantum/science data</li>
     </ul>
   </div>
   <div class="card">
     <h4>Quantum-inspired optimization & sampling</h4>
     <ul>
-      <li>All-to-all behavior on sparse, massively parallel fabrics</li>
-      <li>Higher-order couplings to improve prefactors</li>
+      <li>All-to-all behavior on sparse, parallel fabrics</li>
+      <li>Higher-order couplers to improve prefactors</li>
       <li>APT, SQA, and non-local MC for hard instances</li>
     </ul>
   </div>
@@ -81,28 +81,27 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
     <h4>Device / physical layer</h4>
     <ul>
       <li>Binary stochastic neurons: <strong>p-bits</strong></li>
-      <li>CMOS today; path to <abbr title="stochastic Magnetic Tunnel Junctions">sMTJs</abbr> for density & energy</li>
-      <li>Physics matched to computation: MC / MCMC</li>
+      <li>CMOS today → <abbr title="stochastic Magnetic Tunnel Junctions">sMTJs</abbr> next</li>
+      <li>Physics ↔ computation: MC / MCMC</li>
+      <li>Quality metrics: energy / free-energy</li>
     </ul>
   </div>
   <div class="card">
     <h4>Architecture</h4>
     <ul>
-      <li><em>Sparse</em> Ising machines with multiplexed <em>all-to-all</em> behavior</li>
+      <li>Sparse IMs with multiplexed all-to-all</li>
       <li>Higher-order interactions (e.g., XORSAT)</li>
-      <li>Balanced partitioning for multi-FPGA; delay-tolerant links</li>
-      <li>Graph-colored (chromatic) massively parallel Gibbs updates</li>
+      <li>Balanced partitioning, latency-aware links</li>
+      <li>Chromatic, massively parallel Gibbs</li>
     </ul>
   </div>
   <div class="card">
     <h4>Algorithms</h4>
     <ul>
-      <li>Scalable Gibbs; energy / free-energy diagnostics</li>
-      <li>Parallel Tempering (PT) / Adaptive PT (APT)</li>
+      <li>Parallel Tempering (PT) / Adaptive PT</li>
       <li>Isoenergetic Cluster Moves (ICM)</li>
-      <li>Simulated Quantum Annealing (SQA) on heterogeneous fabric</li>
-      <li>Deep Boltzmann Machines (DBMs), Energy-Based Models (EBMs)</li>
-      <li>Neural Quantum States (NQS) sampling & training</li>
+      <li>Simulated Quantum Annealing (SQA)</li>
+      <li>DBM/EBM training; NQS sampling</li>
     </ul>
   </div>
 </div>
@@ -114,8 +113,7 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   <span class="stat-badge">50–64B flips/s (measured)</span>
   <span class="stat-badge">Up to 6 orders vs. CPU Gibbs</span>
   <span class="stat-badge">5–18× vs. TPU/GPU samplers</span>
-  <span class="stat-badge">4,264 p-bits (DBM demo)</span>
-  <span class="stat-badge">≈30k parameters (DBM demo)</span>
+  <span class="stat-badge">4,264 p-bits / ≈30k params (DBM)</span>
   <span class="stat-badge">All-to-all + higher-order on sparse IMs</span>
   <span class="stat-badge">Multi-FPGA path to 1M+ nodes</span>
 </div>
@@ -145,7 +143,7 @@ Place three images at:
 Aim for ~1200×700px each (landscape), JPG/WEBP.
 -->
 
-## Methods I use
+## Methods I use 
 
 <ul class="pill-list">
   <li>Massively parallel (graph-colored) Gibbs</li>
