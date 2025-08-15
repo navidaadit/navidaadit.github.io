@@ -98,4 +98,130 @@
   border-bottom: none;    /* no line */
 }
 
-/* ---------- Download*
+/* ---------- Download CV button (muted, still visible) ---------- */
+.cv-row { margin: 0.5rem 0 1rem 0; }
+
+.page__content .btn--cv {
+  display: inline-block;
+  background-color: #4a6fdd; /* muted blue */
+  color: #fff;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #3f5fc0;
+  transition: background-color .2s ease, border-color .2s ease, transform .02s ease;
+}
+.page__content .btn--cv:hover  { background-color: #3f5fc0; border-color: #3552a6; }
+.page__content .btn--cv:active { transform: translateY(1px); }
+
+/* ---------- Keyword pills (THEME-AWARE) ---------- */
+.keyword-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.keyword-pills li {
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 1px solid var(--tag-border) !important;
+  background: var(--tag-bg) !important;
+  color: var(--tag-fg) !important;
+}
+
+/* ---------- Spotlight / Research gallery images ----------
+   Keep 16:9 framing, no cropping. Use !important to beat any page-inline CSS. */
+.figure-card { overflow: hidden; border-radius: 10px; }
+.figure-card img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16/9 !important;
+  object-fit: contain !important;  /* no crop; shows full image */
+  background: transparent !important;
+}
+
+/* If you prefer uniform heights with subtle letterboxing color, uncomment:
+.figure-card { background: var(--footer-bg) !important; }
+*/
+
+/* Icons in Recognition list */
+.page__content i.fas { color: #3b82f6; margin-right: 6px; }
+
+/* ---------- Dark-mode variables (cover common toggles) ---------- */
+html[data-theme="dark"],
+html.dark,
+body.dark,
+:root.theme-dark,
+.theme--dark,
+.mm-dark {
+  --tag-bg: rgba(255,255,255,.08);
+  --tag-border: rgba(255,255,255,.22);
+  --tag-fg: #e5e7eb;
+
+  --footer-bg: #0b1220;
+  --footer-fg: #cbd5e1;
+  --footer-border: #1f2937;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.theme-light) {
+    --tag-bg: rgba(255,255,255,.08);
+    --tag-border: rgba(255,255,255,.22);
+    --tag-fg: #e5e7eb;
+
+    --footer-bg: #0b1220;
+    --footer-fg: #cbd5e1;
+    --footer-border: #1f2937;
+  }
+}
+
+/* ---------- Footer: single slim bar, left/right aligned, theme-aware ---------- */
+
+/* Kill any theme painting/shadows/extra layers */
+.page__footer,
+.page__footer::before,
+.page__footer::after {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Hide the built-in Follow/Feed row if the theme tries to add it */
+.page__footer-follow { display: none !important; }
+
+/* Our footer row */
+.footer-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 6px 16px !important;
+
+  background: var(--footer-bg) !important;
+  color: var(--footer-fg) !important;
+  border-top: 1px solid var(--footer-border) !important;
+
+  font-size: 0.78rem !important;
+  line-height: 1.2;
+}
+
+.footer-left  { opacity: .92; }
+.footer-right { opacity: .92; text-align: right; }
+
+/* ---------- Responsive ---------- */
+.page { margin-top: 1rem; }
+
+@media (max-width: 520px) {
+  .footer-bar { flex-wrap: wrap; row-gap: 4px; }
+}
