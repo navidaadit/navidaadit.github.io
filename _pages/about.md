@@ -8,10 +8,8 @@ author_profile: true
 <!-- HERO as a normal image (no cropping). Lives entirely in the right column. -->
 <img src="/images/hero.jpeg" alt="Navid Aadit giving a talk" class="hero-img" />
 
-<p class="cta-row">
-  <a class="btn btn--primary" href="/files/Aadit_CV_Fall2025.pdf">Download CV</a>
-  <a class="btn" href="https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en">Google Scholar</a>
-  <a class="btn" href="mailto:maadit@ucsb.edu">Email</a>
+<p class="cv-row">
+  <a class="btn btn--cv" href="/files/Aadit_CV_Fall2025.pdf">Download CV</a>
 </p>
 
 I am a PhD candidate in **Electrical & Computer Engineering** at the **University of California, Santa Barbara** (expected Dec 2025).
@@ -22,11 +20,11 @@ My recent work scales p-computers across **multi-FPGA systems** with delay-toler
 
 <ul class="keyword-pills">
   <li>Probabilistic computing</li>
+  <li>Quantum computing</li>
   <li>Ising/Boltzmann machines</li>
   <li>Distributed chips</li>
   <li>FPGA accelerators</li>
   <li>Energy-based ML</li>
-  <li>Quantum-inspired optimization</li>
 </ul>
 
 ---
@@ -50,4 +48,3 @@ My recent work scales p-computers across **multi-FPGA systems** with delay-toler
 - <i class="fas fa-award"></i> **Misha Mahowald Prize (2025)** — <a href="https://www.mahowaldprize.org/prize-awards/prizes-2025">Official Announcement</a> · <a href="https://www.ece.ucsb.edu/news/all/2025/camsaris-opus-lab-misha-mahowald-prize">UCSB News</a>  
 - <i class="fas fa-trophy"></i> **Bell Labs Prize (Bronze, 2023)** — <a href="https://engineering.ucsb.edu/news/ece-professor-and-phd-student-win-bronze-medal-bell-labs-prize-competition">UCSB News</a> · <a href="https://www.bell-labs.com/institute/blog/bell-labs-prize-winners-close-the-thz-gap-with-inexpensive-harmonic-sensors/">Bell Labs Blog</a>  
 - <i class="fas fa-graduation-cap"></i> **UCSB Graduate Division — PhD Dissertation Fellowship (2025)**
-
