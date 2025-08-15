@@ -42,7 +42,7 @@ body.dark .figcap,
 </style>
 
 <div class="research-lead">
-I work on <strong>probabilistic computers</strong> built from <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>. My approach is <strong>full-stack</strong> — device physics → architectures → algorithms — scaling from single <abbr title="Field-Programmable Gate Array">FPGA</abbr> systems to multi-FPGA fabrics targeting <strong>million-node</strong> p-computers.
+I work on <strong>probabilistic computers</strong> built from <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>. My approach is <strong>full-stack</strong> — device physics → architectures → algorithms — scaling from single <abbr title="Field-Programmable Gate Array">FPGA</abbr> systems to multi-FPGA <strong>asynchronous</strong> fabrics targeting <strong>million-node</strong> p-computers.
 </div>
 
 ## Research areas
@@ -51,13 +51,13 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   <div class="card">
     <h4>Distributed probabilistic computing</h4>
     <ul>
-      <li>Potts-style partitioning for balanced multi-chip mapping</li>
-      <li>Latency-aware links that retain solution quality at scale</li>
+      <li>Probabilistic Potts partitioning for balanced multi-chip mapping</li>
+      <li>Latency-aware asynchronous links that retain solution quality at scale</li>
       <li>Roadmap to 100k–1M+ p-bits</li>
     </ul>
   </div>
   <div class="card">
-    <h4>Probabilistic AI & NQS</h4>
+    <h4>Probabilistic GenAI & Quantum simulation</h4>
     <ul>
       <li>Hardware-aware Deep Boltzmann Machines (DBMs)</li>
       <li>Contrastive-divergence at extreme sweep counts</li>
@@ -80,9 +80,9 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   <div class="card">
     <h4>Device / physical layer</h4>
     <ul>
-      <li>Binary stochastic neurons: <strong>p-bits</strong></li>
+      <li>Asynchronous: <strong>p-bits</strong></li>
       <li>CMOS today → <abbr title="stochastic Magnetic Tunnel Junctions">sMTJs</abbr> next</li>
-      <li>Physics ↔ computation: MC / MCMC</li>
+      <li>Physics ↔ computation</li>
       <li>Quality metrics: energy / free-energy</li>
     </ul>
   </div>
@@ -91,14 +91,14 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
     <ul>
       <li>Sparse IMs with multiplexed all-to-all</li>
       <li>Higher-order interactions (e.g., XORSAT)</li>
-      <li>Balanced partitioning, latency-aware links</li>
+      <li>Balanced partitioning, latency-aware asynchronous links</li>
       <li>Chromatic, massively parallel Gibbs</li>
     </ul>
   </div>
   <div class="card">
     <h4>Algorithms</h4>
     <ul>
-      <li>Parallel Tempering (PT) / Adaptive PT</li>
+      <li>Simulated Annealing (SA)/ Parallel Tempering (PT)</li>
       <li>Isoenergetic Cluster Moves (ICM)</li>
       <li>Simulated Quantum Annealing (SQA)</li>
       <li>DBM/EBM training; NQS sampling</li>
@@ -110,7 +110,7 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 
 <div class="stat-row">
   <span class="stat-badge">Linear flips/s vs. system size</span>
-  <span class="stat-badge">50–64B flips/s (measured)</span>
+  <span class="stat-badge">1500B flips/s (measured)</span>
   <span class="stat-badge">Up to 6 orders vs. CPU Gibbs</span>
   <span class="stat-badge">5–18× vs. TPU/GPU samplers</span>
   <span class="stat-badge">4,264 p-bits / ≈30k params (DBM)</span>
@@ -126,11 +126,11 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
     <figcaption class="figcap">Sparse Ising machine on FPGA — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
   <figure class="figure-card">
-    <img src="/images/research/dbm-hardware.jpg" alt="Hardware-trained deep Boltzmann machines / NQS">
-    <figcaption class="figcap">Hardware-trained DBMs / NQS — <em>Nature Electronics</em> (2024)</figcaption>
+    <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
+    <figcaption class="figcap">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
   </figure>
   <figure class="figure-card">
-    <img src="/images/research/all-to-all.jpg" alt="All-to-all & higher-order Ising machines">
+    <img src="/images/research/all-to-all.jpeg" alt="All-to-all & higher-order Ising machines">
     <figcaption class="figcap">All-to-all & higher-order IMs — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
 </div>
@@ -138,8 +138,8 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 <!--
 Place three images at:
 - /images/research/sparse-ising.jpeg
-- /images/research/dbm-hardware.jpg
-- /images/research/all-to-all.jpg
+- /images/research/dbm-hardware.jpeg
+- /images/research/all-to-all.jpeg
 Aim for ~1200×700px each (landscape), JPG/WEBP.
 -->
 
@@ -147,6 +147,7 @@ Aim for ~1200×700px each (landscape), JPG/WEBP.
 
 <ul class="pill-list">
   <li>Massively parallel (graph-colored) Gibbs</li>
+  <li>Simulated Annealing (SA)</li>
   <li>Adaptive Parallel Tempering (APT)</li>
   <li>Simulated Quantum Annealing (SQA)</li>
   <li>Isoenergetic Cluster Moves (ICM)</li>
