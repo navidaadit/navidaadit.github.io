@@ -62,7 +62,7 @@
   max-width: var(--content-max);
 }
 
-/* Justified body text */
+/* Justified body text (base) */
 .layout--single .page__content p {
   text-align: justify;
   text-justify: inter-word;
@@ -231,17 +231,37 @@ body.dark,
 }
 
 /* ===========================================================
-   FORCE JUSTIFICATION (wins last even if theme uses !important)
+   HARD ENFORCE: 75% inner width + justification, no hyphens
+   (placed last so it wins the cascade)
    =========================================================== */
 
-/* Make container justify by default… */
+/* Enforce 75% for *direct* children inside the content column */
+.layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
+  width: 100% !important;
+  max-width: var(--content-max) !important; /* 75% of the right column */
+  margin-right: auto !important;            /* left-aligned, narrower block */
+  margin-left: 0 !important;
+}
+
+/* Justify body text globally BUT no hyphenation */
 .page__content {
   text-align: justify !important;
   text-justify: inter-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
-/* …but keep headings, badges, pills, captions, etc. left-aligned */
+
+/* Turn off hyphenation on common text blocks */
+.page__content p,
+.page__content li,
+.page__content blockquote,
+.page__content .figcap,
+.page__content .small-note {
+  -webkit-hyphens: none !important;
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere; /* allows wrapping without hyphens */
+}
+
+/* Keep non-paragraph UI bits left-aligned */
 .page__content h1,
 .page__content h2,
 .page__content h3,
