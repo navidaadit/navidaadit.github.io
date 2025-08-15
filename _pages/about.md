@@ -5,22 +5,22 @@ title: ""
 author_profile: true
 ---
 
-<!-- HERO: use an <img> so nothing gets cropped -->
+<!-- HERO as a normal image (no cropping). It will live entirely in the right column. -->
 <img src="/images/hero.jpeg"
      alt="Navid Aadit giving a talk"
      class="hero-img" />
 
 I am **Navid Anjum Aadit**, a PhD candidate in Electrical & Computer Engineering at the **University of California, Santa Barbara** (expected Dec 2025).  
-I build **probabilistic computers** (Ising/Boltzmann) and **extreme-scale distributed architectures**, connecting ideas from **statistical physics**, **machine learning**, and **quantum-inspired optimization**.
+I primarily work on **probabilistic computing** with p-bits and **extreme-scale distributed architectures** that connects ideas from **statistical physics**, **machine learning**, and **quantum-inspired optimization**.
 
 My recent work scales p-computers across **multi-FPGA systems** with delay-tolerant communication and balanced partitioning to sustain solution quality at unprecedented sizes.
 
 ---
 
 ## Research Highlights
-- **Distributed probabilistic computing** — Interconnect multi-FPGA / heterogeneous hardware over ultra-low-latency fabrics; 100k+ p-bits.
-- **Probabilistic AI & ML** — Ising/Boltzmann samplers for generative modeling, Bayesian inference, and scalable energy-based learning.
-- **Quantum-inspired optimization** — Hardware–software co-design blending stochastic p-bit systems with quantum-classical workflows.
+- **Distributed probabilistic computing** — Interconnect multi-FPGA / heterogeneous hardware over ultra-low-latency communication; 1M p-bits.
+- **Probabilistic AI & ML** — Ising/Boltzmann samplers for generative AI, Bayesian inference, and scalable energy-based learning.
+- **Quantum-inspired optimization** — Hardware–software co-design blending stochastic p-bits with quantum-classical workflows.
 
 ---
 
