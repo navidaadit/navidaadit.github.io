@@ -1,37 +1,44 @@
 /* ===========================
-   Navid Aadit — site overrides (grid layout, no hero overlap/crop)
+   Navid Aadit — site overrides (no hero overlap/crop, wider layout)
    =========================== */
 
-/* Widen overall page to reduce right-side whitespace */
+/* Use full viewport width (removes big right-side gap) */
 .initial-content,
 .page__inner,
 .page {
-  max-width: 100%;   /* full width, no fixed cap */
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-/* ---- FORCE A TRUE TWO-COLUMN GRID ---- */
+/* ---- TRUE TWO-COLUMN GRID (sidebar + content) ---- */
+:root {
+  --sidebar: 320px;
+  --gap: 48px;
+}
+
 .layout--single .page {
   display: grid !important;
-  grid-template-columns: 320px minmax(0, 1fr);  /* wider sidebar + flexible main */
-  grid-column-gap: 48px;
+  grid-template-columns: var(--sidebar) calc(100% - var(--sidebar) - var(--gap));
+  grid-column-gap: var(--gap);
   align-items: start;
 }
 
-/* Sidebar lives in column 1; remove any floats from theme */
+/* Sidebar stays in column 1; no floats */
 .layout--single .sidebar {
   grid-column: 1 !important;
   float: none !important;
-  width: 320px !important;
-  max-width: 320px !important;
+  width: var(--sidebar) !important;
+  max-width: var(--sidebar) !important;
   background: #f8fafc;
   border-right: 1px solid #e5e7eb;
   padding-right: 12px;
   border-radius: 6px;
 }
 
-/* Right content column */
+/* Content column fills the rest */
 .layout--single .page__content {
   grid-column: 2 !important;
   margin: 0 !important;
@@ -41,7 +48,7 @@
 /* Clear any legacy float wrapping */
 .page::after { content: ""; display: block; clear: both; }
 
-/* Headshot size */
+/* Avatar */
 .author__avatar img {
   width: 168px;
   height: 168px;
@@ -49,26 +56,24 @@
   border-radius: 50%;
 }
 
-/* Remove any built-in theme hero blocks/padding */
+/* Kill any built-in theme hero */
 .page__hero,
 .page__hero--overlay,
-.hero-landing {
-  display: none !important;
-}
+.hero-landing { display: none !important; }
 
-/* ---- HERO image (no cropping) ---- */
+/* Our hero (no cropping; sits inside right column) */
 .hero-img {
   display: block;
   width: 100%;
-  height: auto;             /* preserves full photo */
+  height: auto;
   margin: 0 0 1rem 0;
   border-bottom: 1px solid #cbd5e1;
 }
 
-/* Tighter top spacing */
+/* Slightly tighter top spacing */
 .page { margin-top: 1rem; }
 
-/* ---- Responsive: stack on small screens ---- */
+/* --- Responsive: stack on small screens --- */
 @media (max-width: 980px) {
   .layout--single .page {
     grid-template-columns: 1fr;
