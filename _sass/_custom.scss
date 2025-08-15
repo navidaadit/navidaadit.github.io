@@ -168,8 +168,9 @@ body.dark,
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ---------- Footer: single slim bar, left/right aligned ---------- */
-/* Nuke theme painting that adds extra bars */
+/* ---------- Footer: single slim bar, left/right aligned, theme-aware ---------- */
+
+/* Kill any theme painting/shadows/extra layers */
 .page__footer,
 .page__footer::before,
 .page__footer::after {
@@ -180,40 +181,62 @@ body.dark,
   min-height: 0 !important;
 }
 
-/* Hide “Follow / Feed” row */
+/* Hide the built-in Follow/Feed row if the theme tries to add it */
 .page__footer-follow { display: none !important; }
 
-/* Remove any default break the theme inserts */
-.page__footer-copyright { border: 0 !important; }
-.page__footer-copyright br { display: none !important; }
+/* Colors (light defaults) */
+:root {
+  --footer-bg: #f8fafc;
+  --footer-fg: #475569;
+  --footer-border: #e5e7eb;
+}
 
-/* Make the copyright row full-width and use flex to split left/right */
-.page__footer-copyright.footer-bar {
+/* Dark-mode variants (cover common toggles + prefers-color-scheme) */
+html[data-theme="dark"],
+html.dark,
+body.dark,
+:root.theme-dark,
+.theme--dark,
+.mm-dark {
+  --footer-bg: #0b1220;
+  --footer-fg: #cbd5e1;
+  --footer-border: #1f2937;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.theme-light) {
+    --footer-bg: #0b1220;
+    --footer-fg: #cbd5e1;
+    --footer-border: #1f2937;
+  }
+}
+
+/* Our footer row */
+.footer-bar {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
 
-  width: 100% !important;        /* expand to full footer width */
-  max-width: none !important;     /* do NOT shrink to content */
+  width: 100% !important;       /* full width */
+  max-width: none !important;
   margin: 0 !important;
   padding: 6px 16px !important;
 
   background: var(--footer-bg) !important;
   color: var(--footer-fg) !important;
   border-top: 1px solid var(--footer-border) !important;
-  font-size: 0.78rem !important;  /* a bit smaller */
+
+  font-size: 0.78rem !important; /* smaller, professional */
   line-height: 1.2;
-  white-space: nowrap;
 }
 
-.footer-left  { opacity: .9; }
-.footer-right { opacity: .9; text-align: right; }
+/* Minor styling */
+.footer-left  { opacity: .92; }
+.footer-right { opacity: .92; text-align: right; }
 
+/* Stack gracefully on very small phones */
 @media (max-width: 520px) {
-  .page__footer-copyright.footer-bar {
-    white-space: normal;
-    row-gap: 2px;
-    flex-wrap: wrap;             /* allow stacking on very small phones */
+  .footer-bar {
+    flex-wrap: wrap;
+    row-gap: 4px;
   }
 }
-
