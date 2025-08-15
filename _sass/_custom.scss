@@ -230,22 +230,35 @@ body.dark,
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
 }
 
-/* ---------- Restore/force justification (strong override) ---------- */
-.research-lead {
+/* ===========================================================
+   FORCE JUSTIFICATION (wins last even if theme uses !important)
+   =========================================================== */
+
+/* Make container justify by default… */
+.page__content {
   text-align: justify !important;
   text-justify: inter-word;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-
-.layout--single .page__content p {
-  text-align: justify !important;
-  text-justify: inter-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+/* …but keep headings, badges, pills, captions, etc. left-aligned */
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5,
+.page__content h6,
+.page__content .keyword-pills,
+.page__content .keyword-pills *,
+.page__content .pill-list,
+.page__content .pill-list *,
+.page__content .stat-row,
+.page__content .stat-row *,
+.page__content .card h4,
+.page__content .cv-row,
+.page__content .figure-card,
+.page__content .figure-card *,
+.footer-bar,
+.footer-bar * {
+  text-align: left !important;
 }
-
-/* Keep these left-aligned */
-.keyword-pills li,
-.cv-row,
-.figcap { text-align: left !important; }
