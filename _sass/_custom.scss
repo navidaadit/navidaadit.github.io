@@ -1,9 +1,10 @@
-/* ===========================
+/* ===========================================================
    Navid Aadit — site overrides
-   (grid layout, justified text, hero image, theme-aware pills + footer)
-   =========================== */
+   (grid layout, justified text, hero image, theme-aware pills,
+    and a single, clean footer)
+   =========================================================== */
 
-/* ---------- Layout width ---------- */
+/* ---------- Global width ---------- */
 .initial-content,
 .page__inner,
 .page {
@@ -20,7 +21,7 @@
   --gap: 48px;
   --content-max: 75%; /* inner text width inside right column */
 
-  /* LIGHT defaults for theme-aware bits */
+  /* LIGHT defaults (overridden in dark mode below) */
   --tag-bg: #f3f4f6;
   --tag-border: #e5e7eb;
   --tag-fg: #111827;
@@ -83,7 +84,7 @@
   border-radius: 50%;
 }
 
-/* Remove any built-in hero */
+/* Remove any built-in hero from the theme */
 .page__hero,
 .page__hero--overlay,
 .hero-landing { display: none !important; }
@@ -135,7 +136,7 @@
   color: var(--tag-fg) !important;
 }
 
-/* Cover all common DARK-mode toggles used by AcademicPages/Minimal Mistakes */
+/* Dark-mode variables — cover common toggles used by AcademicPages/Minimal Mistakes */
 html[data-theme="dark"],
 html.dark,
 body.dark,
@@ -167,8 +168,8 @@ body.dark,
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ========== Footer: single, flat bar (kills double layers) ========== */
-/* 1) Neutralize the outer wrapper completely */
+/* ---------- Footer: one slim line, left/right content ---------- */
+/* Nuke any theme painting that might create a second bar */
 .page__footer,
 .page__footer::before,
 .page__footer::after {
@@ -179,23 +180,54 @@ body.dark,
   min-height: 0 !important;
 }
 
-/* Hide the “Follow / Feed” row if the theme tries to render it */
+/* Hide the “Follow / Feed” row */
 .page__footer-follow { display: none !important; }
 
-/* 2) Style only the copyright strip */
-.page__footer-copyright {
+/* Force single line with left/right alignment */
+.page__footer-copyright { border: 0 !important; }          /* safety */
+.page__footer-copyright br { display: none !important; }   /* remove line break if any */
+
+.page__footer-copyright.footer-bar {
   background: var(--footer-bg) !important;
   color: var(--footer-fg) !important;
-  border-top: 1px solid var(--footer-border) !important; /* keep one line */
-  max-width: 90vw;             /* match your layout width */
+  border-top: 1px solid var(--footer-border) !important;
+  max-width: 90vw;
   margin: 0 auto;
-  padding: 8px 16px;           /* compact */
-  font-size: 0.85rem;          /* smaller text */
+  padding: 6px 16px !important;
+  font-size: 0.8rem;                 /* smaller */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;    /* left/right */
+  gap: 1rem;
+  white-space: nowrap;
 }
 
-/* If the theme adds its own border on the inner node, kill it */
-.page__footer-copyright > * { border: 0 !important; }
+.footer-left  { opacity: .9; }
+.footer-right { opacity: .9; text-align: right; }
 
-/* Don’t let the main content add extra gap above the footer */
-.page__content { padding-bottom: 0 !important; }
+/* ---------- Responsive ---------- */
+.page { margin-top: 1rem; }
 
+@media (max-width: 980px) {
+  .layout--single .page {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  }
+  .layout--single .sidebar,
+  .layout--single .page__content {
+    width: auto !important;
+    max-width: none !important;
+    border-right: 0;
+    background: transparent;
+    padding-right: 0;
+  }
+  .hero-img { width: 100%; margin-left: 0; margin-right: 0; }
+}
+
+@media (max-width: 520px) {
+  /* allow graceful wrap on very small screens */
+  .page__footer-copyright.footer-bar {
+    white-space: normal;
+    row-gap: 2px;
+  }
+}
