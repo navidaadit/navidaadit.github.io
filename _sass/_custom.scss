@@ -1,24 +1,24 @@
 /* ===========================
-   Navid Aadit — site overrides (float-based)
+   Navid Aadit — site overrides (no hero cropping)
    =========================== */
 
-/* --- Wider page container: reduces right gutter --- */
+/* Widen the overall page to reduce right-side whitespace */
 .initial-content,
 .page__inner,
 .page {
-  max-width: 1280px;      /* widen overall page */
+  max-width: 1280px;   /* increase to 1340px if you want even wider */
   margin-left: auto;
   margin-right: auto;
 }
 
-/* --- Sidebar: roomy but not too wide --- */
+/* Sidebar width (kept modest so text has room) */
 .sidebar {
   float: left;
-  width: 300px;           /* adjust if you want 320 later */
+  width: 300px;        /* change to 320px if you want a wider sidebar */
   max-width: 300px;
 }
 
-/* Avatar sizing */
+/* Headshot sizing */
 .author__avatar img {
   width: 168px;
   height: 168px;
@@ -26,57 +26,51 @@
   border-radius: 50%;
 }
 
-/* --- Main content: offset to clear the sidebar --- */
+/* Main column clears the sidebar */
 .page__content {
-  margin-left: 340px;     /* sidebar (300) + gutter (40) */
-  max-width: none;        /* fill remaining width */
+  margin-left: 340px;  /* sidebar (300) + gutter (40) */
+  max-width: none;
 }
 
-/* Ensure floats clear correctly */
+/* Clear floats so footer/sections don’t wrap weirdly */
 .page::after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* Tighten spacing below top area */
-.page { margin-top: 1rem; }
-
-/* Neutralize any theme hero if injected */
-.page__hero, .page__hero--overlay {
+/* Remove any built-in theme hero padding/backgrounds */
+.page__hero,
+.page__hero--overlay {
   min-height: 0 !important;
   background: none !important;
   border: 0 !important;
   padding: 0 !important;
 }
 
-/* -------- Custom hero inside .page__content --------
-   Important: because the hero lives inside .page__content,
-   DO NOT add an extra left margin; just make it 100% wide. */
-.hero-landing {
+/* ---------- HERO AS <img> (NO CROPPING) ---------- */
+.hero-img {
   display: block;
-  background-image: url("/images/hero.jpeg");
-  background-size: cover;
-  background-position: center;
-  width: 100%;            /* match .page__content width */
-  height: 28vw;           /* responsive ~16:9 */
-  min-height: 220px;
-  max-height: 360px;
+  width: 100%;
+  height: auto;               /* keeps full image; no crop */
+  margin: 0 0 1rem 0;
   border-bottom: 1px solid #cbd5e1;
-  margin-bottom: 1rem;
-  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.25);
 }
 
-/* Optional: hide masthead site title if you prefer */
-/* .masthead__title { display: none; } */
+/* If any old background hero block exists, nuke it */
+.hero-landing { display: none !important; }
 
-/* --- Responsive: stack on narrow screens --- */
+/* Slightly tighter top spacing */
+.page { margin-top: 1rem; }
+
+/* ---------- Responsive tweaks ---------- */
 @media (max-width: 1100px) {
   .sidebar { width: 280px; max-width: 280px; }
   .page__content { margin-left: 320px; }
 }
+
 @media (max-width: 980px) {
   .sidebar { float: none; width: auto; max-width: none; }
   .page__content { margin-left: 0; }
-  .hero-landing { width: 100%; }
+  .hero-img { width: 100%; }
 }
