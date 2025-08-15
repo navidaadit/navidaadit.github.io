@@ -17,7 +17,7 @@
 :root {
   --sidebar: 320px;
   --gap: 48px;
-  --content-max: 75%;   /* requested: content width ~75% of the page column */
+  --content-max: 75%;   /* content width ~75% of the page column */
 }
 
 .layout--single .page {
@@ -46,8 +46,8 @@
   max-width: none !important;
 }
 
-/* Limit inner content width to ~75% (not the hero, CTAs, or pills) */
-.layout--single .page__content > *:not(.hero-img):not(.cta-row):not(.keyword-pills) {
+/* Limit inner content width to ~75% (not the hero or keyword pills) */
+.layout--single .page__content > *:not(.hero-img):not(.keyword-pills) {
   max-width: var(--content-max);
 }
 
@@ -87,46 +87,6 @@
   border-bottom: 1px solid #cbd5e1;
 }
 
-/* CTA buttons row */
-.cta-row {
-  margin: 0.5rem 0 1rem 0;
-}
-
-/* ---------- High-contrast buttons (fix near-white text) ---------- */
-a.btn, .btn {
-  display: inline-block;
-  font-weight: 600;
-  background: #e5e7eb;        /* gray-200 */
-  color: #0f172a !important;  /* slate-900 */
-  border: 1px solid #cbd5e1;  /* slate-300 */
-  border-radius: 8px;
-  padding: 10px 14px;
-  line-height: 1.1;
-  text-decoration: none !important;
-}
-
-a.btn:hover, .btn:hover,
-a.btn:focus, .btn:focus {
-  background: #dbeafe;        /* blue-100 */
-  border-color: #93c5fd;      /* blue-300 */
-  color: #0b1220 !important;
-}
-
-a.btn--primary, .btn--primary {
-  background: #2563eb;        /* blue-600 */
-  border-color: #1d4ed8;      /* blue-700 */
-  color: #ffffff !important;  /* ensure white text on blue */
-}
-
-a.btn--primary:hover, .btn--primary:hover,
-a.btn--primary:focus, .btn--primary:focus {
-  background: #1e40af;        /* blue-800 */
-  border-color: #1e40af;
-  color: #ffffff !important;
-}
-
-.cta-row .btn { margin-right: 0.5rem; margin-bottom: 0.25rem; }
-
 /* Keyword pills */
 .keyword-pills {
   list-style: none;
@@ -150,6 +110,23 @@ a.btn--primary:focus, .btn--primary:focus {
 .page__content i.fas {
   color: #3b82f6;
   margin-right: 6px;
+}
+
+/* Download CV button only */
+.page__content a.btn {
+  display: inline-block;
+  background-color: #e5e7eb;   /* light gray */
+  color: #111827;              /* dark text */
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #d1d5db;
+  transition: background-color 0.2s ease;
+}
+.page__content a.btn:hover {
+  background-color: #d1d5db;
 }
 
 /* Slightly tighter top spacing */
