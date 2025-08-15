@@ -122,7 +122,7 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 
 <div class="gallery-3">
   <figure class="figure-card">
-    <img src="/images/research/sparse-ising.jpg" alt="Sparse Ising machine on FPGA">
+    <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
     <figcaption class="figcap">Sparse Ising machine on FPGA — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
   <figure class="figure-card">
@@ -137,7 +137,7 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 
 <!--
 Place three images at:
-- /images/research/sparse-ising.jpg
+- /images/research/sparse-ising.jpeg
 - /images/research/dbm-hardware.jpg
 - /images/research/all-to-all.jpg
 Aim for ~1200×700px each (landscape), JPG/WEBP.
