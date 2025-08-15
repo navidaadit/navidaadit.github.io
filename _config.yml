@@ -19,10 +19,9 @@ masthead_title: ""   # leave empty to suppress navbar title text
 
 author:
   avatar: "headshot.jpeg"
-  name: "Navid Anjum Aadit"
-  bio: "PhD Candidate, UCSB ECE — probabilistic computers (Ising/Boltzmann), FPGA acceleration, and large-scale distributed architectures."
-  location: "University of California, Santa Barbara"
-  employer: "Department of Electrical & Computer Engineering"
+  bio: "PhD Candidate, UCSB ECE — probabilistic computers, Ising machines, FPGA acceleration, and large-scale distributed architectures."
+  location: "Santa Barbara"
+  employer: "Department of ECE"
   email: "maadit@ucsb.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "navidaadit"
@@ -30,7 +29,7 @@ author:
 
 publication_category:
   books:
-    title: 'Books'
+    title: 'Book Chapters'
   manuscripts:
     title: 'Journal Articles'
   conferences:
