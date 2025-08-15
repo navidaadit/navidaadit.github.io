@@ -1,12 +1,12 @@
 /* ===========================
-   Navid Aadit — site overrides (no hero overlap/crop, tuned widths)
+   Navid Aadit — site overrides (no hero overlap/crop, tuned widths, justified text)
    =========================== */
 
 /* Use ~90% of viewport width to avoid a huge right gutter */
 .initial-content,
 .page__inner,
 .page {
-  max-width: 80vw;         /* was 100%; 90vw keeps a little margin on large screens */
+  max-width: 90vw;      /* keeps a little margin on very wide screens */
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -17,6 +17,7 @@
 :root {
   --sidebar: 320px;
   --gap: 48px;
+  --content-max: 75%;   /* requested: content width ~75% of the page column */
 }
 
 .layout--single .page {
@@ -45,10 +46,23 @@
   max-width: none !important;
 }
 
+/* Limit inner content width to ~75% (not the hero) */
+.layout--single .page__content > *:not(.hero-img) {
+  max-width: var(--content-max);
+}
+
+/* Justify paragraphs for a cleaner academic look */
+.layout--single .page__content p {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 /* Clear any legacy float wrapping */
 .page::after { content: ""; display: block; clear: both; }
 
-/* Hide the name under the headshot explicitly (belt & suspenders) */
+/* Hide the name under the headshot explicitly */
 .author__name { display: none !important; }
 
 /* Avatar */
@@ -67,9 +81,9 @@
 /* Our hero (no cropping; 80% width; centered in right column) */
 .hero-img {
   display: block;
-  width: 80%;         /* was 100%; now smaller visual footprint */
+  width: 80%;                 /* requested: hero ≈ 80% of content column */
   height: auto;
-  margin: 0 auto 1rem auto;  /* center it */
+  margin: 0 auto 1rem auto;   /* center it */
   border-bottom: 1px solid #cbd5e1;
 }
 
