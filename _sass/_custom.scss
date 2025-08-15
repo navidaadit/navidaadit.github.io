@@ -2,20 +2,20 @@
    Navid Aadit — site overrides (float-based)
    =========================== */
 
-/* --- Wider page container: reduces big right gutter --- */
+/* --- Wider page container: reduces right gutter --- */
 .initial-content,
 .page__inner,
 .page {
-  max-width: 1200px;     /* wider than theme default */
+  max-width: 1280px;      /* wider than default */
   margin-left: auto;
   margin-right: auto;
 }
 
-/* --- Sidebar: wider so lines don't wrap awkwardly --- */
+/* --- Sidebar: roomy but not too wide to collide with hero --- */
 .sidebar {
-  float: left;           /* keep the theme's float flow */
-  width: 340px;          /* give it real room */
-  max-width: 340px;
+  float: left;            /* keep theme’s float flow */
+  width: 300px;           /* down from 340 so it doesn’t crowd */
+  max-width: 300px;
 }
 
 /* Avatar sizing */
@@ -26,11 +26,17 @@
   border-radius: 50%;
 }
 
-/* --- Main content: offset to clear the wider sidebar --- */
+/* --- Main content: offset to clear the sidebar --- */
 .page__content {
-  /* sidebar width + gutter */
-  margin-left: 380px;    /* 340 + 40 gutter */
-  max-width: none;       /* fill remaining space */
+  margin-left: 340px;     /* sidebar (300) + gutter (40) */
+  max-width: 100%;        /* fill remaining space */
+}
+
+/* Make sure floats don’t leak */
+.page::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* Tighten spacing below top area */
@@ -45,12 +51,15 @@
 }
 
 /* -------- Custom hero that always renders -------- */
+/* Give it the SAME left offset as .page__content so it never sits under the sidebar */
 .hero-landing {
+  display: block;
   background-image: url("/images/hero.jpeg");
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 28vw;          /* responsive ~16:9 */
+  width: calc(100% - 340px);  /* 100% minus the left offset */
+  margin-left: 340px;         /* align with content column */
+  height: 28vw;               /* responsive ~16:9 */
   min-height: 220px;
   max-height: 360px;
   border-bottom: 1px solid #cbd5e1;
@@ -63,10 +72,12 @@
 
 /* --- Responsive: stack on narrow screens --- */
 @media (max-width: 1100px) {
-  .sidebar { width: 300px; max-width: 300px; }
-  .page__content { margin-left: 340px; }
+  .sidebar { width: 280px; max-width: 280px; }
+  .page__content { margin-left: 320px; }
+  .hero-landing { margin-left: 320px; width: calc(100% - 320px); }
 }
 @media (max-width: 980px) {
   .sidebar { float: none; width: auto; max-width: none; }
   .page__content { margin-left: 0; }
+  .hero-landing { margin-left: 0; width: 100%; }
 }
