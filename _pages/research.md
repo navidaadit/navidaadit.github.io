@@ -22,23 +22,20 @@ author_profile: true
 /* Kill “double underline” on acronyms — keep tooltip only */
 abbr[title]{text-decoration:none;border:0;cursor:help}
 
-/* Spotlight gallery — 16:9, no crop, Safari-safe */
+/* Spotlight gallery */
 .gallery-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 .figure-card{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);}
+
+/* Safari-safe, taller, no-crop images (replaces flat 16:9) */
 .figure-card img{
   display:block;
   width:100%;
-  height:auto;
-  aspect-ratio:16/9;        /* keeps consistent frame without cropping */
-  object-fit:contain;        /* never crop the image */
-  background:transparent;    /* no visible letterbox color */
+  height:280px;           /* desktop height */
+  object-fit:contain;     /* never crop */
+  object-position:center;
+  background:transparent;
 }
-/* Fallback for browsers without aspect-ratio (older Safari, etc.) */
-@supports not (aspect-ratio: 1/1){
-  .figure-card{position:relative;}
-  .figure-card::before{content:"";display:block;padding-top:56.25%;} /* 16:9 spacer */
-  .figure-card img{position:absolute;inset:0;max-width:100%;max-height:100%;margin:auto;object-fit:contain;background:transparent;}
-}
+
 .figcap{padding:8px 10px;font-size:.92rem;border-top:1px solid var(--footer-border,#e5e7eb);}
 
 /* Dark tweaks */
@@ -51,7 +48,11 @@ html.dark .figcap,
 body.dark .figcap,
 :root.theme-dark .figcap{border-top-color:#1f2937;}
 
-@media (max-width:980px){.grid-3,.grid-2,.gallery-3{grid-template-columns:1fr;}}
+/* Shorter cards on phones */
+@media (max-width:980px){
+  .grid-3,.grid-2,.gallery-3{grid-template-columns:1fr;}
+  .figure-card img{height:220px;}
+}
 </style>
 
 <div class="research-lead">
