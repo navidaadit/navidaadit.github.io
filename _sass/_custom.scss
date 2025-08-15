@@ -229,3 +229,23 @@ body.dark,
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
 }
+
+/* ---------- Restore/force justification (strong override) ---------- */
+.research-lead {
+  text-align: justify !important;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.layout--single .page__content p {
+  text-align: justify !important;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Keep these left-aligned */
+.keyword-pills li,
+.cv-row,
+.figcap { text-align: left !important; }
