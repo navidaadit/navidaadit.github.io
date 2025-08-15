@@ -6,7 +6,7 @@ site_theme: "air"
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: &description "Probabilistic computing · Distributed p-computers · AI/ML · Quantum-inspired optimization"
+description: &description "Probabilistic computing · Ising machines · AI/ML · Quantum computing"
 
 url: https://navidaadit.github.io
 baseurl: ""
@@ -19,7 +19,7 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  bio: "PhD Candidate, UCSB ECE — probabilistic computing, Ising machines, FPGA acceleration, and large-scale distributed architectures."
+  bio: "PhD Candidate, UCSB ECE — probabilistic computing, Ising machines, FPGA acceleration, and large-scale ML/AI."
   location: "Santa Barbara"
   employer: "Department of ECE"
   email: "maadit@ucsb.edu"
