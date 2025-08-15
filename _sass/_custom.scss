@@ -1,12 +1,12 @@
 /* ===========================
-   Navid Aadit — site overrides (no hero overlap/crop, wider layout)
+   Navid Aadit — site overrides (no hero overlap/crop, tuned widths)
    =========================== */
 
-/* Use full viewport width (removes big right-side gap) */
+/* Use ~90% of viewport width to avoid a huge right gutter */
 .initial-content,
 .page__inner,
 .page {
-  max-width: 100%;
+  max-width: 90vw;         /* was 100%; 90vw keeps a little margin on large screens */
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -48,6 +48,9 @@
 /* Clear any legacy float wrapping */
 .page::after { content: ""; display: block; clear: both; }
 
+/* Hide the name under the headshot explicitly (belt & suspenders) */
+.author__name { display: none !important; }
+
 /* Avatar */
 .author__avatar img {
   width: 168px;
@@ -61,12 +64,12 @@
 .page__hero--overlay,
 .hero-landing { display: none !important; }
 
-/* Our hero (no cropping; sits inside right column) */
+/* Our hero (no cropping; 80% width; centered in right column) */
 .hero-img {
   display: block;
-  width: 100%;
+  width: 80%;         /* was 100%; now smaller visual footprint */
   height: auto;
-  margin: 0 0 1rem 0;
+  margin: 0 auto 1rem auto;  /* center it */
   border-bottom: 1px solid #cbd5e1;
 }
 
@@ -86,5 +89,10 @@
     border-right: 0;
     background: transparent;
     padding-right: 0;
+  }
+  .hero-img {
+    width: 100%;      /* full width on phones */
+    margin-left: 0;
+    margin-right: 0;
   }
 }
