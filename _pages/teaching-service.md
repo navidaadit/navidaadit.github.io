@@ -14,8 +14,11 @@ author_profile: true
 .list li{padding:.18rem 0}
 .columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:980px){.columns{grid-template-columns:1fr}}
-.inline{margin:.2rem 0;font-size:.95rem}
-.inline span{display:inline-block;margin:.15rem .6rem .15rem 0;opacity:.95}
+
+/* inline, middot-separated reviewer list */
+.inline-list{list-style:none;padding:0;margin:.2rem 0;display:flex;flex-wrap:wrap;gap:6px 12px}
+.inline-list li{position:relative;white-space:nowrap}
+.inline-list li:not(:last-child)::after{content:"•";margin-left:12px;opacity:.45}
 </style>
 
 ## Teaching
@@ -51,13 +54,15 @@ author_profile: true
 
 ## Professional Service (Reviewer)
 
-<div class="section inline">
-  <span>IEEE Transactions on Affective Computing</span>
-  <span>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</span>
-  <span>IEEE Transactions on Nanotechnology</span>
-  <span>Nature Scientific Reports</span>
-  <span>Communications Physics</span>
-  <span>IEEE Access</span>
-  <span>PLOS ONE</span>
-  <span>Digital Discovery</span>
+<div class="section">
+  <ul class="inline-list">
+    <li>IEEE Transactions on Affective Computing</li>
+    <li>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</li>
+    <li>IEEE Transactions on Nanotechnology</li>
+    <li>Nature Scientific Reports</li>
+    <li>Communications Physics</li>
+    <li>IEEE Access</li>
+    <li>PLOS ONE</li>
+    <li>Digital Discovery</li>
+  </ul>
 </div>
