@@ -249,6 +249,18 @@ body.dark,
   text-justify: inter-word;
 }
 
+/* Don't justify lists inside the white cards (research/teaching boxes) */
+.page__content .card ul,
+.page__content .card ol,
+.page__content .card li,
+.page__content .card p {
+  text-align: left !important;
+  text-justify: auto !important;
+  -webkit-hyphens: none !important;
+  hyphens: none !important;
+}
+
+
 /* Turn off hyphenation on common text blocks */
 .page__content p,
 .page__content li,
