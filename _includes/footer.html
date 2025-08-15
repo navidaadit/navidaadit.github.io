@@ -1,13 +1,7 @@
-{% include base_path %}
-
-<footer class="page__footer footer--clean" role="contentinfo">
-  <div class="footer__inner">
-    <div class="footer__left">
-      © {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}
-    </div>
-    <div class="footer__right">
-      Last updated {{ "now" | date: '%Y-%m-%d' }}
-    </div>
+{% assign this_year = site.time | date: '%Y' %}
+<footer class="page__footer">
+  <div class="page__footer-copyright footer-bar">
+    <span class="footer-left">© {{ this_year }} {{ site.name | default: site.title }}</span>
+    <span class="footer-right">Last updated {{ "now" | date: '%Y-%m-%d' }}</span>
   </div>
 </footer>
-
