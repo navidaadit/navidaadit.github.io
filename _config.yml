@@ -17,7 +17,7 @@ masthead_title: ""   # leave empty to suppress navbar title text
 # logo: "/images/logo.svg"  # (optional) small logo instead of text
 
 author:
-  name: ""                      # << hide name under the headshot
+  name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
   bio: "PhD Candidate, UCSB ECE — probabilistic computers, Ising machines, FPGA acceleration, and large-scale distributed architectures."
   location: "Santa Barbara"
