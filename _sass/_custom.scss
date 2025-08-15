@@ -159,36 +159,34 @@
   }
 }
 
-/* ====== Clean, professional footer ====== */
+/* ===== Footer: professional, neutral ===== */
+.page__footer {
+  /* neutralize theme “air” blue strip */
+  background: transparent !important;
+  border-top: 1px solid #e5e7eb;
+  padding: 0 !important;
+}
 
 .page__footer.footer--clean {
-  background: #f8fafc;              /* light, neutral */
-  border-top: 1px solid #e5e7eb;    /* subtle divider */
-  color: #334155;                   /* slate-700 */
-  padding: 12px 0;                  /* slim */
+  background: #f8fafc;        /* soft gray */
+  padding: 12px 0 !important; /* slim bar */
+  color: #334155;
 }
 
 .footer__inner {
-  max-width: 1400px;                /* match your page width */
+  max-width: 1400px;          /* match your layout width */
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.95rem;
-  line-height: 1.4;
 }
 
 .page__footer.footer--clean a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
-}
-
-/* Make sure the theme’s bright blue footer styles don’t leak through */
-.page__footer {
-  background: transparent;
-  box-shadow: none;
 }
 
 @media (max-width: 640px) {
@@ -198,4 +196,5 @@
     text-align: center;
   }
 }
+
 
