@@ -19,7 +19,6 @@ author_profile: true
 .badge{display:inline-block;font-size:.84rem;padding:2px 8px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);margin-left:auto;white-space:nowrap}
 .role{font-weight:600;opacity:.9}
 .small-note{font-size:.92rem;opacity:.9;margin-top:.6rem}
-.section-h{margin-top:.7rem}
 
 /* Dark tweaks */
 html[data-theme="dark"] .card,
@@ -94,7 +93,22 @@ I enjoy teaching core hardware–software topics and serving the community as a 
 
 <div class="card">
   <div class="school"><i class="fas fa-chalkboard-teacher"></i> Notre Dame University Bangladesh</div>
-  <div><strong>Lecturer</strong>, Department of Computer Science &amp; Engineering (CSE)</div>
+  <ul class="course-list">
+    <li class="course-item">
+      <div>
+        <div><strong>Lecturer</strong>, Department of Computer Science &amp; Engineering (CSE)</div>
+        <div class="role">Undergraduate teaching</div>
+      </div>
+      <span class="badge">NDUB</span>
+    </li>
+    <li class="course-item">
+      <div>
+        <div><strong>Founder &amp; Moderator</strong> — NDUB Computer Club</div>
+        <div class="role">Established and led student activities in computing</div>
+      </div>
+      <span class="badge">NDUB</span>
+    </li>
+  </ul>
 </div>
 
 ## Professional Service (Reviewer)
