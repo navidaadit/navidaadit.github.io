@@ -16,7 +16,4 @@ author_profile: true
 
 <div class="cv-wrap">
   <a class="btn" href="/files/Aadit_CV_Fall2025.pdf">Download CV (PDF)</a>
-  <div class="small">
-    File name: <a href="/files/Aadit_CV_Fall2025.pdf">Aadit_CV_Fall2025.pdf</a>
-  </div>
 </div>
