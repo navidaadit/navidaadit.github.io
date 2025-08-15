@@ -80,14 +80,14 @@ I enjoy teaching core hardware–software topics and contributing to the academi
   <ul class="course-list">
     <li class="course-item">
       <div>
-        <div><strong>Lecturer</strong>, Department of Computer Science &amp; Engineering (CSE)</div>
+        <div>Lecturer, Department of Computer Science &amp; Engineering (CSE)</div>
         <div class="role">Undergraduate teaching</div>
       </div>
       <span class="badge">NDUB</span>
     </li>
     <li class="course-item">
       <div>
-        <div><strong>Founder &amp; Moderator</strong> — NDUB Computer Club</div>
+        <div>Founder &amp; Moderator — NDUB Computer Club</div>
         <div class="role">Built and led the university’s first student-run technology & innovation society, organizing workshops, hackathons, and outreach events.</div>
       </div>
       <span class="badge">NDUB</span>
