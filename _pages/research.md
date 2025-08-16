@@ -36,6 +36,11 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
   background:transparent;
 }
 
+/* Ultra-wide (panoramic) variant for lab setups, etc. */
+.figure-card.pano img{height:220px;}
+/* Optional even shorter: .figure-card.pano img{height:200px;} */
+
+/* Caption */
 .figcap{padding:8px 10px;font-size:.92rem;border-top:1px solid var(--footer-border,#e5e7eb);}
 
 /* Dark tweaks */
@@ -52,6 +57,7 @@ body.dark .figcap,
 @media (max-width:980px){
   .grid-3,.grid-2,.gallery-3{grid-template-columns:1fr;}
   .figure-card img{height:220px;}
+  .figure-card.pano img{height:180px;}
 }
 </style>
 
@@ -126,7 +132,9 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
   <span class="stat-badge">Linear flips/s vs. system size</span>
   <span class="stat-badge">1500B flips/s (measured)</span>
   <span class="stat-badge">Up to 6 orders vs. CPU Gibbs</span>
-  <span class="stat-badge">5–18× vs. TPU/GPU samplers</span>
+  <span class="stat-badge">≈100× vs. GPU/TPU (flips/s &amp; energy)</span>
+  <span class="stat-badge">6-FPGA UCSB: ~50k p-bits (async links)</span>
+  <span class="stat-badge">Synthesized 1M p-bits on 18× VP1902 (Siemens)</span>
   <span class="stat-badge">4,264 p-bits / ≈30k params (DBM)</span>
   <span class="stat-badge">All-to-all + higher-order on sparse IMs</span>
   <span class="stat-badge">Multi-FPGA path to 1M+ nodes</span>
@@ -147,14 +155,21 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
     <img src="/images/research/all-to-all.jpeg" alt="All-to-all & higher-order Ising machines">
     <figcaption class="figcap">All-to-all & higher-order IMs — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
+
+  <!-- NEW: ultra-wide lab setup, use the pano class for cleaner fit -->
+  <figure class="figure-card pano">
+    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (5–6 boards)">
+    <figcaption class="figcap">UCSB multi-FPGA p-computer (5–6 boards), ~50k p-bits via asynchronous links</figcaption>
+  </figure>
 </div>
 
 <!--
-Place three images at:
+Place images at:
 - /images/research/sparse-ising.jpeg
 - /images/research/dbm-hardware.jpeg
 - /images/research/all-to-all.jpeg
-Aim for ~1200×700px each (landscape), JPG/WEBP.
+- /images/research/5-fpga-setup.jpeg  (ultra-wide; uses .pano)
+Aim for ~1200×700px for standard figures; the lab setup can be wider.
 -->
 
 ## Methods I use 
@@ -168,14 +183,14 @@ Aim for ~1200×700px each (landscape), JPG/WEBP.
   <li>Non-equilibrium Monte Carlo (NMC)</li>
   <li>Higher-order p-bits / couplers</li>
   <li>DBM training (hardware-aware)</li>
-  <li>NQS sampling & training</li>
+  <li>NQS sampling &amp; training</li>
 </ul>
 
 ## Current directions
 - <strong>Million-node p-computers:</strong> partitioning and interconnects that preserve solution quality at extreme scale.  
-- <strong>Probabilistic AI & NQS at scale:</strong> compact, hardware-efficient learning for scientific/quantum data.  
+- <strong>Probabilistic AI &amp; NQS at scale:</strong> compact, hardware-efficient learning for scientific/quantum data.  
 - <strong>Heterogeneous p-computers:</strong> CMOS + sMTJs to keep improving flips/J and density.
 
 <div class="small-note">
-Full publication list: <a href="/publications/">/publications/</a>
+Full publication list: <a href="/publications/">Publications</a>
 </div>
