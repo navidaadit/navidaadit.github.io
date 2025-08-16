@@ -148,7 +148,7 @@
 .figure-card img {
   width: 100% !important;
   height: 280px !important;          /* desktop */
-  object-fit: contain !important;     /* never crop */
+  object-fit: cover !important;     /* never crop */
   object-position: center !important;
   background: transparent !important;
 }
