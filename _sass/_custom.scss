@@ -26,12 +26,13 @@
   --tag-border: #e5e7eb;
   --tag-fg: #111827;
 
-  --footer-bg: #f8fafc;
+  /* Page background / footer tone */
+  --footer-bg: #f7fafc;   /* slightly cleaner, modern light */
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
 
-  /* NEW: neutral “surface” vars for white cards (research/teaching boxes) */
-  --surface-bg: #f8fafc;
+  /* “Surface” cards (research/teaching boxes) */
+  --surface-bg: #ffffff;   /* cleaner white card */
   --surface-border: #e5e7eb;
   --surface-fg: inherit;
 }
@@ -178,8 +179,8 @@ body.dark,
   --footer-fg: #cbd5e1;
   --footer-border: #1f2937;
 
-  /* NEW: surfaces flip with dark too */
-  --surface-bg: #0b1220;
+  /* Surfaces in dark mode */
+  --surface-bg: #0f172a;  /* slightly lighter than before for readability */
   --surface-border: #1f2937;
   --surface-fg: #e5e7eb;
 }
@@ -193,7 +194,7 @@ body.dark,
     --footer-fg: #cbd5e1;
     --footer-border: #1f2937;
 
-    --surface-bg: #0b1220;
+    --surface-bg: #0f172a;
     --surface-border: #1f2937;
     --surface-fg: #e5e7eb;
   }
@@ -272,19 +273,24 @@ body.dark,
   text-justify: inter-word;
 }
 
-/* Don't justify lists inside the white cards (research/teaching boxes) */
+/* Don't justify lists/paragraphs inside your white boxes (.card and .section) */
 .page__content .card ul,
 .page__content .card ol,
 .page__content .card li,
-.page__content .card p {
+.page__content .card p,
+.page__content .section ul,
+.page__content .section ol,
+.page__content .section li,
+.page__content .section p {
   text-align: left !important;
   text-justify: auto !important;
   -webkit-hyphens: none !important;
   hyphens: none !important;
 }
 
-/* NEW: make “card” boxes follow theme variables everywhere */
-.page__content .card {
+/* Make “card/section” boxes follow theme variables */
+.page__content .card,
+.page__content .section {
   background: var(--surface-bg) !important;
   border-color: var(--surface-border) !important;
   color: var(--surface-fg) !important;
@@ -324,8 +330,7 @@ body.dark,
   text-align: left !important;
 }
 
-/* Mobile overflow fix inside teaching/service cards:
-   allow the left text column to shrink/wrap next to the badge */
+/* Mobile overflow fix inside teaching/service cards */
 .page__content .course-item { 
   display:flex; 
   align-items:flex-start; 
