@@ -22,25 +22,10 @@ author_profile: true
 /* Kill “double underline” on acronyms — keep tooltip only */
 abbr[title]{text-decoration:none;border:0;cursor:help}
 
-/* Spotlight gallery */
-.gallery-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
+/* Spotlight grid (2×2) */
+.gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 .figure-card{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);}
-
-/* Safari-safe, taller, no-crop images (replaces flat 16:9) */
-.figure-card img{
-  display:block;
-  width:100%;
-  height:280px;           /* desktop height */
-  object-fit:contain;     /* never crop */
-  object-position:center;
-  background:transparent;
-}
-
-/* Ultra-wide (panoramic) variant for lab setups, etc. */
-.figure-card.pano img{height:220px;}
-/* Optional even shorter: .figure-card.pano img{height:200px;} */
-
-/* Caption */
+.figure-card img{display:block;width:100%;height:280px;object-fit:contain;object-position:center;background:transparent;}
 .figcap{padding:8px 10px;font-size:.92rem;border-top:1px solid var(--footer-border,#e5e7eb);}
 
 /* Dark tweaks */
@@ -53,11 +38,10 @@ html.dark .figcap,
 body.dark .figcap,
 :root.theme-dark .figcap{border-top-color:#1f2937;}
 
-/* Shorter cards on phones */
+/* Phones: single column + slightly shorter images */
 @media (max-width:980px){
-  .grid-3,.grid-2,.gallery-3{grid-template-columns:1fr;}
+  .grid-3,.grid-2,.gallery-2x2{grid-template-columns:1fr;}
   .figure-card img{height:220px;}
-  .figure-card.pano img{height:180px;}
 }
 </style>
 
@@ -142,24 +126,25 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 
 ## Spotlight
 
-<div class="gallery-3">
+<div class="gallery-2x2">
   <figure class="figure-card">
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
-    <figcaption class="figcap">Sparse Ising machine on FPGA — <em>Nature Electronics</em> (2022)</figcaption>
+    <figcaption class="figcap">Sparse Ising machine — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
+
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
     <figcaption class="figcap">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
   </figure>
+
   <figure class="figure-card">
-    <img src="/images/research/all-to-all.jpeg" alt="All-to-all & higher-order Ising machines">
+    <img src="/images/research/all-to-all.jpeg" alt="All-to-all and higher-order Ising machines">
     <figcaption class="figcap">All-to-all & higher-order IMs — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
 
-  <!-- NEW: ultra-wide lab setup, use the pano class for cleaner fit -->
-  <figure class="figure-card pano">
-    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (5–6 boards)">
-    <figcaption class="figcap">UCSB multi-FPGA p-computer (5–6 boards), ~50k p-bits via asynchronous links</figcaption>
+  <figure class="figure-card">
+    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer">
+    <figcaption class="figcap">UCSB multi-FPGA p-computer (~50k p-bits) — Lab setup</figcaption>
   </figure>
 </div>
 
@@ -168,8 +153,8 @@ Place images at:
 - /images/research/sparse-ising.jpeg
 - /images/research/dbm-hardware.jpeg
 - /images/research/all-to-all.jpeg
-- /images/research/5-fpga-setup.jpeg  (ultra-wide; uses .pano)
-Aim for ~1200×700px for standard figures; the lab setup can be wider.
+- /images/research/5-fpga-setup.jpeg
+Export ~1200×700 (landscape) or ~1000×1000 (square). The layout never crops; it letterboxes as needed.
 -->
 
 ## Methods I use 
