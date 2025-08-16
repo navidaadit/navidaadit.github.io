@@ -29,11 +29,6 @@
   --footer-bg: #f8fafc;
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
-
-  /* NEW: neutral “surface” vars for white cards (research/teaching boxes) */
-  --surface-bg: #f8fafc;
-  --surface-border: #e5e7eb;
-  --surface-fg: inherit;
 }
 
 .layout--single .page {
@@ -67,12 +62,14 @@
   max-width: var(--content-max);
 }
 
-/* Justified body text (base) */
+/* Justified body text */
 .layout--single .page__content p {
   text-align: justify;
   text-justify: inter-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Clear legacy floats */
@@ -169,7 +166,9 @@ html.dark,
 body.dark,
 :root.theme-dark,
 .theme--dark,
-.mm-dark {
+.mm-dark,
+.dark,
+.dark-mode {
   --tag-bg: rgba(255,255,255,.08);
   --tag-border: rgba(255,255,255,.22);
   --tag-fg: #e5e7eb;
@@ -177,11 +176,6 @@ body.dark,
   --footer-bg: #0b1220;
   --footer-fg: #cbd5e1;
   --footer-border: #1f2937;
-
-  /* NEW: surfaces flip with dark too */
-  --surface-bg: #0b1220;
-  --surface-border: #1f2937;
-  --surface-fg: #e5e7eb;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not(.theme-light) {
@@ -192,10 +186,6 @@ body.dark,
     --footer-bg: #0b1220;
     --footer-fg: #cbd5e1;
     --footer-border: #1f2937;
-
-    --surface-bg: #0b1220;
-    --surface-border: #1f2937;
-    --surface-fg: #e5e7eb;
   }
 }
 
@@ -245,34 +235,18 @@ body.dark,
 }
 
 /* ===========================================================
-   HARD ENFORCE: 75% inner width + justification, no hyphens
-   (placed last so it wins the cascade)
+   HARD ENFORCERS & FIXES (mobile cards wrap, badges theme-aware)
    =========================================================== */
 
-/* Enforce 75% for *direct* children inside the content column (desktop) */
+/* Enforce 75% inner width for content blocks */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
   width: 100% !important;
-  max-width: var(--content-max) !important; /* 75% of the right column */
-  margin-right: auto !important;            /* left-aligned, narrower block */
+  max-width: var(--content-max) !important;
+  margin-right: auto !important;
   margin-left: 0 !important;
 }
 
-/* Disable the 75% restriction on mobile to avoid cramped cards/overflow */
-@media (max-width: 980px) {
-  .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 0 !important;
-  }
-}
-
-/* Justify body text globally BUT no hyphenation */
-.page__content {
-  text-align: justify !important;
-  text-justify: inter-word;
-}
-
-/* Don't justify lists inside the white cards (research/teaching boxes) */
+/* Keep lists inside cards left-aligned and non-justified */
 .page__content .card ul,
 .page__content .card ol,
 .page__content .card li,
@@ -281,51 +255,45 @@ body.dark,
   text-justify: auto !important;
   -webkit-hyphens: none !important;
   hyphens: none !important;
+  overflow-wrap: anywhere;
 }
 
-/* NEW: make “card” boxes follow theme variables everywhere */
-.page__content .card {
-  background: var(--surface-bg) !important;
-  border-color: var(--surface-border) !important;
-  color: var(--surface-fg) !important;
+/* --- TEACHING page: prevent long titles from overflowing on mobile --- */
+.page__content .course-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  border-radius:10px;
+  padding:8px 10px;
+  border:1px solid var(--tag-border,#e5e7eb);
+  background:var(--tag-bg,#f3f4f6);
+  flex-wrap:wrap;           /* allow wrapping */
+}
+.page__content .course-item > div{
+  flex:1 1 0;
+  min-width:0;              /* allow text to shrink and wrap */
+}
+@media (min-width:981px){
+  .page__content .course-item{flex-wrap:nowrap;}
+  .page__content .course-item .badge{margin-left:auto;}
+}
+@media (max-width:980px){
+  .page__content .course-item .badge{margin-left:0;}
 }
 
-/* Turn off hyphenation on common text blocks, but avoid ugly mid-word breaks */
-.page__content p,
-.page__content li,
-.page__content blockquote,
-.page__content .figcap,
-.page__content .small-note {
-  -webkit-hyphens: none !important;
-  hyphens: none !important;
-  word-break: normal !important;
-  overflow-wrap: break-word; /* wrap long tokens without splitting letters */
+/* --- PUBLICATIONS: make [J1], [C2]… badges theme-aware (generic selector) --- */
+.cite-id, .pub-id, .entry-id, .id-badge, .label, .stat-badge,
+[class^="id-"], [class*=" id-"] {
+  border:1px solid var(--tag-border) !important;
+  background:var(--tag-bg) !important;
+  color:var(--tag-fg) !important;
 }
 
-/* Keep non-paragraph UI bits left-aligned */
-.page__content h1,
-.page__content h2,
-.page__content h3,
-.page__content h4,
-.page__content h5,
-.page__content h6,
+/* --- Mobile nav dropdown a bit slimmer --- */
+.greedy-nav .hidden-links li a { padding-top:10px; padding-bottom:10px; line-height:1.2; }
+
+/* Safety: don’t justify captions/pills/stat rows */
 .page__content .keyword-pills,
-.page__content .keyword-pills *,
 .page__content .pill-list,
-.page__content .pill-list *,
 .page__content .stat-row,
-.page__content .stat-row *,
-.page__content .card h4,
-.page__content .cv-row,
-.page__content .figure-card,
-.page__content .figure-card *,
-.footer-bar,
-.footer-bar * {
-  text-align: left !important;
-}
-
-/* Mobile overflow fix inside teaching/service cards:
-   allow the left text column to shrink/wrap next to the badge */
-.page__content .course-item { display:flex; align-items:flex-start; gap:10px; }
-.page__content .course-item > div { flex: 1 1 0; min-width: 0; } /* <-- critical */
-.page__content .course-item .badge { flex: 0 0 auto; white-space: nowrap; }
+.page__content .figcap { text-align:left !important; }
