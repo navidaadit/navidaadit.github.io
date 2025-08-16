@@ -15,10 +15,21 @@ author_profile: true
 .columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:980px){.columns{grid-template-columns:1fr}}
 
-/* inline, middot-separated reviewer list */
-.inline-list{list-style:none;padding:0;margin:.2rem 0;display:flex;flex-wrap:wrap;gap:6px 12px}
-.inline-list li{position:relative;white-space:nowrap}
+/* inline, middot-separated reviewer list (WRAP-SAFE ON MOBILE) */
+.inline-list{list-style:none;padding:0;margin:.2rem 0;display:flex;flex-wrap:wrap;gap:6px 12px;max-width:100%}
+.inline-list li{
+  position:relative;
+  white-space:normal;          /* was nowrap — this caused overflow */
+  overflow-wrap:anywhere;      /* break long tokens without hyphens */
+  word-break:normal;
+  max-width:100%;
+  line-height:1.4;
+}
 .inline-list li:not(:last-child)::after{content:"•";margin-left:12px;opacity:.45}
+@media (max-width:540px){
+  .inline-list{gap:6px 8px}
+  .inline-list li:not(:last-child)::after{margin-left:8px}
+}
 </style>
 
 ## Teaching
