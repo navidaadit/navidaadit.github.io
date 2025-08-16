@@ -30,7 +30,7 @@
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
 
-  /* neutral “surface” vars for white cards (research/teaching boxes) */
+  /* NEW: neutral “surface” vars for white cards (research/teaching boxes) */
   --surface-bg: #f8fafc;
   --surface-border: #e5e7eb;
   --surface-fg: inherit;
@@ -166,7 +166,6 @@
 /* ---------- Dark-mode variables (cover common toggles) ---------- */
 html[data-theme="dark"],
 html.dark,
-body[data-theme="dark"],       /* <— added for Incognito variants */
 body.dark,
 :root.theme-dark,
 .theme--dark,
@@ -179,17 +178,13 @@ body.dark,
   --footer-fg: #cbd5e1;
   --footer-border: #1f2937;
 
-  /* surfaces flip with dark too */
+  /* NEW: surfaces flip with dark too */
   --surface-bg: #0b1220;
   --surface-border: #1f2937;
   --surface-fg: #e5e7eb;
 }
-
-/* Respect system dark *unless* a LIGHT theme is explicitly set.
-   (Also check BODY for Incognito/variant togglers.) */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not(.theme-light),
-  body:not([data-theme="light"]):not(.theme-light) {
+  :root:not([data-theme="light"]):not(.theme-light) {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
     --tag-fg: #e5e7eb;
@@ -288,7 +283,7 @@ body.dark,
   hyphens: none !important;
 }
 
-/* make “card” boxes follow theme variables everywhere */
+/* NEW: make “card” boxes follow theme variables everywhere */
 .page__content .card {
   background: var(--surface-bg) !important;
   border-color: var(--surface-border) !important;
@@ -329,26 +324,26 @@ body.dark,
   text-align: left !important;
 }
 
-/* ---------- FIX 1: Mobile overflow in cards (grid layout + hard wraps) ---------- */
-.page__content .course-item {
-  display: grid !important;                   /* override inline flex */
-  grid-template-columns: 1fr auto !important; /* long text wraps, badge stays right */
-  align-items: start !important;
-  gap: 10px !important;
-  min-width: 0 !important;
+/* Mobile overflow fix inside teaching/service cards:
+   allow the left text column to shrink/wrap next to the badge */
+.page__content .course-item { 
+  display:flex; 
+  align-items:flex-start; 
+  gap:10px; 
+  flex-wrap: wrap;                /* let rows wrap on small screens */
 }
-.page__content .course-item > div {
-  min-width: 0 !important;
-  white-space: normal !important;
-  overflow-wrap: anywhere !important; /* even through U+2011 non-breaking hyphens */
-  word-break: break-word !important;
+.page__content .course-item > div { 
+  flex: 1 1 0; 
+  min-width: 0;                  /* CRITICAL: allow wrapping */
+  overflow-wrap: anywhere; 
+  word-break: normal; 
 }
-.page__content .course-item .badge {
-  justify-self: end !important;
-  white-space: nowrap !important;
+.page__content .course-item .badge { 
+  flex: 0 0 auto; 
+  white-space: nowrap; 
 }
 
-/* ---------- Publications ID tags theme-aware ---------- */
+/* Publications ID tags (e.g., [J1], [C2]) theme-aware */
 .cite-id, .pub-id, .id-badge, .entry-id, .label,
 [class^="id-"], [class*=" id-"] {
   border: 1px solid var(--tag-border) !important;
@@ -359,7 +354,7 @@ body.dark,
   font-weight: 600;
 }
 
-/* ---------- Slimmer mobile dropdown menu ---------- */
+/* Slimmer mobile dropdown menu */
 .greedy-nav .hidden-links li a {
   padding-top: 10px;
   padding-bottom: 10px;
