@@ -27,12 +27,12 @@
   --tag-fg: #111827;
 
   /* Page background / footer tone */
-  --footer-bg: #f7fafc;   /* slightly cleaner, modern light */
+  --footer-bg: #f7fafc;
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
 
   /* “Surface” cards (research/teaching boxes) */
-  --surface-bg: #ffffff;   /* cleaner white card */
+  --surface-bg: #ffffff;
   --surface-border: #e5e7eb;
   --surface-fg: inherit;
 }
@@ -143,7 +143,6 @@
 }
 
 /* ---------- Spotlight / Research gallery images ---------- */
-/* Safari-safe, taller fixed height (~4:3 feel), no cropping. */
 .figure-card { overflow: hidden; border-radius: 10px; }
 .figure-card img {
   width: 100% !important;
@@ -152,14 +151,18 @@
   object-position: center !important;
   background: transparent !important;
 }
+/* 2×2 spotlight grid */
+.gallery-2x2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:.6rem 0 1.2rem;
+}
 /* Shorter on phones */
 @media (max-width:980px){
   .figure-card img{ height: 220px !important; }
+  .gallery-2x2{ grid-template-columns:1fr; }
 }
-
-/* If you prefer uniform heights with subtle letterboxing color, uncomment:
-.figure-card { background: var(--footer-bg) !important; }
-*/
 
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
@@ -180,7 +183,7 @@ body.dark,
   --footer-border: #1f2937;
 
   /* Surfaces in dark mode */
-  --surface-bg: #0f172a;  /* slightly lighter than before for readability */
+  --surface-bg: #0f172a;
   --surface-border: #1f2937;
   --surface-fg: #e5e7eb;
 }
@@ -200,9 +203,7 @@ body.dark,
   }
 }
 
-/* ---------- Footer: single slim bar, left/right aligned, theme-aware ---------- */
-
-/* Kill any theme painting/shadows/extra layers */
+/* ---------- Footer: single slim bar ---------- */
 .page__footer,
 .page__footer::before,
 .page__footer::after {
@@ -212,53 +213,39 @@ body.dark,
   padding: 0 !important;
   min-height: 0 !important;
 }
-
-/* Hide the built-in Follow/Feed row if the theme tries to add it */
 .page__footer-follow { display: none !important; }
-
-/* Our footer row */
 .footer-bar {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 6px 16px !important;
-
   background: var(--footer-bg) !important;
   color: var(--footer-fg) !important;
   border-top: 1px solid var(--footer-border) !important;
-
   font-size: 0.78rem !important;
   line-height: 1.2;
 }
-
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
 /* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
-
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
 }
 
 /* ===========================================================
    HARD ENFORCE: 75% inner width + justification, no hyphens
-   (placed last so it wins the cascade)
    =========================================================== */
-
-/* Enforce 75% for *direct* children inside the content column (desktop) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
   width: 100% !important;
-  max-width: var(--content-max) !important; /* 75% of the right column */
-  margin-right: auto !important;            /* left-aligned, narrower block */
+  max-width: var(--content-max) !important;
+  margin-right: auto !important;
   margin-left: 0 !important;
 }
-
-/* Disable the 75% restriction on mobile to avoid cramped cards/overflow */
 @media (max-width: 980px) {
   .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
     max-width: none !important;
@@ -273,7 +260,7 @@ body.dark,
   text-justify: inter-word;
 }
 
-/* Don't justify lists/paragraphs inside your white boxes (.card and .section) */
+/* Don't justify lists/paragraphs inside white boxes */
 .page__content .card ul,
 .page__content .card ol,
 .page__content .card li,
@@ -296,7 +283,7 @@ body.dark,
   color: var(--surface-fg) !important;
 }
 
-/* Turn off hyphenation on common text blocks, but avoid ugly mid-word breaks */
+/* Turn off hyphenation, keep graceful wrapping */
 .page__content p,
 .page__content li,
 .page__content blockquote,
@@ -305,7 +292,7 @@ body.dark,
   -webkit-hyphens: none !important;
   hyphens: none !important;
   word-break: normal !important;
-  overflow-wrap: break-word; /* wrap long tokens without splitting letters */
+  overflow-wrap: break-word;
 }
 
 /* Keep non-paragraph UI bits left-aligned */
@@ -330,25 +317,25 @@ body.dark,
   text-align: left !important;
 }
 
-/* Mobile overflow fix inside teaching/service cards */
-.page__content .course-item { 
-  display:flex; 
-  align-items:flex-start; 
-  gap:10px; 
-  flex-wrap: wrap;                /* let rows wrap on small screens */
+/* Teaching/service mobile overflow fix */
+.page__content .course-item {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  flex-wrap: wrap;
 }
-.page__content .course-item > div { 
-  flex: 1 1 0; 
-  min-width: 0;                  /* CRITICAL: allow wrapping */
-  overflow-wrap: anywhere; 
-  word-break: normal; 
+.page__content .course-item > div {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
-.page__content .course-item .badge { 
-  flex: 0 0 auto; 
-  white-space: nowrap; 
+.page__content .course-item .badge {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
-/* Publications ID tags (e.g., [J1], [C2]) theme-aware */
+/* Publications ID tags */
 .cite-id, .pub-id, .id-badge, .entry-id, .label,
 [class^="id-"], [class*=" id-"] {
   border: 1px solid var(--tag-border) !important;
@@ -366,7 +353,7 @@ body.dark,
   line-height: 1.2;
 }
 
-/* ==== GLOBAL WRAP-SAFETY FOR ANY INLINE REVIEWER LIST ==== */
+/* Inline reviewer list wrap-safety */
 .inline-list li{
   white-space:normal !important;
   overflow-wrap:anywhere !important;
