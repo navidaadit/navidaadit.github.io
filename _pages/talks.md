@@ -25,6 +25,15 @@ author_profile: true
 <ul class="t-grid">
 
   <li class="t-card">
+    <div class="t-title">CMOS + stochastic MTJ: Heterogeneous probabilistic computers for optimization and sampling</div>
+    <div class="t-host">RIEC, Tohoku University — International Symposium on Brain Functions and Brain Computer</div>
+    <div class="t-links">
+      <a class="badge" href="https://www.nanospin.riec.tohoku.ac.jp/RIEC_Sympo/2023/program.html" target="_blank" rel="noopener">Program</a>
+      <span class="badge">Invited</span>
+    </div>
+  </li>
+
+  <li class="t-card">
     <div class="t-title">Probabilistic Computing on FPGAs: Extreme Scale Ising Machines with Distributed p-computers</div>
     <div class="t-host">Siemens Digital Industries Software — Technical seminar</div>
     <div class="t-links">
@@ -36,15 +45,7 @@ author_profile: true
     <div class="t-title">Scaling Probabilistic Computers for Sustainable Computing</div>
     <div class="t-host">Semiconductor Research Corporation (SRC) — Annual Meeting</div>
     <div class="t-links">
-      <span class="badge">Invited</span>
-    </div>
-  </li>
-
-  <li class="t-card">
-    <div class="t-title">CMOS + stochastic MTJ: Heterogeneous probabilistic computers for optimization and sampling</div>
-    <div class="t-host">RIEC, Tohoku University — International Symposium on Brain Functions and Brain Computer</div>
-    <div class="t-links">
-      <a class="badge" href="https://www.nanospin.riec.tohoku.ac.jp/RIEC_Sympo/2023/program.html" target="_blank" rel="noopener">Program</a>
+      <a class="badge" href="http://www.ausrc.org/index-230.html" target="_blank" rel="noopener">Event</a>
       <span class="badge">Invited</span>
     </div>
   </li>
