@@ -30,7 +30,7 @@
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
 
-  /* NEW: neutral “surface” vars for white cards (research/teaching boxes) */
+  /* neutral “surface” vars for white cards (research/teaching boxes) */
   --surface-bg: #f8fafc;
   --surface-border: #e5e7eb;
   --surface-fg: inherit;
@@ -178,13 +178,17 @@ body.dark,
   --footer-fg: #cbd5e1;
   --footer-border: #1f2937;
 
-  /* NEW: surfaces flip with dark too */
+  /* surfaces flip with dark too */
   --surface-bg: #0b1220;
   --surface-border: #1f2937;
   --surface-fg: #e5e7eb;
 }
+
+/* Respect system dark *unless* a LIGHT theme is explicitly set.
+   (Also check BODY for Incognito/variant togglers.) */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not(.theme-light) {
+  :root:not([data-theme="light"]):not(.theme-light),
+  body:not([data-theme="light"]):not(.theme-light) {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
     --tag-fg: #e5e7eb;
@@ -283,7 +287,7 @@ body.dark,
   hyphens: none !important;
 }
 
-/* NEW: make “card” boxes follow theme variables everywhere */
+/* make “card” boxes follow theme variables everywhere */
 .page__content .card {
   background: var(--surface-bg) !important;
   border-color: var(--surface-border) !important;
@@ -324,26 +328,27 @@ body.dark,
   text-align: left !important;
 }
 
-/* Mobile overflow fix inside teaching/service cards:
-   allow the left text column to shrink/wrap next to the badge */
-.page__content .course-item { 
-  display:flex; 
-  align-items:flex-start; 
-  gap:10px; 
-  flex-wrap: wrap;                /* let rows wrap on small screens */
+/* ---------- FIX 1: Mobile overflow in cards (grid layout) ---------- */
+.page__content .course-item {
+  display: grid;                     /* text + badge */
+  grid-template-columns: 1fr auto;   /* long text wraps, badge on right */
+  align-items: start;
+  gap: 10px;
+  min-width: 0;                      /* allow shrinking */
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 .page__content .course-item > div { 
-  flex: 1 1 0; 
-  min-width: 0;                  /* CRITICAL: allow wrapping */
+  min-width: 0; 
   overflow-wrap: anywhere; 
-  word-break: normal; 
+  word-break: normal;
 }
-.page__content .course-item .badge { 
-  flex: 0 0 auto; 
-  white-space: nowrap; 
+.page__content .course-item .badge {
+  justify-self: end;
+  white-space: nowrap;
 }
 
-/* Publications ID tags (e.g., [J1], [C2]) theme-aware */
+/* ---------- Publications ID tags theme-aware ---------- */
 .cite-id, .pub-id, .id-badge, .entry-id, .label,
 [class^="id-"], [class*=" id-"] {
   border: 1px solid var(--tag-border) !important;
@@ -354,7 +359,7 @@ body.dark,
   font-weight: 600;
 }
 
-/* Slimmer mobile dropdown menu */
+/* ---------- Slimmer mobile dropdown menu ---------- */
 .greedy-nav .hidden-links li a {
   padding-top: 10px;
   padding-bottom: 10px;
