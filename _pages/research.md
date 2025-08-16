@@ -5,42 +5,22 @@ title: "Research"
 author_profile: true
 ---
 
-<!-- ---------- Page-scoped styles (theme-aware; no global side effects) ---------- -->
+<!-- Page-scoped styles (small, theme-aware) -->
 <style>
 .research-lead{font-size:1.06rem;line-height:1.65;margin:.25rem 0 1.15rem;}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
-.card{border:1px solid var(--footer-border,#e5e7eb);border-radius:10px;padding:14px;background:var(--footer-bg,#f8fafc);}
+.card{border:1px solid var(--footer-border,#e5e7eb);border-radius:10px;padding:14px;background:var(--footer-bg,#f7fafc);}
 .card h4{margin:.1rem 0 .35rem;font-size:1.02rem;}
 .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 1.1rem;}
 .stat-badge{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
 .pill-list{list-style:none;padding:0;margin:.1rem 0 .9rem 0;display:flex;flex-wrap:wrap;gap:6px 8px;}
 .pill-list li{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
-.section-h{margin-top:.6rem;}
 .small-note{font-size:.92rem;opacity:.9}
 abbr[title]{text-decoration:none;border:0;cursor:help}
 
-/* Spotlight grid (2×2) */
+/* Spotlight grid (2×2). Card/image rules live in global CSS. */
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
-.figure-card{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);}
-.figure-card img{display:block;width:100%;height:280px;object-fit:contain;object-position:center;background:transparent;}
-.figcap{padding:8px 10px;font-size:.92rem;border-top:1px solid var(--footer-border,#e5e7eb);}
-
-/* Dark tweaks */
-html[data-theme="dark"] .figure-card,
-html.dark .figure-card,
-body.dark .figure-card,
-:root.theme-dark .figure-card{border-color:#1f2937;background:#0b1220;}
-html[data-theme="dark"] .figcap,
-html.dark .figcap,
-body.dark .figcap,
-:root.theme-dark .figcap{border-top-color:#1f2937;}
-
-/* Phones: single column + slightly shorter images */
-@media (max-width:980px){
-  .grid-3,.grid-2,.gallery-2x2{grid-template-columns:1fr;}
-  .figure-card img{height:220px;}
-}
+@media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
 </style>
 
 <div class="research-lead">
@@ -127,28 +107,23 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
     <figcaption class="figcap">Sparse Ising machine — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
+
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
     <figcaption class="figcap">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
   </figure>
+
   <figure class="figure-card">
-    <img src="/images/research/all-to-all.jpeg" alt="All-to-all and higher-order Ising machines">
+    <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
     <figcaption class="figcap">Higher-order IMs & dense behavior — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
-  <figure class="figure-card">
-    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer">
+
+  <!-- Rack photo: make it fill the card (no bottom whitespace) -->
+  <figure class="figure-card fill">
+    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (rack)">
     <figcaption class="figcap">UCSB multi-FPGA p-computer (~50k p-bits) — lab setup</figcaption>
   </figure>
 </div>
-
-<!--
-Export sizes that work best with this layout:
-- Landscape 4:3: 1400×1050  (recommended default)
-- Landscape 16:9: 1400×788
-- Square:        1200×1200
-- Pano lab shot: ~1600×700
-Any source with height ≥560 px renders crisp on Retina (desktop cards are 280 px high).
--->
 
 ## Methods I use 
 
