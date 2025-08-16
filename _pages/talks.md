@@ -26,7 +26,7 @@ author_profile: true
 
   <li class="t-card">
     <div class="t-title">Probabilistic Computing on FPGAs: Extreme Scale Ising Machines with Distributed p-computers</div>
-    <div class="t-host">Siemens Digital Industries Software — Research seminar</div>
+    <div class="t-host">Siemens Digital Industries Software — Technical seminar</div>
     <div class="t-links">
       <span class="badge">Invited</span>
     </div>
@@ -59,7 +59,7 @@ author_profile: true
     <div class="t-title">Extreme Scale Ising Machines with Distributed p-computers</div>
     <div class="t-host">International Workshop on Ising Machines (IISM) — Evanston (Chicago), Illinois</div>
     <div class="t-links">
-      <a class="badge" href="[https://www.petaspin.com/isingmachines2025](https://www.petaspin.com/isingmachines2025/preliminary-program/)/" target="_blank" rel="noopener">Program</a>
+      <a class="badge" href="https://www.petaspin.com/isingmachines2025/preliminary-program/" target="_blank" rel="noopener">Program</a>
       <span class="badge">Conference</span>
     </div>
   </li>
