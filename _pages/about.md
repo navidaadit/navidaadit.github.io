@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <!-- HERO as a normal image (no cropping). Lives entirely in the right column. -->
-<img src="/images/hero.jpeg" alt="Navid Aadit giving a talk" class="hero-img" />
+<img src="/images/navid_talk.jpeg" alt="Navid Aadit giving a talk" class="hero-img" />
 
 <p class="cv-row">
   <a class="btn btn--cv" href="/files/Aadit_CV_Fall2025.pdf">Download CV</a>
@@ -40,12 +40,12 @@ My recent work scales p-computers across **multi-FPGA systems** with delay-toler
 - *Nature Electronics* (2022): **Massively parallel probabilistic computing with sparse Ising machines**.  
 - *Nature Communications* (2024): **All-to-all reconfigurability with sparse & higher-order Ising machines**.  
 - *VLSI Symposium* (2023): **Accelerating Adaptive Parallel Tempering with FPGA-based p-bits**.  
-- *IEDM* (2022): **Experimental evaluation of simulated quantum annealing with MTJ-augmented p-bits**.
+- *IEDM* (2022): **Experimental evaluation of simulated quantum annealing with MTJ-augmented p-bits**.  
 - *IEDM* (2021): **Computing with invertible logic: Combinatorial optimization with probabilistic bits**.
 
 ---
 
 ## Recognition
-- <i class="fas fa-award"></i> **Misha Mahowald Prize (2025)** — <a href="https://www.mahowaldprize.org/prize-awards/prizes-2025">Official Announcement</a> · <a href="https://www.ece.ucsb.edu/news/all/2025/camsaris-opus-lab-misha-mahowald-prize">UCSB News</a>  
+- <i class="fas fa-award"></i> **Misha Mahowald Prize (2025)** — <a href="https://www.mahowaldprize.org/prize-awards/prizes-2025">Official Announcement</a> · <a href="https://www.ece.ucsb.edu/news/all/2025/camsaris-opus-lab-misha-mahowald-prize">UCSB News</a> · <a href="https://www.youtube.com/watch?v=8kW8tLYYAOk&t=827s" target="_blank" rel="noopener">YouTube</a>  
 - <i class="fas fa-trophy"></i> **Bell Labs Prize (Bronze, 2023)** — <a href="https://engineering.ucsb.edu/news/ece-professor-and-phd-student-win-bronze-medal-bell-labs-prize-competition">UCSB News</a> · <a href="https://www.bell-labs.com/institute/blog/bell-labs-prize-winners-close-the-thz-gap-with-inexpensive-harmonic-sensors/">Bell Labs Blog</a>  
-- <i class="fas fa-graduation-cap"></i> **UCSB Graduate Division — PhD Dissertation Fellowship (2025)**
+- <i class="fas fa-graduation-cap"></i> **UCSB Graduate Division — PhD Dissertation Fellowship (2025)** — <a href="https://opus.ece.ucsb.edu/news/2025/opus-students-win-major-ucsb-graduate-fellowships" target="_blank" rel="noopener">Opus Lab News</a>
