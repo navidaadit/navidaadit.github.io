@@ -385,3 +385,10 @@ body.dark,
   word-break:normal !important;
   max-width:100% !important;
 }
+
+/* Final enforcer: center Spotlight captions no matter what */
+.gallery-2x2 .figure-card > figcaption,
+.gallery-2x2 .figure-card > .figcap {
+  text-align: center !important;
+}
+
