@@ -379,10 +379,14 @@ body.dark,
   max-width:100% !important;
 }
 
-/* Center captions under spotlight / research images */
-.page__content .figure-card .figcap {
+/* Center figure captions under images */
+.figure-card .figcap,
+.figure-card figcaption {
   text-align: center !important;
-  font-size: 0.9rem;
-  margin-top: 4px;
+  margin-top: 6px;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  color: var(--footer-fg, #475569);
 }
+
 
