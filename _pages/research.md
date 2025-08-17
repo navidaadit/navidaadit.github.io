@@ -22,7 +22,8 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
 
-/* === FORCE all Spotlight captions centered (override global left-align) === */
+/* === Normalize & FORCE center captions inside Spotlight cards ===
+   (overrides global ".figure-card, .figure-card * { text-align:left !important; }") */
 .layout--single .page__content .gallery-2x2 .figure-card figcaption,
 .layout--single .page__content .gallery-2x2 .figure-card .figcap,
 .layout--single .page__content .gallery-2x2 .figure-card figcaption *,
