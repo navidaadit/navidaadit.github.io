@@ -334,12 +334,26 @@ body.dark,
   text-align: left !important;
 }
 
-/* EXCEPTION: center all captions inside spotlight figure cards */
-.page__content .figure-card figcaption,
-.page__content .figure-card .figcap,
-.page__content .gallery-2x2 .figure-card figcaption,
-.page__content .gallery-2x2 .figure-card .figcap {
+/* EXCEPTION: center all captions inside spotlight figure cards
+   Use flex centering to beat any upstream text-align rules. */
+.layout--single .page__content .gallery-2x2 .figure-card > figcaption,
+.layout--single .page__content .gallery-2x2 .figure-card > .figcap,
+.page__content .figure-card > figcaption,
+.page__content .figure-card > .figcap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   text-align: center !important;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--footer-fg, #475569);
+}
+
+/* Make nested tags inherit the centering */
+.page__content .figure-card > figcaption *,
+.page__content .figure-card > .figcap * {
+  text-align: inherit !important;
 }
 
 /* Teaching/service mobile overflow fix */
@@ -385,10 +399,3 @@ body.dark,
   word-break:normal !important;
   max-width:100% !important;
 }
-
-/* Final enforcer: center Spotlight captions no matter what */
-.gallery-2x2 .figure-card > figcaption,
-.gallery-2x2 .figure-card > .figcap {
-  text-align: center !important;
-}
-
