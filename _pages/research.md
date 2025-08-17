@@ -106,29 +106,29 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
   <figure class="figure-card">
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
     <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
-      Sparse Ising machine — <em>Nature Electronics</em> (2022)
+      Massively Parallel Sparse Ising machine — Nature Electronics (2022)
     </figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
     <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
-      Hardware-trained DBMs — <em>Nature Electronics</em> (2024)
+      Hardware-trained DBMs for Generative AI - Nature Electronics (2024)
     </figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
     <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
-      Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)
+      Higher-order IMs &amp; multiplexed all-to-all approach - Nature Communications (2024)
     </figcaption>
   </figure>
 
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
   <figure class="figure-card fill">
-    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (rack)">
+    <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer">
     <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
-      UCSB multi-FPGA p-computer (~50k p-bits) — lab setup
+      UCSB multi-FPGA p-computer (~50k p-bits) — lab setup for large-scale optimization
     </figcaption>
   </figure>
 </div>
