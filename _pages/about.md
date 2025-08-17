@@ -8,8 +8,27 @@ author_profile: true
 <!-- HERO as a normal image (no cropping). Lives entirely in the right column. -->
 <img src="/images/navid_talk.jpeg" alt="Navid Aadit giving a talk" class="hero-img" />
 
+<style>
+.btn--cv {
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:6px;
+  background:linear-gradient(135deg,#4F46E5,#6366F1);
+  color:#fff;
+  font-weight:500;
+  font-size:0.95rem;
+  text-decoration:none;
+  transition:all .25s ease;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+.btn--cv:hover {
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,.2);
+}
+</style>
+
 <p class="cv-row">
-  <a class="btn btn--cv" href="https://drive.google.com/file/d/12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB/view?usp=sharing" target="_blank" rel="noopener">
+  <a class="btn--cv" href="https://drive.google.com/file/d/12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB/view?usp=sharing" target="_blank" rel="noopener">
     View CV
   </a>
 </p>
