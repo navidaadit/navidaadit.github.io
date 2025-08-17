@@ -21,24 +21,6 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 /* Spotlight grid (2×2). Card/image rules live in global CSS. */
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
-
-/* ===== HARD OVERRIDE: center ALL captions inside Spotlight cards =====
-   Beats global "left !important" by using higher specificity + !important
-   and flex centering (works even if text-align is forced elsewhere). */
-.layout--single .page__content .gallery-2x2 .figure-card figcaption,
-.layout--single .page__content .gallery-2x2 .figure-card .figcap{
-  display:flex !important;
-  justify-content:center !important;
-  text-align:center !important;
-  margin-top:6px;
-  font-size:.9rem;
-  line-height:1.35;
-  color:var(--footer-fg,#475569);
-}
-.layout--single .page__content .gallery-2x2 .figure-card figcaption *,
-.layout--single .page__content .gallery-2x2 .figure-card .figcap *{
-  text-align:inherit !important; /* inherit the centered alignment */
-}
 </style>
 
 <div class="research-lead">
@@ -123,23 +105,23 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 <div class="gallery-2x2">
   <figure class="figure-card">
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
-    <figcaption class="figcap">Sparse Ising machine — <em>Nature Electronics</em> (2022)</figcaption>
+    <figcaption class="figcap" style="text-align:center !important;">Sparse Ising machine — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
-    <figcaption class="figcap">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
+    <figcaption class="figcap" style="text-align:center !important;">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
-    <figcaption class="figcap">Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)</figcaption>
+    <figcaption class="figcap" style="text-align:center !important;">Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
 
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
   <figure class="figure-card fill">
     <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (rack)">
-    <figcaption class="figcap">UCSB multi-FPGA p-computer (~50k p-bits) — lab setup</figcaption>
+    <figcaption class="figcap" style="text-align:center !important;">UCSB multi-FPGA p-computer (~50k p-bits) — lab setup</figcaption>
   </figure>
 </div>
 
