@@ -32,7 +32,7 @@ html[data-theme="dark"] .cv-actions .btn-view:hover{
 </style>
 
 <div class="cv-intro">
-  Download or view the most recent CV using the links below.
+  Download or view the most recent version:
 </div>
 
 <div class="cv-actions">
@@ -40,6 +40,4 @@ html[data-theme="dark"] .cv-actions .btn-view:hover{
   <a class="btn-download" href="https://drive.google.com/uc?export=download&id=12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB">Download PDF</a>
 </div>
 
-<div class="small-note">
-  The Google Drive link points to the latest version.
-</div>
+
