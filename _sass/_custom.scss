@@ -151,7 +151,6 @@
   background: var(--footer-bg,#f7fafc);
 }
 
-/* Default: diagrams/photos are kept intact (no crop) */
 /* True 4:3 box via aspect-ratio so captions stay below */
 .figure-card img {
   display:block;
@@ -313,7 +312,9 @@ body.dark,
   overflow-wrap: break-word;
 }
 
-/* Keep non-paragraph UI bits left-aligned */
+/* Keep non-paragraph UI bits left-aligned
+   NOTE: removed `.page__content .figure-card, .page__content .figure-card *`
+   from this block so captions can center. */
 .page__content h1,
 .page__content h2,
 .page__content h3,
@@ -328,11 +329,17 @@ body.dark,
 .page__content .stat-row *,
 .page__content .card h4,
 .page__content .cv-row,
-.page__content .figure-card,
-.page__content .figure-card *,
 .footer-bar,
 .footer-bar * {
   text-align: left !important;
+}
+
+/* EXCEPTION: center all captions inside spotlight figure cards */
+.page__content .figure-card figcaption,
+.page__content .figure-card .figcap,
+.page__content .gallery-2x2 .figure-card figcaption,
+.page__content .gallery-2x2 .figure-card .figcap {
+  text-align: center !important;
 }
 
 /* Teaching/service mobile overflow fix */
@@ -378,5 +385,3 @@ body.dark,
   word-break:normal !important;
   max-width:100% !important;
 }
-
-
