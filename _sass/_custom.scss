@@ -1,5 +1,5 @@
 /* ===========================================================
-   Navid Aadit — site overrides
+   Navid Anjum Aadit — site overrides
    (grid layout, justified text, hero image, theme-aware pills,
    spotlight images, and a single clean footer)
    =========================================================== */
@@ -42,10 +42,9 @@
   color-scheme: light;
 }
 
-.layout--single .page {
+/* FIX: Increased selector specificity to prevent theme override */
+body.layout--single .page {
   display: grid !important;
-
-  /* FIX: robust columns; content can actually shrink, no overflow */
   grid-template-columns: minmax(260px, var(--sidebar)) minmax(0, 1fr);
   grid-column-gap: var(--gap);
   align-items: start;
@@ -59,7 +58,6 @@
 .layout--single .sidebar {
   grid-column: 1 !important;
   float: none !important;
-  /* FIX: Removed fixed width properties. The parent grid now controls sizing. */
   background: #f8fafc;
   border-right: 1px solid #e5e7eb;
   padding-right: 12px;
@@ -194,17 +192,8 @@
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ---------- DARK/LIGHT THEME LOGIC (FIXED) ----------
-   * Light theme is the default in :root.
-   * Dark theme applies if the user's system is dark AND they have not
-     explicitly chosen light theme with a toggle.
-   * A direct `data-theme="dark"` attribute also forces dark theme,
-     which is useful for toggling on a light-mode system.
-*/
-
-/* Apply dark theme if system preference is dark */
+/* ---------- DARK/LIGHT THEME LOGIC (ROBUST) ---------- */
 @media (prefers-color-scheme: dark) {
-  /* This applies if system is dark and user has NOT explicitly chosen light */
   :root:not([data-theme="light"]) {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
@@ -219,7 +208,6 @@
   }
 }
 
-/* Apply dark theme if explicitly chosen via toggle */
 :root[data-theme="dark"] {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
@@ -277,10 +265,8 @@
   margin-left: 0 !important;
 }
 
-/* Responsive fixes for medium and small screens */
 @media (max-width: 980px) {
-  /* FIX: Stack the two-column layout for better readability */
-  .layout--single .page {
+  body.layout--single .page {
     display: block !important;
   }
   .layout--single .sidebar {
@@ -291,20 +277,15 @@
     border-right: none;
     border-bottom: 1px solid var(--footer-border);
   }
-
-  /* Make content take up full width in the stacked layout */
   .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
     max-width: none !important;
     width: 100% !important;
     margin: 0 !important;
   }
-
-  /* Make gallery single-column */
   .gallery-2x2 {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* Justify body text globally BUT no hyphenation */
 .page__content {
@@ -327,12 +308,15 @@
   hyphens: none !important;
 }
 
-/* Make “card/section” boxes follow theme variables */
+/* FIX: Target `.archive__item` to make talk/publication cards theme-aware */
 .page__content .card,
-.page__content .section {
+.page__content .section,
+.page__content .archive__item {
   background: var(--surface-bg) !important;
   border-color: var(--surface-border) !important;
   color: var(--surface-fg) !important;
+  border-style: solid !important;
+  border-width: 1px !important;
 }
 
 /* Turn off hyphenation, keep graceful wrapping */
@@ -348,22 +332,11 @@
 }
 
 /* Keep non-paragraph UI bits left-aligned */
-.page__content h1,
-.page__content h2,
-.page__content h3,
-.page__content h4,
-.page__content h5,
-.page__content h6,
-.page__content .keyword-pills,
-.page__content .keyword-pills *,
-.page__content .pill-list,
-.page__content .pill-list *,
-.page__content .stat-row,
-.page__content .stat-row *,
-.page__content .card h4,
-.page__content .cv-row,
-.footer-bar,
-.footer-bar * {
+.page__content h1, .page__content h2, .page__content h3, .page__content h4,
+.page__content h5, .page__content h6, .page__content .keyword-pills,
+.page__content .keyword-pills *, .page__content .pill-list, .page__content .pill-list *,
+.page__content .stat-row, .page__content .stat-row *, .page__content .card h4,
+.page__content .cv-row, .footer-bar, .footer-bar * {
   text-align: left !important;
 }
 
@@ -381,7 +354,6 @@
   color: var(--footer-fg, #475569) !important;
 }
 
-/* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
