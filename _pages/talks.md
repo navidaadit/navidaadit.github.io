@@ -35,7 +35,7 @@ author_profile: true
 
   <li class="t-card">
     <div class="t-title">Probabilistic Computing on FPGAs: Extreme Scale Ising Machines with Distributed p-computers</div>
-    <div class="t-host">Siemens Digital Industries Software — Technical seminar - Wilsonville, Oregon (remote).</div>
+    <div class="t-host">Siemens Digital Industries Software — Technical seminar — Wilsonville, Oregon (remote).</div>
     <div class="t-links">
       <span class="badge">Invited</span>
     </div>
@@ -43,7 +43,7 @@ author_profile: true
 
   <li class="t-card">
     <div class="t-title">Scaling Probabilistic Computers for Sustainable Computing</div>
-    <div class="t-host">Semiconductor Research Corporation (SRC) — Annual Meeting - Boston</div>
+    <div class="t-host">Semiconductor Research Corporation (SRC) — Annual Meeting — Boston</div>
     <div class="t-links">
       <a class="badge" href="http://www.ausrc.org/index-230.html" target="_blank" rel="noopener">Event</a>
       <span class="badge">Invited</span>
