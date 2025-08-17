@@ -379,20 +379,4 @@ body.dark,
   max-width:100% !important;
 }
 
-/* ===========================================================
-   FINAL OVERRIDE: Force-center all Spotlight captions
-   (wins over the global ".figure-card * { text-align:left !important; }")
-   =========================================================== */
-.page__content .gallery-2x2 .figure-card > figcaption,
-.page__content .gallery-2x2 .figure-card > .figcap {
-  text-align: center !important;
-  margin-top: 6px;
-  font-size: 0.9rem;
-  line-height: 1.35;
-  color: var(--footer-fg, #475569);
-  display: block;
-}
-.page__content .gallery-2x2 .figure-card > figcaption *,
-.page__content .gallery-2x2 .figure-card > .figcap * {
-  text-align: inherit !important; /* keep links/spans centered too */
-}
+
