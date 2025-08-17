@@ -334,26 +334,28 @@ body.dark,
   text-align: left !important;
 }
 
-/* EXCEPTION: center all captions inside spotlight figure cards
-   Use flex centering to beat any upstream text-align rules. */
-.layout--single .page__content .gallery-2x2 .figure-card > figcaption,
-.layout--single .page__content .gallery-2x2 .figure-card > .figcap,
+/* ---------- CENTER CAPTIONS IN FIGURE CARDS (robust) ----------
+   Use strong specificity + !important and keep block flow.
+   Works even if captions contain <em>, <a>, or other inlines. */
 .page__content .figure-card > figcaption,
-.page__content .figure-card > .figcap {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+.page__content .figure-card > .figcap,
+.layout--single .page__content .gallery-2x2 .figure-card > figcaption,
+.layout--single .page__content .gallery-2x2 .figure-card > .figcap {
+  display: block !important;
+  width: 100% !important;
   text-align: center !important;
-  margin-top: 6px;
-  font-size: 0.9rem;
-  line-height: 1.35;
-  color: var(--footer-fg, #475569);
+  margin-top: 6px !important;
+  font-size: 0.9rem !important;
+  line-height: 1.35 !important;
+  color: var(--footer-fg, #475569) !important;
 }
 
-/* Make nested tags inherit the centering */
+/* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
+  margin: 0 !important;
+  display: inline !important; /* avoid block children forcing left edges */
 }
 
 /* Teaching/service mobile overflow fix */
