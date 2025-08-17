@@ -115,7 +115,7 @@ I work on <strong>probabilistic computers</strong> built from <abbr title="proba
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
-    <figcaption class="figcap">Higher-order IMs & dense behavior — <em>Nature Communications</em> (2024)</figcaption>
+    <figcaption class="figcap">Higher-order IMs & all-to-all behavior — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
 
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
