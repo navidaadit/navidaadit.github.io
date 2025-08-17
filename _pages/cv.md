@@ -5,43 +5,41 @@ title: "Curriculum Vitae"
 author_profile: true
 ---
 
+<!-- Page-scoped styles (clean + professional) -->
 <style>
-.cv-links {
-  display: flex;
-  gap: 1rem;
-  margin: 1.2rem 0;
+.cv-intro{margin:.25rem 0 1rem;font-size:1.02rem;line-height:1.6;}
+.cv-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:.6rem 0 1.2rem;}
+.cv-actions a{
+  display:inline-block;text-decoration:none;font-weight:600;
+  padding:10px 16px;border-radius:8px;border:1px solid #3f5fc0;
+  transition:background-color .2s ease,border-color .2s ease,transform .02s ease;
 }
-.cv-links a {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background .2s, box-shadow .2s;
+.cv-actions .btn-view{background:#ffffff;color:#1f2937;border-color:#d1d5db;}
+.cv-actions .btn-view:hover{background:#f3f4f6;border-color:#cbd5e1;}
+.cv-actions .btn-download{background:#4a6fdd;color:#fff;border-color:#3f5fc0;}
+.cv-actions .btn-download:hover{background:#3f5fc0;border-color:#3552a6;}
+.cv-actions a:active{transform:translateY(1px);}
+
+.small-note{font-size:.92rem;opacity:.9;margin-top:.2rem}
+
+/* Dark mode tweaks (match site vars) */
+html[data-theme="dark"] .cv-actions .btn-view{
+  background:#0f172a;color:#e5e7eb;border-color:#1f2937;
 }
-.cv-links a.view {
-  background: #f8f9fa;
-  border: 1px solid #d0d5dd;
-  color: #1a1a1a;
-}
-.cv-links a.view:hover {
-  background: #eef1f5;
-  box-shadow: 0 1px 4px rgba(0,0,0,.08);
-}
-.cv-links a.download {
-  background: #4169e1;
-  border: 1px solid #3552a6;
-  color: #fff;
-}
-.cv-links a.download:hover {
-  background: #3552a6;
-  box-shadow: 0 1px 6px rgba(0,0,0,.12);
+html[data-theme="dark"] .cv-actions .btn-view:hover{
+  background:#111827;border-color:#273449;
 }
 </style>
 
-## Curriculum Vitae
+<div class="cv-intro">
+  Download or view the most recent CV using the links below.
+</div>
 
-<div class="cv-links">
-  <a class="view" href="https://drive.google.com/file/d/12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB/view?usp=sharing" target="_blank" rel="noopener">View Online</a>
-  <a class="download" href="https://drive.google.com/uc?export=download&id=12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB">Download PDF</a>
+<div class="cv-actions">
+  <a class="btn-view" href="https://drive.google.com/file/d/12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB/view?usp=sharing" target="_blank" rel="noopener">View online (Google Drive)</a>
+  <a class="btn-download" href="https://drive.google.com/uc?export=download&id=12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB">Download PDF</a>
+</div>
+
+<div class="small-note">
+  The Google Drive link points to the latest version.
 </div>
