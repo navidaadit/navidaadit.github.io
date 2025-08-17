@@ -114,7 +114,7 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
   <span class="stat-badge">6-FPGA UCSB: ~50k p-bits (async links)</span>
   <span class="stat-badge">Synthesized 1M p-bits on 18× VP1902 (Siemens)</span>
   <span class="stat-badge">4,264 p-bits / ≈30k params (DBM)</span>
-  <span class="stat-badge">Multi-FPGA path to 1M+ nodes</span>
+  <span class="stat-badge">Multi-FPGA system to 1M+ nodes</span>
 </div>
 
 ## Spotlight
@@ -132,7 +132,7 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
-    <figcaption class="figcap">Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)</figcaption>
+    <figcaption class="figcap">Higher-order IMs &amp; all-to-all approach — <em>Nature Comm.</em> (2024)</figcaption>
   </figure>
 
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
