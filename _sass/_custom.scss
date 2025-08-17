@@ -1,7 +1,7 @@
 /* ===========================================================
    Navid Aadit — site overrides
    (grid layout, justified text, hero image, theme-aware pills,
-    spotlight images, and a single clean footer)
+   spotlight images, and a single clean footer)
    =========================================================== */
 
 /* Make sizing predictable everywhere */
@@ -59,8 +59,7 @@
 .layout--single .sidebar {
   grid-column: 1 !important;
   float: none !important;
-  width: var(--sidebar) !important;
-  max-width: var(--sidebar) !important;
+  /* FIX: Removed fixed width properties. The parent grid now controls sizing. */
   background: #f8fafc;
   border-right: 1px solid #e5e7eb;
   padding-right: 12px;
@@ -159,9 +158,9 @@
 }
 
 /* ---------- Spotlight / Research gallery images ---------- */
-.figure-card { 
-  overflow: hidden; 
-  border-radius: 10px; 
+.figure-card {
+  overflow: hidden;
+  border-radius: 10px;
   position: relative;
   border: 1px solid var(--footer-border,#e5e7eb);
   background: var(--footer-bg,#f7fafc);
@@ -192,75 +191,46 @@
   margin:.6rem 0 1.2rem;
 }
 
-/* Shorter on phones */
-@media (max-width:980px){
-  .gallery-2x2{ grid-template-columns:1fr; }
-}
-
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ---------- DARK/LIGHT THEME LOGIC (toggle-safe) ----------
-   * System dark applies only when NO data-theme is set
-   * If data-theme="light|dark" is present on <html> or <body>, it WINS
-   * Removed legacy .dark/.theme--dark classes that broke toggling
+/* ---------- DARK/LIGHT THEME LOGIC (FIXED) ----------
+   * Light theme is the default in :root.
+   * Dark theme applies if the user's system is dark AND they have not
+     explicitly chosen light theme with a toggle.
+   * A direct `data-theme="dark"` attribute also forces dark theme,
+     which is useful for toggling on a light-mode system.
 */
 
-/* System dark default (no explicit theme chosen) */
+/* Apply dark theme if system preference is dark */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
+  /* This applies if system is dark and user has NOT explicitly chosen light */
+  :root:not([data-theme="light"]) {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
     --tag-fg: #e5e7eb;
-
     --footer-bg: #0b1220;
     --footer-fg: #cbd5e1;
     --footer-border: #1f2937;
-
     --surface-bg: #0f172a;
     --surface-border: #1f2937;
     --surface-fg: #e5e7eb;
-
     color-scheme: dark;
   }
 }
 
-/* Explicit LIGHT (toggle wins) */
-:root[data-theme="light"],
-html[data-theme="light"],
-body[data-theme="light"] {
-  --tag-bg: #f3f4f6;
-  --tag-border: #e5e7eb;
-  --tag-fg: #111827;
-
-  --footer-bg: #f7fafc;
-  --footer-fg: #475569;
-  --footer-border: #e5e7eb;
-
-  --surface-bg: #ffffff;
-  --surface-border: #e5e7eb;
-  --surface-fg: inherit;
-
-  color-scheme: light;
-}
-
-/* Explicit DARK (toggle wins) */
-:root[data-theme="dark"],
-html[data-theme="dark"],
-body[data-theme="dark"] {
-  --tag-bg: rgba(255,255,255,.08);
-  --tag-border: rgba(255,255,255,.22);
-  --tag-fg: #e5e7eb;
-
-  --footer-bg: #0b1220;
-  --footer-fg: #cbd5e1;
-  --footer-border: #1f2937;
-
-  --surface-bg: #0f172a;
-  --surface-border: #1f2937;
-  --surface-fg: #e5e7eb;
-
-  color-scheme: dark;
+/* Apply dark theme if explicitly chosen via toggle */
+:root[data-theme="dark"] {
+    --tag-bg: rgba(255,255,255,.08);
+    --tag-border: rgba(255,255,255,.22);
+    --tag-fg: #e5e7eb;
+    --footer-bg: #0b1220;
+    --footer-fg: #cbd5e1;
+    --footer-border: #1f2937;
+    --surface-bg: #0f172a;
+    --surface-border: #1f2937;
+    --surface-fg: #e5e7eb;
+    color-scheme: dark;
 }
 
 /* ---------- Footer: single slim bar ---------- */
@@ -306,13 +276,35 @@ body[data-theme="dark"] {
   margin-right: auto !important;
   margin-left: 0 !important;
 }
+
+/* Responsive fixes for medium and small screens */
 @media (max-width: 980px) {
+  /* FIX: Stack the two-column layout for better readability */
+  .layout--single .page {
+    display: block !important;
+  }
+  .layout--single .sidebar {
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 2rem;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--footer-border);
+  }
+
+  /* Make content take up full width in the stacked layout */
   .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row):not(.gallery-3):not(.figure-card) {
     max-width: none !important;
     width: 100% !important;
     margin: 0 !important;
   }
+
+  /* Make gallery single-column */
+  .gallery-2x2 {
+    grid-template-columns: 1fr;
+  }
 }
+
 
 /* Justify body text globally BUT no hyphenation */
 .page__content {
@@ -355,9 +347,7 @@ body[data-theme="dark"] {
   overflow-wrap: break-word;
 }
 
-/* Keep non-paragraph UI bits left-aligned
-   NOTE: removed `.page__content .figure-card, .page__content .figure-card *`
-   from this block so captions can center. */
+/* Keep non-paragraph UI bits left-aligned */
 .page__content h1,
 .page__content h2,
 .page__content h3,
