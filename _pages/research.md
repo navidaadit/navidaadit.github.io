@@ -24,7 +24,7 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 </style>
 
 <div class="research-lead">
-I work on <strong>probabilistic computers</strong> built from <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>. My approach is <strong>full-stack</strong> — device physics → architectures → algorithms — scaling from single <abbr title="Field-Programmable Gate Array">FPGA</abbr> systems to multi-FPGA <strong>asynchronous</strong> fabrics targeting <strong>million-node</strong> p-computers.
+I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</strong> with <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> (<strong>Ising/Boltzmann machines</strong>) and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>. My approach is <strong>full-stack</strong> — device physics → architectures → algorithms — advancing from single <abbr title="Field-Programmable Gate Array">FPGA</abbr> prototypes to multi-FPGA <strong>asynchronous</strong> fabrics targeting <strong>million-node</strong> p-computers.
 </div>
 
 ## Research areas
