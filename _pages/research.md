@@ -22,20 +22,22 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
 
-/* === Normalize & FORCE center captions inside Spotlight cards ===
-   (overrides global ".figure-card, .figure-card * { text-align:left !important; }") */
+/* ===== HARD OVERRIDE: center ALL captions inside Spotlight cards =====
+   Beats global "left !important" by using higher specificity + !important
+   and flex centering (works even if text-align is forced elsewhere). */
 .layout--single .page__content .gallery-2x2 .figure-card figcaption,
-.layout--single .page__content .gallery-2x2 .figure-card .figcap,
-.layout--single .page__content .gallery-2x2 .figure-card figcaption *,
-.layout--single .page__content .gallery-2x2 .figure-card .figcap *{
+.layout--single .page__content .gallery-2x2 .figure-card .figcap{
+  display:flex !important;
+  justify-content:center !important;
   text-align:center !important;
-}
-.layout--single .page__content .gallery-2x2 .figure-card figcaption{
-  display:block;
   margin-top:6px;
   font-size:.9rem;
   line-height:1.35;
   color:var(--footer-fg,#475569);
+}
+.layout--single .page__content .gallery-2x2 .figure-card figcaption *,
+.layout--single .page__content .gallery-2x2 .figure-card .figcap *{
+  text-align:inherit !important; /* inherit the centered alignment */
 }
 </style>
 
