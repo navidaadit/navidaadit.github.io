@@ -22,21 +22,19 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
 
-/* === Normalize Spotlight captions (centered + equal height) === */
-.gallery-2x2 .figure-card{display:flex;flex-direction:column;}
-.gallery-2x2 .figure-card img{flex:0 0 auto;} /* image stays on top */
-.gallery-2x2 .figure-card figcaption,
-.gallery-2x2 .figure-card .figcap{
+/* === FORCE all Spotlight captions centered (override global left-align) === */
+.layout--single .page__content .gallery-2x2 .figure-card figcaption,
+.layout--single .page__content .gallery-2x2 .figure-card .figcap,
+.layout--single .page__content .gallery-2x2 .figure-card figcaption *,
+.layout--single .page__content .gallery-2x2 .figure-card .figcap *{
   text-align:center !important;
+}
+.layout--single .page__content .gallery-2x2 .figure-card figcaption{
+  display:block;
   margin-top:6px;
   font-size:.9rem;
   line-height:1.35;
   color:var(--footer-fg,#475569);
-  display:-webkit-box;               /* line clamp for equal heights */
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;              /* show up to 2 lines */
-  overflow:hidden;
-  min-height:calc(1.35em * 2);       /* reserve space for 2 lines */
 }
 </style>
 
