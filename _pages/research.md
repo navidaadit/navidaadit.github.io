@@ -21,6 +21,22 @@ abbr[title]{text-decoration:none;border:0;cursor:help}
 /* Spotlight grid (2×2). Card/image rules live in global CSS. */
 .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
 @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
+
+/* ===== HARD OVERRIDE for this page only (beats global left-align) ===== */
+#spotlight .figure-card figcaption,
+#spotlight .figure-card .figcap{
+  text-align:center !important;
+  display:block !important;     /* ensure it behaves like a block below image */
+  margin-top:6px;
+  font-size:.9rem;
+  line-height:1.35;
+  color:var(--footer-fg,#475569);
+}
+/* children (e.g., <em>) inherit the centered alignment instead of forcing left */
+#spotlight .figure-card figcaption *,
+#spotlight .figure-card .figcap *{
+  text-align:inherit !important;
+}
 </style>
 
 <div class="research-lead">
@@ -102,34 +118,26 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 
 ## Spotlight
 
-<div class="gallery-2x2">
+<div class="gallery-2x2" id="spotlight">
   <figure class="figure-card">
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
-      Sparse Ising machine — <em>Nature Electronics</em> (2022)
-    </figcaption>
+    <figcaption class="figcap">Sparse Ising machine — <em>Nature Electronics</em> (2022)</figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
-      Hardware-trained DBMs — <em>Nature Electronics</em> (2024)
-    </figcaption>
+    <figcaption class="figcap">Hardware-trained DBMs — <em>Nature Electronics</em> (2024)</figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
-      Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)
-    </figcaption>
+    <figcaption class="figcap">Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)</figcaption>
   </figure>
 
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
   <figure class="figure-card fill">
     <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (rack)">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
-      UCSB multi-FPGA p-computer (~50k p-bits) — lab setup
-    </figcaption>
+    <figcaption class="figcap">UCSB multi-FPGA p-computer (~50k p-bits) — lab setup</figcaption>
   </figure>
 </div>
 
