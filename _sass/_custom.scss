@@ -21,7 +21,7 @@
   --gap: 48px;
   --content-max: 75%; /* inner text width inside right column */
 
-  /* LIGHT defaults (overridden in dark mode below) */
+  /* LIGHT defaults (overridden explicitly or via system fallback below) */
   --tag-bg: #f3f4f6;
   --tag-border: #e5e7eb;
   --tag-fg: #111827;
@@ -54,6 +54,16 @@
   border-right: 1px solid #e5e7eb;
   padding-right: 12px;
   border-radius: 6px;
+
+  /* FIX 1A: include padding/border within the set width to prevent overflow */
+  box-sizing: border-box;
+}
+
+/* Make sidebar content safe on narrow/flexible widths */
+.layout--single .sidebar * {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* Right content column */
@@ -61,6 +71,9 @@
   grid-column: 2 !important;
   margin: 0 !important;
   max-width: none !important;
+
+  /* FIX 1B: allow the content column to actually shrink in a grid */
+  min-width: 0;
 }
 
 /* Limit inner text width (not hero/pills/CV button) */
@@ -184,7 +197,27 @@
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ---------- Dark-mode variables (cover common toggles) ---------- */
+/* ---------- DARK MODE VARIABLES & PRECEDENCE (robust) ----------
+   1) Base light variables are set in :root above.
+   2) If an explicit data-theme is set, it ALWAYS wins.
+   3) If no data-theme is set, fall back to system preference. */
+
+/* 2a) Explicit LIGHT */
+html[data-theme="light"] {
+  --tag-bg: #f3f4f6;
+  --tag-border: #e5e7eb;
+  --tag-fg: #111827;
+
+  --footer-bg: #f7fafc;
+  --footer-fg: #475569;
+  --footer-border: #e5e7eb;
+
+  --surface-bg: #ffffff;
+  --surface-border: #e5e7eb;
+  --surface-fg: inherit;
+}
+
+/* 2b) Explicit DARK */
 html[data-theme="dark"],
 html.dark,
 body.dark,
@@ -199,13 +232,14 @@ body.dark,
   --footer-fg: #cbd5e1;
   --footer-border: #1f2937;
 
-  /* Surfaces in dark mode */
   --surface-bg: #0f172a;
   --surface-border: #1f2937;
   --surface-fg: #e5e7eb;
 }
+
+/* 3) System preference ONLY when no data-theme is set */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not(.theme-light) {
+  html:not([data-theme]) {
     --tag-bg: rgba(255,255,255,.08);
     --tag-border: rgba(255,255,255,.22);
     --tag-fg: #e5e7eb;
@@ -350,12 +384,12 @@ body.dark,
   color: var(--footer-fg, #475569) !important;
 }
 
-/* Ensure children inherit centering, never override it */
+/* Ensure children inherit the centering */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
   margin: 0 !important;
-  display: inline !important; /* avoid block children forcing left edges */
+  display: inline !important;
 }
 
 /* Teaching/service mobile overflow fix */
