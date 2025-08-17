@@ -9,8 +9,11 @@ author_profile: true
 <img src="/images/navid_talk.jpeg" alt="Navid Aadit giving a talk" class="hero-img" />
 
 <p class="cv-row">
-  <a class="btn btn--cv" href="/files/Aadit_CV_Fall2025.pdf">Download CV</a>
+  <a class="btn btn--cv" href="https://drive.google.com/uc?export=download&id=12ZX9rrb-iJNACLPJip0xjfp9GKYYN6ZB">
+    Download CV
+  </a>
 </p>
+
 
 I am a PhD candidate in **Electrical & Computer Engineering** at the **University of California, Santa Barbara** (expected Dec 2025).
 
