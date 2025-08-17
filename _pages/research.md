@@ -14,7 +14,7 @@ author_profile: true
 .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 1.1rem;}
 .stat-badge{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
 .pill-list{list-style:none;padding:0;margin:.1rem 0 .9rem 0;display:flex;flex-wrap:wrap;gap:6px 8px;}
-.pill-list li{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:#111827;white-space:nowrap;}
+.pill-list li{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
 .small-note{font-size:.92rem;opacity:.9}
 abbr[title]{text-decoration:none;border:0;cursor:help}
 
@@ -105,21 +105,21 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 <div class="gallery-2x2">
   <figure class="figure-card">
     <img src="/images/research/sparse-ising.jpeg" alt="Sparse Ising machine on FPGA">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
+    <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
       Sparse Ising machine — <em>Nature Electronics</em> (2022)
     </figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/dbm-hardware.jpeg" alt="Hardware-trained deep Boltzmann machines">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
+    <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
       Hardware-trained DBMs — <em>Nature Electronics</em> (2024)
     </figcaption>
   </figure>
 
   <figure class="figure-card">
     <img src="/images/research/all-to-all.jpeg" alt="Higher-order Ising machines and dense behavior">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
+    <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
       Higher-order IMs &amp; all-to-all approach — <em>Nature Communications</em> (2024)
     </figcaption>
   </figure>
@@ -127,7 +127,7 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
   <!-- Rack photo: make it fill the card (no bottom whitespace) -->
   <figure class="figure-card fill">
     <img src="/images/research/5-fpga-setup.jpeg" alt="UCSB multi-FPGA p-computer (rack)">
-    <figcaption class="figcap" style="display:grid !important; place-items:center !important; text-align:center !important;">
+    <figcaption class="figcap" style="text-align:center !important; display:flex; justify-content:center; align-items:center; margin-top:6px;">
       UCSB multi-FPGA p-computer (~50k p-bits) — lab setup
     </figcaption>
   </figure>
