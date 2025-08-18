@@ -347,53 +347,41 @@
   color: #1e40af !important;
 }
 
-/* ===== Follow button width = content column width (mobile) ===== */
+/* === Follow button: right-aligned, hug content width, anchored dropdown === */
 @media (max-width:1023px){
-  /* cap the entire author block to the same column width */
-  .sidebar > [itemscope][itemtype="http://schema.org/Person"]{
-    max-width: var(--content-max) !important;
-    margin-left: 0 !important;       /* align with content column */
-    margin-right: auto !important;
-  }
-
-  /* keep the Follow trigger inside that cap (button on the right) */
   .author__urls-wrapper{
-    position: relative !important;
-    display: flex !important;
-    justify-content: flex-end !important;  /* button on the right */
-    align-items: center !important;
+    position: relative !important;   /* anchor for the dropdown */
+    display: block !important;
     width: 100% !important;
-    max-width: var(--content-max) !important; /* <= key line */
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
+    text-align: right !important;     /* button on the RIGHT (not centered) */
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* make the button itself not stretch */
   .author__urls-wrapper .btn{
+    display: inline-block !important; /* hug text width */
     width: auto !important;
     padding: 7px 10px !important;
-    font-size: 0.92rem !important;
     line-height: 1.2 !important;
     white-space: nowrap !important;
   }
 
-  /* dropdown anchored to the button, never wider than the column */
   .author__urls{
-    position: absolute !important;
+    position: absolute !important;    /* dropdown anchored to the button */
     right: 0 !important;
+    left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: 100% !important;          /* <= prevents overflow */
+    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
     z-index: 3000 !important;
-    display: none;                        /* toggled by the theme */
+    display: none;                     /* theme toggles this class */
   }
   .author__urls.is--visible{ display: block !important; }
 }
 
-/* ensure the sidebar sits above content when dropdown opens */
-.sidebar{ position: relative; z-index: 2000; }
+/* ensure dropdown stacks above page content */
+.sidebar{ position: relative !important; z-index: 2000 !important; }
 
