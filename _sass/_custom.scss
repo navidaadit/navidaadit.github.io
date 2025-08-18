@@ -394,28 +394,37 @@
   }
 }
 
-/* Sidebar with page gutter (no edge-hugging) */
+/* ---- Sidebar + content spacing (stable on all screens) ---- */
 :root{
-  --masthead-h: 70px;     /* your masthead height */
-  --sidebar-w: 200px;     /* actual sidebar width */
-  --sidebar-gap: 18px;    /* space between sidebar and content */
-  --page-gutter: 16px;    /* space from LEFT screen edge */
+  --masthead-h: 70px;      /* masthead height */
+  --sidebar-w: 200px;      /* sidebar width */
+  --sidebar-gap: 18px;     /* space between sidebar and content */
+  --page-gutter: 16px;     /* space from left edge of screen */
 }
 
+/* Desktop and up */
 @media (min-width:1024px){
   .sidebar{
     position: fixed !important;
     top: var(--masthead-h) !important;
-    left: var(--page-gutter) !important;      /* <-- not 0 anymore */
+    left: var(--page-gutter) !important;   /* keeps it off the very edge */
     width: var(--sidebar-w) !important;
     float: none !important;
     z-index: 10;
   }
 
-  /* Shift only the main content by gutter + sidebar + gap */
+  /* Reserve space for the sidebar with padding (not margin) so the main
+     remains centered on very wide monitors. */
   .initial-content{
-    margin-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
   }
+}
+
+/* Optional: slightly reduce the gap on ultra-wide monitors */
+@media (min-width:1600px){
+  :root{ --sidebar-gap: 14px; }  /* tighten the space a bit */
 }
 
 
