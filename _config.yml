@@ -19,7 +19,7 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  bio: "PhD Candidate, UCSB ECE — probabilistic computing, Ising machines, FPGA acceleration, and large-scale ML/AI."
+  bio: "PhD Candidate"
   location: "UC Santa Barbara"
   employer: "Department of ECE"
   email: "maadit@ucsb.edu"
