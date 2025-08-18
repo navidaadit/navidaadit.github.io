@@ -38,12 +38,36 @@
 /* Hide name under headshot */
 .author__name { display: none !important; }
 
-/* Avatar */
+/* ---------- Avatar (standard sizes) ---------- */
 .author__avatar img {
-  width: 168px;
-  height: 168px;
+  width: 128px;               /* desktop/tablet standard */
+  height: 128px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+/* Mobile: smaller photo and bio under the picture */
+@media (max-width:640px){
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper{
+    display:block !important;
+    width:100% !important;
+    padding:0 !important;
+  }
+  .author__avatar img{
+    width:104px !important;   /* mobile standard */
+    height:104px !important;
+    margin:0 auto 8px !important;
+  }
+  .author__content,
+  .author__bio{
+    text-align:center !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    line-height:1.35 !important;
+  }
 }
 
 /* Remove any built-in hero from the theme */
@@ -320,8 +344,6 @@
   max-width:100% !important;
 }
 
-/* (Removed all sidebar size controls) */
-
 /* ---------- LINKS: inherit color; turn blue only on hover/focus ---------- */
 .page__content a:not(.btn--cv):not(.no-link-style),
 .footer-bar a:not(.no-link-style) {
@@ -344,5 +366,3 @@
 .footer-bar a:not(.no-link-style):active {
   color: #1e40af !important;
 }
-
-
