@@ -236,9 +236,7 @@
   overflow-wrap: break-word;
 }
 
-/* Keep non-paragraph UI bits left-aligned
-   NOTE: removed `.page__content .figure-card, .page__content .figure-card *`
-   from this block so captions can center. */
+/* Keep non-paragraph UI bits left-aligned */
 .page__content h1,
 .page__content h2,
 .page__content h3,
@@ -392,4 +390,10 @@
   .sidebar .author__bio{
     text-align: left !important;
   }
+}
+
+/* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
+@media (min-width:1024px){
+  .sidebar{ z-index: 1 !important; }
+  .page__content{ position: relative; z-index: 2 !important; }
 }
