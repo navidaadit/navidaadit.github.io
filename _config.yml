@@ -21,7 +21,7 @@ author:
   avatar: "headshot.jpeg"
   # Two-line bio: first line fixed text, second line concise topics
   bio: >-
-    <span class="bio-line-1">PhD Candidate, UCSB/span><br>
+    <span class="bio-line-1">PhD Candidate, UCSB</span><br>
     <span class="bio-line-2">Probabilistic computing •</span><br>
     <span class="bio-line-3">Ising/Boltzmann •</span><br>
     <span class="bio-line-4">FPGA/CMOS • ML/AI</span>
