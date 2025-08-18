@@ -26,6 +26,10 @@ author_profile: true
   }
   .badge:hover{background:#e5e7eb}
   @media (max-width:980px){.t-grid{grid-template-columns:1fr}}
+
+  /* CLICK FIX (Windows Chrome): keep cards/links above any overlay */
+  .t-card{ position:relative; z-index:5; }
+  .t-links a{ position:relative; z-index:6; }
 </style>
 
 ## Invited Talks
