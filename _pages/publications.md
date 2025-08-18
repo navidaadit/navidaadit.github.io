@@ -5,19 +5,28 @@ title: "Publications"
 author_profile: true
 ---
 
-<!-- Page-scoped styles only (no global side effects) -->
+<!-- Page-scoped styles (light-only; no theme variables) -->
 <style>
-.section-h{margin-top:.5rem}
-.pub-list{list-style:none;padding-left:0;margin:.4rem 0 1.2rem;}
-.pub-list li{border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);border-radius:10px;padding:12px 14px;margin:.5rem 0;}
-.pub-id{display:inline-block;font-weight:700;margin-right:.5rem;color:#334155;opacity:.85;}
-.pub-title{font-weight:600}
-.pub-venue{font-style:italic}
-.pub-notes{margin-top:.25rem;font-size:.95rem;opacity:.95}
-.badges a{display:inline-block;margin-right:.4rem;text-decoration:none;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:#111827;padding:3px 8px;border-radius:999px;font-size:.86rem}
-.small-note{font-size:.92rem;opacity:.9;margin:.2rem 0 1rem}
-html[data-theme="dark"] .pub-list li{border-color:#1f2937;background:#0b1220}
-html[data-theme="dark"] .badges a{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#e5e7eb}
+  .section-h{margin-top:.5rem}
+  .pub-list{list-style:none;padding-left:0;margin:.4rem 0 1.2rem;}
+  .pub-list li{
+    border:1px solid #e5e7eb;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:12px 14px;
+    margin:.5rem 0;
+  }
+  .pub-id{display:inline-block;font-weight:700;margin-right:.5rem;color:#334155;opacity:.85;}
+  .pub-title{font-weight:600}
+  .pub-venue{font-style:italic}
+  .pub-notes{margin-top:.25rem;font-size:.95rem;opacity:.95}
+  .badges a{
+    display:inline-block;margin-right:.4rem;text-decoration:none;
+    border:1px solid #e5e7eb;background:#f3f4f6;color:#111827;
+    padding:3px 8px;border-radius:999px;font-size:.86rem;
+  }
+  .small-note{font-size:.92rem;opacity:.9;margin:.2rem 0 1rem}
+  .badges a:hover{background:#e5e7eb}
 </style>
 
 <div class="small-note">
