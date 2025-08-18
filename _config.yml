@@ -19,13 +19,20 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  bio: "PhD Candidate, UCSB ECE — probabilistic computing, Ising machines, FPGA acceleration, and large-scale ML/AI."
-  location: "UC Santa Barbara"
-  employer: "Department of ECE"
+  bio: "PhD Candidate, UCSB ECE"
+  location: '<a href="https://www.ucsb.edu" target="_blank" rel="noopener">UC Santa Barbara</a>'
+  employer: '<a href="https://www.ece.ucsb.edu" target="_blank" rel="noopener">Department of ECE</a>'
   email: "maadit@ucsb.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
   linkedin: "navidanjumaadit"
+  links:
+    - label: "UC Santa Barbara"
+      icon: "fas fa-university"
+      url: "https://www.ucsb.edu"
+    - label: "Department of ECE"
+      icon: "fas fa-microchip"
+      url: "https://www.ece.ucsb.edu"
 
 publication_category:
   books:
