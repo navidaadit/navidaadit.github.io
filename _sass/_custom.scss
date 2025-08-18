@@ -362,6 +362,46 @@
 .footer-bar a:not(.no-link-style):focus-visible {
   color: #1d4ed8 !important;
 }
+
+/* Mobile follow dropdown: visible, left-aligned, above content */
+@media (max-width:1024px){
+  /* make wrapper the stacking context */
+  .author__urls-wrapper{
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+  /* override theme’s mobile dropdown */
+  .author__urls{
+    /* JS toggles display; keep default hidden */
+    position: absolute !important;
+    left: 0 !important;              /* instead of right:0 */
+    right: auto !important;
+    margin-top: 10px !important;
+    padding: 8px 10px !important;
+    width: 260px !important;
+    max-width: calc(100vw - 32px) !important;
+    background: #fff !important;     /* stop transparency */
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.14) !important;
+    z-index: 9999 !important;        /* no more “behind content” */
+  }
+  /* point the little arrow under the button (left side) */
+  .author__urls::before,
+  .author__urls::after{
+    left: 16px !important;
+    right: auto !important;
+  }
+  .author__urls::before{
+    top: -11px; border-width: 0 10px 10px;
+    border-color: #e5e7eb transparent !important;
+  }
+  .author__urls::after{
+    top: -10px; border-width: 0 10px 10px;
+    border-color: #fff transparent !important;
+  }
+}
+
 .page__content a:not(.btn--cv):not(.no-link-style):active,
 .footer-bar a:not(.no-link-style):active {
   color: #1e40af !important;
