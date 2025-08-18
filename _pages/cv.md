@@ -73,4 +73,3 @@ author_profile: true
   </a>
 </div>
 
-<p class="small-note">If the preview doesn’t load, use the Download link.</p>
