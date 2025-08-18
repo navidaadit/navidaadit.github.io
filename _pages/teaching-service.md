@@ -5,50 +5,67 @@ title: "Teaching & Service"
 author_profile: true
 ---
 
-<!-- Minimal, clean styling just for this page -->
+<!-- Minimal, clean styling just for this page (light-only, no theme vars) -->
 <style>
-.section{border:1px solid var(--footer-border,#e5e7eb);background:var(--footer-bg,#f8fafc);border-radius:10px;padding:14px;margin:.6rem 0}
-.section h3{margin:.1rem 0 .25rem}
-.role-line{font-size:.92rem;opacity:.8;margin:.1rem 0 .4rem}
-.list{list-style:none;padding:0;margin:.25rem 0}
-.list li{padding:.18rem 0}
-.columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media (max-width:980px){.columns{grid-template-columns:1fr}}
+  .section{
+    border:1px solid #e5e7eb;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:14px;
+    margin:.6rem 0;
+  }
+  .section h3{margin:.1rem 0 .25rem;color:#111827}
+  .role-line{font-size:.92rem;opacity:.8;margin:.1rem 0 .4rem}
+  .list{list-style:none;padding:0;margin:.25rem 0}
+  .list li{padding:.18rem 0}
 
-/* inline, middot-separated reviewer list — wrap-safe & NOT justified */
-.inline-list{
-  list-style:none;
-  padding:0;
-  margin:.2rem 0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px 12px;
-  max-width:100%;
-  text-align:left !important;      /* override global justify */
-  text-justify:auto !important;
-}
-.inline-list li{
-  position:relative;
-  white-space:normal;               /* allow wrapping */
-  overflow-wrap:anywhere;           /* break long tokens */
-  word-break:normal;
-  max-width:100%;
-  line-height:1.4;
-  text-align:left !important;       /* ensure ragged-right inside li */
-  text-justify:auto !important;
-}
-.inline-list li:not(:last-child)::after{content:"•";margin-left:12px;opacity:.45}
-@media (max-width:540px){
-  .inline-list{gap:6px 8px}
-  .inline-list li:not(:last-child)::after{margin-left:8px}
-}
+  .columns{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  @media (max-width:980px){
+    .columns{grid-template-columns:1fr}
+  }
 
-/* also keep normal (non-justified) lists inside these white sections */
-.section .list,
-.section .list li{
-  text-align:left !important;
-  text-justify:auto !important;
-}
+  /* inline, middot-separated reviewer list — wrap-safe & NOT justified */
+  .inline-list{
+    list-style:none;
+    padding:0;
+    margin:.2rem 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 12px;
+    max-width:100%;
+    text-align:left !important;
+    text-justify:auto !important;
+  }
+  .inline-list li{
+    position:relative;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    max-width:100%;
+    line-height:1.4;
+    text-align:left !important;
+    text-justify:auto !important;
+  }
+  .inline-list li:not(:last-child)::after{
+    content:"•";
+    margin-left:12px;
+    opacity:.45;
+  }
+  @media (max-width:540px){
+    .inline-list{gap:6px 8px}
+    .inline-list li:not(:last-child)::after{margin-left:8px}
+  }
+
+  /* keep normal (non-justified) lists inside these light sections */
+  .section .list,
+  .section .list li{
+    text-align:left !important;
+    text-justify:auto !important;
+  }
 </style>
 
 ## Teaching
