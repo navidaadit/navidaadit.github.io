@@ -377,7 +377,7 @@
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: calc(90vw - 32px) !important; /* safe mobile gutter */
+    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
     z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
@@ -393,4 +393,29 @@
     text-align: left !important;
   }
 }
+
+/* Sidebar with page gutter (no edge-hugging) */
+:root{
+  --masthead-h: 70px;     /* your masthead height */
+  --sidebar-w: 200px;     /* actual sidebar width */
+  --sidebar-gap: 18px;    /* space between sidebar and content */
+  --page-gutter: 16px;    /* space from LEFT screen edge */
+}
+
+@media (min-width:1024px){
+  .sidebar{
+    position: fixed !important;
+    top: var(--masthead-h) !important;
+    left: var(--page-gutter) !important;      /* <-- not 0 anymore */
+    width: var(--sidebar-w) !important;
+    float: none !important;
+    z-index: 10;
+  }
+
+  /* Shift only the main content by gutter + sidebar + gap */
+  .initial-content{
+    margin-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
+  }
+}
+
 
