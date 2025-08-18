@@ -20,8 +20,8 @@ author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
   bio: "PhD Candidate, UCSB ECE"
-  location: '<a href="https://www.ucsb.edu">UC Santa Barbara</a>'
-  employer: '<a href="https://www.ece.ucsb.edu">Department of ECE</a>'
+  location: '"UC Santa Barbara"
+  employer: "Department of ECE"
   email: "maadit@ucsb.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
