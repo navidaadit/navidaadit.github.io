@@ -387,3 +387,19 @@ pre, code, kbd, samp {
 /* Prevent UA auto-darkening/inversion on some browsers */
 html { forced-color-adjust: none; }
 img, video, canvas { filter:none !important; }
+
+/* Kill any dark/light theme toggle control */
+#theme-toggle,
+.theme-toggle,
+.mode-toggle,
+.js-theme-toggle,
+.color-scheme-toggle,
+.toggle-theme,
+button[aria-label*="theme" i],
+a[aria-label*="theme" i],
+label[for="theme-toggle"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
