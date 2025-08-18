@@ -17,51 +17,22 @@
 
 /* ---------- Two-column grid (sidebar + content) ---------- */
 :root {
-  --sidebar: 320px;
-  --gap: 48px;
   --content-max: 75%; /* inner text width inside right column */
-
-  /* LIGHT defaults (overridden in dark mode below) */
+  /* LIGHT defaults (kept) */
   --tag-bg: #f3f4f6;
   --tag-border: #e5e7eb;
   --tag-fg: #111827;
-
   /* Page background / footer tone */
   --footer-bg: #f7fafc;
   --footer-fg: #475569;
   --footer-border: #e5e7eb;
-
   /* “Surface” cards (research/teaching boxes) */
   --surface-bg: #ffffff;
   --surface-border: #e5e7eb;
   --surface-fg: inherit;
 }
 
-.layout--single .page {
-  display: grid !important;
-  grid-template-columns: var(--sidebar) calc(100% - var(--sidebar) - var(--gap));
-  grid-column-gap: var(--gap);
-  align-items: start;
-}
-
-/* Sidebar */
-.layout--single .sidebar {
-  grid-column: 1 !important;
-  float: none !important;
-  width: var(--sidebar) !important;
-  max-width: var(--sidebar) !important;
-  background: #f8fafc;
-  border-right: 1px solid #e5e7eb;
-  padding-right: 12px;
-  border-radius: 6px;
-}
-
-/* Right content column */
-.layout--single .page__content {
-  grid-column: 2 !important;
-  margin: 0 !important;
-  max-width: none !important;
-}
+/* (Removed custom sidebar grid and sizing) */
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -184,41 +155,7 @@
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ---------- Dark-mode variables (cover common toggles) ---------- */
-html[data-theme="dark"],
-html.dark,
-body.dark,
-:root.theme-dark,
-.theme--dark,
-.mm-dark {
-  --tag-bg: rgba(255,255,255,.08);
-  --tag-border: rgba(255,255,255,.22);
-  --tag-fg: #e5e7eb;
-
-  --footer-bg: #0b1220;
-  --footer-fg: #cbd5e1;
-  --footer-border: #1f2937;
-
-  /* Surfaces in dark mode */
-  --surface-bg: #0f172a;
-  --surface-border: #1f2937;
-  --surface-fg: #e5e7eb;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not(.theme-light) {
-    --tag-bg: rgba(255,255,255,.08);
-    --tag-border: rgba(255,255,255,.22);
-    --tag-fg: #e5e7eb;
-
-    --footer-bg: #0b1220;
-    --footer-fg: #cbd5e1;
-    --footer-border: #1f2937;
-
-    --surface-bg: #0f172a;
-    --surface-border: #1f2937;
-    --surface-fg: #e5e7eb;
-  }
-}
+/* (Removed dark-mode variable overrides) */
 
 /* ---------- Footer: single slim bar ---------- */
 .page__footer,
