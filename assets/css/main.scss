@@ -12,8 +12,8 @@
     "vendor/breakpoint/breakpoint",
 
     "themes",
+    /* LIGHT-ONLY: import just the light variant of the selected theme */
     "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
 
     "include/mixins",
     "vendor/susy/susy",
