@@ -347,41 +347,41 @@
   color: #1e40af !important;
 }
 
-/* ===========================================================
-   FOLLOW BUTTON / DROPDOWN FIX (mobile only) + Z-INDEX
-   - Keeps the button on the RIGHT on phones
-   - Ensures the dropdown stacks above content (e.g., Publications)
-   - Desktop remains unchanged by the theme
-   =========================================================== */
+/* === FOLLOW button / dropdown (mobile only) — minimal fix === */
+/* keeps the button on the RIGHT, menu anchored to it, left-aligned,
+   and ensures it stacks above publications cards */
+@media (max-width: 1023px) {
+  /* keep sidebar as the stacking context above page content */
+  .sidebar {
+    position: relative !important;
+    z-index: 9000 !important;
+  }
 
-/* Sidebar should sit above content where needed */
-.sidebar { z-index: 5 !important; }
-@media (max-width: 1023px){
-  .sidebar { position: relative !important; z-index: 2000 !important; }
-}
-
-/* Mobile: keep the Follow trigger aligned right, and anchor menu to it */
-@media (max-width: 1023px){
-  .author__urls-wrapper{
+  /* button stays on the right */
+  .author__urls-wrapper {
     position: relative !important;
     display: flex !important;
     justify-content: flex-end !important;
     align-items: center !important;
     width: 100% !important;
-    text-align: right !important;
-    padding: 0 !important;
   }
-  .author__urls{
+
+  /* dropdown is anchored to the button and above everything */
+  .author__urls {
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 10px) !important;
-    z-index: 3000 !important;
-    display: none; /* theme toggles visibility */
-    min-width: 220px !important;
-    background: #fff !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
+    z-index: 9999 !important;        /* fixes “behind content” on Publications */
+    display: none;                    /* theme toggles this */
+    min-width: 240px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 22px rgba(0,0,0,.15);
+    text-align: left !important;      /* menu content left-aligned */
   }
+
   .author__urls.is--visible { display: block !important; }
+  .author__urls li,
+  .author__urls a { text-align: left !important; }
 }
