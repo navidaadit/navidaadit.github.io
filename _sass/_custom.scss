@@ -338,3 +338,52 @@
   word-break:normal !important;
   max-width:100% !important;
 }
+
+/* ==== LIGHT-ONLY HARD CLAMP (paste LAST) ==== */
+:root, html, body { color-scheme: light !important; background: #fff !important; }
+@media (prefers-color-scheme: dark) {
+  :root, html, body { color-scheme: light !important; }
+}
+
+/* Neutralize any theme toggles from the template */
+:is(html[data-theme="dark"], html.dark, body.dark, :root.theme-dark, .theme--dark, .mm-dark) {
+  color-scheme: light !important;
+  background: #fff !important;
+  /* keep the same light variables so cards/pills stay readable */
+  --tag-bg:#f3f4f6 !important;
+  --tag-border:#e5e7eb !important;
+  --tag-fg:#111827 !important;
+  --footer-bg:#f7fafc !important;
+  --footer-fg:#475569 !important;
+  --footer-border:#e5e7eb !important;
+  --surface-bg:#ffffff !important;
+  --surface-border:#e5e7eb !important;
+  --surface-fg:#111827 !important;
+}
+
+/* Ensure readable text on white surfaces */
+body, .page, .page__content { color:#111827 !important; }
+.page__content a { color:#1d4ed8; }
+.page__content a:hover { color:#1e40af; }
+
+/* Cards, sections, and code blocks */
+.page__content .card,
+.page__content .section,
+.figure-card {
+  background: var(--surface-bg) !important;
+  color: var(--surface-fg) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+pre, code, kbd, samp {
+  background:#f8fafc !important;
+  color:#111827 !important;
+  border:1px solid #e5e7eb !important;
+}
+
+/* Bullet/number colors (stop white-on-white) */
+.page__content ul li::marker,
+.page__content ol li::marker { color:#111827 !important; }
+
+/* Prevent UA auto-darkening/inversion on some browsers */
+html { forced-color-adjust: none; }
+img, video, canvas { filter:none !important; }
