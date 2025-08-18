@@ -5,39 +5,42 @@ title: "Research"
 author_profile: true
 ---
 
-<!-- Page-scoped styles (small, theme-aware) -->
+<!-- Page-scoped styles (light-only; no theme variables) -->
 <style>
-.research-lead{font-size:1.06rem;line-height:1.65;margin:.25rem 0 1.15rem;}
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
-.card{border:1px solid var(--footer-border,#e5e7eb);border-radius:10px;padding:14px;background:var(--footer-bg,#f7fafc);}
-.card h4{margin:.1rem 0 .35rem;font-size:1.02rem;}
-.stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 1.1rem;}
-.stat-badge{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
-.pill-list{list-style:none;padding:0;margin:.1rem 0 .9rem 0;display:flex;flex-wrap:wrap;gap:6px 8px;}
-.pill-list li{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);white-space:nowrap;}
-.small-note{font-size:.92rem;opacity:.9}
-abbr[title]{text-decoration:none;border:0;cursor:help}
+  .research-lead{font-size:1.06rem;line-height:1.65;margin:.25rem 0 1.15rem;color:#111827;}
 
-/* Spotlight grid (2×2). Card/image rules live in global CSS. */
-.gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
-@media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:.75rem 0 1.2rem;}
 
-/* === Normalize Spotlight captions (centered + equal height) === */
-.gallery-2x2 .figure-card{display:flex;flex-direction:column;}
-.gallery-2x2 .figure-card img{flex:0 0 auto;} /* image stays on top */
-.gallery-2x2 .figure-card figcaption,
-.gallery-2x2 .figure-card .figcap{
-  text-align:center !important;
-  margin-top:6px;
-  font-size:.9rem;
-  line-height:1.35;
-  color:var(--footer-fg,#475569);
-  display:-webkit-box;               /* line clamp for equal heights */
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;              /* show up to 2 lines */
-  overflow:hidden;
-  min-height:calc(1.35em * 2);       /* reserve space for 2 lines */
-}
+  .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#f7fafc;}
+  .card h4{margin:.1rem 0 .35rem;font-size:1.02rem;color:#111827;}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 1.1rem;}
+  .stat-badge{
+    font-size:.9rem;padding:6px 10px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#f3f4f6;color:#111827;white-space:nowrap;
+  }
+
+  .pill-list{list-style:none;padding:0;margin:.1rem 0 .9rem 0;display:flex;flex-wrap:wrap;gap:6px 8px;}
+  .pill-list li{
+    font-size:.9rem;padding:6px 10px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#f3f4f6;color:#111827;white-space:nowrap;
+  }
+
+  .small-note{font-size:.92rem;opacity:.9;color:#111827}
+  abbr[title]{text-decoration:none;border:0;cursor:help}
+
+  /* Spotlight grid (2×2). Card/image rules live in global CSS. */
+  .gallery-2x2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:.6rem 0 1.2rem;}
+  @media (max-width:980px){.grid-3,.gallery-2x2{grid-template-columns:1fr;}}
+
+  /* Centered, equal-height captions */
+  .gallery-2x2 .figure-card{display:flex;flex-direction:column;}
+  .gallery-2x2 .figure-card img{flex:0 0 auto;}
+  .gallery-2x2 .figure-card figcaption,
+  .gallery-2x2 .figure-card .figcap{
+    text-align:center !important;margin-top:6px;font-size:.9rem;line-height:1.35;color:#475569;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:calc(1.35em * 2);
+  }
 </style>
 
 <div class="research-lead">
