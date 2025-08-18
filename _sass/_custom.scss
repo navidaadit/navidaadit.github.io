@@ -394,30 +394,28 @@
   }
 }
 
-/* Ensure sidebar stacks above content when dropdown is open */
-.sidebar{ position: relative !important; z-index: 2000 !important; }
+/* ===== Sidebar lane without huge gap (iPad/desktop) ===== */
+:root{
+  --sidebar-w: 200px;   /* actual sidebar width */
+  --sidebar-gap: 18px;  /* small gutter between sidebar and content */
+}
 
-/* ==== iPad/desktop: reserve a lane for the fixed left sidebar ==== */
 @media (min-width:1024px){
-  /* Sidebar: fixed, not floating, with a known width */
+  /* Keep sidebar fixed and predictable */
   .sidebar{
     position: fixed !important;
-    top: var(--masthead-height, 70px) !important; /* keeps it under the masthead */
+    top: var(--masthead-height, 70px) !important;
     left: 0 !important;
-    width: 250px !important;                      /* adjust if your sidebar is wider/narrower */
-    float: none !important;                       /* prevents main from being pushed below */
+    width: var(--sidebar-w) !important;
+    float: none !important;        /* prevents main from dropping underneath */
+    z-index: 10;
   }
 
-  /* Main content: shift right by sidebar width + a small gutter */
-  #main{
-    margin-left: calc(250px + 28px) !important;   /* 28px = comfy gutter; tweak if needed */
+  /* Shift ONLY the content wrapper, not multiple containers */
+  .initial-content{
+    margin-left: calc(var(--sidebar-w) + var(--sidebar-gap)) !important;
   }
-
-  /* If your layout doesn't use #main, use this fallback instead (or in addition): */
-  /* .page__inner{ margin-left: calc(250px + 28px) !important; } */
 }
 
-/* If you previously added padding-left on .initial-content for the sidebar, undo it: */
-@media (min-width:1024px){
-  .initial-content{ padding-left: 16px !important; } /* just your normal inner padding */
-}
+/* If you previously set margin-left on #main or .page__inner, delete those rules. */
+
