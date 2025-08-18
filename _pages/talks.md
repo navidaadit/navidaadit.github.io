@@ -5,19 +5,27 @@ title: "Talks"
 author_profile: true
 ---
 
-<!-- Page-scoped styles: category blocks, left-aligned text, wrap-safe on mobile -->
+<!-- Page-scoped styles: light-only, no theme variables -->
 <style>
-.t-section{margin:.6rem 0 1rem}
-.t-grid{list-style:none;margin:.25rem 0 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.t-card{border:1px solid var(--surface-border,#e5e7eb);background:var(--surface-bg,#f8fafc);border-radius:10px;padding:14px}
-.t-card *{text-align:left !important}
-.t-title{margin:.05rem 0 .35rem;font-weight:700}
-.t-host{font-size:.95rem;opacity:.9;margin:.1rem 0}
-.t-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:.35rem}
-.badge{display:inline-block;font-size:.86rem;padding:3px 8px;border-radius:999px;border:1px solid var(--tag-border,#e5e7eb);background:var(--tag-bg,#f3f4f6);color:var(--tag-fg,#111827);text-decoration:none;white-space:nowrap}
-@media (max-width:980px){.t-grid{grid-template-columns:1fr}}
-/* wrap safety for long titles/hosts */
-.t-card{overflow-wrap:anywhere;word-break:normal}
+  .t-section{margin:.6rem 0 1rem}
+  .t-grid{
+    list-style:none;margin:.25rem 0 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px
+  }
+  .t-card{
+    border:1px solid #e5e7eb;background:#f8fafc;border-radius:10px;padding:14px;
+    overflow-wrap:anywhere;word-break:normal;
+  }
+  .t-card *{text-align:left !important}
+  .t-title{margin:.05rem 0 .35rem;font-weight:700;color:#111827}
+  .t-host{font-size:.95rem;opacity:.9;margin:.1rem 0}
+  .t-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:.35rem}
+  .badge{
+    display:inline-block;font-size:.86rem;padding:3px 8px;border-radius:999px;
+    border:1px solid #e5e7eb;background:#f3f4f6;color:#111827;text-decoration:none;white-space:nowrap
+  }
+  .badge:hover{background:#e5e7eb}
+  @media (max-width:980px){.t-grid{grid-template-columns:1fr}}
 </style>
 
 ## Invited Talks
