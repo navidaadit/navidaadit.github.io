@@ -347,41 +347,52 @@
   color: #1e40af !important;
 }
 
-/* === Follow button: right-aligned, hug content width, anchored dropdown === */
+/* === Follow button: right edge, no effect on text alignment, button hugs text === */
+.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
+
+/* Mobile/tablet only */
 @media (max-width:1023px){
+  /* Make the wrapper shrink to its contents and sit on the right */
   .author__urls-wrapper{
-    position: relative !important;   /* anchor for the dropdown */
+    position: relative !important;   /* anchor for dropdown */
     display: block !important;
-    width: 100% !important;
-    text-align: right !important;     /* button on the RIGHT (not centered) */
+    width: max-content !important;   /* shrink to button width */
+    margin-left: auto !important;    /* push to right edge */
     padding: 0 !important;
-    margin: 0 !important;
   }
 
+  /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
-    display: inline-block !important; /* hug text width */
+    display: inline-block !important;
     width: auto !important;
     padding: 7px 10px !important;
     line-height: 1.2 !important;
     white-space: nowrap !important;
   }
 
+  /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
-    position: absolute !important;    /* dropdown anchored to the button */
+    position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
     max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
+    z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
-    z-index: 3000 !important;
-    display: none;                     /* theme toggles this class */
+    display: none;
   }
   .author__urls.is--visible{ display: block !important; }
+
+  /* Keep the bio and everything else left-aligned */
+  .sidebar .author__content,
+  .sidebar .author__content *,
+  .sidebar .author__bio{
+    text-align: left !important;
+  }
 }
 
-/* ensure dropdown stacks above page content */
+/* Ensure sidebar stacks above content when dropdown is open */
 .sidebar{ position: relative !important; z-index: 2000 !important; }
-
