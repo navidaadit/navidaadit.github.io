@@ -19,9 +19,13 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  bio: "PhD Candidate, UCSB ECE"
-  location: "UC Santa Barbara"
-  employer: "Department of ECE"
+  # Two-line bio: first line fixed text, second line concise topics
+  bio: >-
+    <span class="bio-line-1">PhD Candidate, UCSB ECE</span><br>
+    <span class="bio-line-2">Probabilistic computing • Ising/Boltzmann • FPGA/CMOS • ML/AI</span>
+  # Clickable location and employer (no target=_blank)
+  location: '<a href="https://www.ucsb.edu/">UC Santa Barbara</a>'
+  employer: '<a href="https://www.ece.ucsb.edu/">Department of ECE</a>'
   email: "maadit@ucsb.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
