@@ -394,56 +394,33 @@
   }
 }
 
-/* ==== Desktop sidebar/layout (precise + stable) ==== */
+
+/* ---- Sidebar + content spacing (stable on all screens) ---- */
 :root{
-  --masthead-h: 70px;                 /* navbar height */
-  --sidebar-w: 200px;                 /* actual sidebar width */
-  --sidebar-gap: 10px;                /* space between sidebar and content */
-  --page-gutter: 48px;                /* distance from screen edge to sidebar */
+  --masthead-h: 70px;      /* masthead height */
+  --sidebar-w: 200px;      /* sidebar width */
+  --sidebar-gap: 14px;     /* space between sidebar and content */
+  --page-gutter: 48px;     /* space from left edge of screen */
 }
 
+/* Desktop and up */
 @media (min-width:1024px){
-  /* Turn the outer wrapper into a 4-column grid:
-     [gutter][sidebar][gap][content]  */
-  .initial-content{
-    display: grid !important;
-    grid-template-columns:
-      var(--page-gutter)
-      var(--sidebar-w)
-      var(--sidebar-gap)
-      minmax(0, 1fr) !important;
-    column-gap: 0 !important;
-
-    /* neutralize any earlier left padding that was creating the “ocean” */
-    padding-left: 0 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Sidebar stays fixed in its grid column and sticks under the masthead */
   .sidebar{
-    position: sticky !important;
+    position: fixed !important;
     top: var(--masthead-h) !important;
-    grid-column: 2 !important;  /* the sidebar column */
-    left: auto !important;
+    left: var(--page-gutter) !important;   /* keeps it off the very edge */
     width: var(--sidebar-w) !important;
     float: none !important;
     z-index: 10;
   }
 
-  /* The page/content lives in the last column with NO extra offsets */
-  .page{
-    grid-column: 4 !important;  /* the content column */
-    margin: 0 !important;
-    padding: 0 !important;
+  /* Reserve space for the sidebar with padding (not margin) so the main
+     remains centered on very wide monitors. */
+  .initial-content{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
   }
-  .page__inner{ margin: 0 !important; padding: 0 !important; }
 }
 
-/* Optional: gently tighten the gap on ultra-wide monitors */
-@media (min-width:1600px){
-  :root{
-    --sidebar-gap: 8px;
-    --page-gutter: 20px;
-  }
-}
+
