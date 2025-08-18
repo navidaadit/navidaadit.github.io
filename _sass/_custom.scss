@@ -396,3 +396,16 @@
 
 /* Ensure sidebar stacks above content when dropdown is open */
 .sidebar{ position: relative !important; z-index: 2000 !important; }
+
+/* === Reserve space for fixed left sidebar (iPad & up) === */
+@media (min-width:1024px){
+  /* match the theme's sidebar max width (≈250px) */
+  .sidebar{ width:250px !important; }
+
+  /* push the main content to the right of the sidebar + a comfy gutter */
+  .initial-content{ padding-left: calc(250px + 28px) !important; } /* tweak 28px if you want more/less gap */
+
+  /* make sure we don't double-pad if the wrapper adds its own spacing */
+  #main{ padding-left: 0 !important; }
+}
+
