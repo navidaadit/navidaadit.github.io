@@ -1,6 +1,6 @@
 # Basic Site Settings
 locale: "en-US"
-site_theme: "air"
+site_theme: "air_light"
  
 # Keep a good SEO title but DON'T show it in the navbar (see masthead_title below)
 title: "Navid Anjum Aadit"
