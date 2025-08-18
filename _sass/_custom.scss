@@ -398,9 +398,9 @@
 @media (min-width:1024px){
   :root{
     --masthead-h: 70px;      /* site header height */
-    --sidebar-w: 220px;      /* actual sidebar width */
+    --sidebar-w: 320px;      /* actual sidebar width */
     --sidebar-gap: 16px;     /* space between sidebar and content */
-    --page-gutter: 60px;     /* distance from screen’s left edge */
+    --page-gutter: 500px;     /* distance from screen’s left edge */
   }
 
   /* Sidebar fixed under the masthead, no floats */
