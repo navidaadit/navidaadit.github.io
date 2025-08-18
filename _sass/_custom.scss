@@ -424,7 +424,7 @@
 
 /* Optional: slightly reduce the gap on ultra-wide monitors */
 @media (min-width:1600px){
-  :root{ --sidebar-gap: 10px; }  /* tighten the space a bit */
+  :root{ --sidebar-gap: 0px; }  /* tighten the space a bit */
 }
 
 
