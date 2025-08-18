@@ -347,46 +347,45 @@
   color: #1e40af !important;
 }
 
-/* === Follow button: compact + right-aligned on mobile; menu above content === */
+/* ===== Follow button & dropdown (mobile only) ===== */
+.sidebar { position: relative; z-index: 2000; } /* keep dropdown above page content */
+
 @media (max-width: 1023px) {
-  /* Keep sidebar above cards when the menu opens */
-  .sidebar { position: relative !important; z-index: 9000 !important; }
-
-  /* Make the button compact (auto width) and push it to the right */
-  .author__urls-wrapper {
+  /* Keep the trigger on the RIGHT */
+  .author__urls-wrapper{
     position: relative !important;
-    display: block !important;        /* no full-width flex bar */
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* Tighter button (no full-width) */
+  .author__urls-wrapper .btn{
     width: auto !important;
-    margin-left: auto !important;      /* right-align inside the column */
-    text-align: right !important;
-    padding: 0 !important;
+    padding: 7px 10px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
   }
 
-  /* The actual button stays natural size */
-  .author__urls-wrapper button,
-  .author__urls-wrapper .btn {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    min-width: 0 !important;           /* prevent wide pill */
-    padding: 8px 14px;                  /* tidy */
-  }
-
-  /* Anchor dropdown to the button, ensure it overlays content */
-  .author__urls {
+  /* Dropdown anchored to the button, on top of everything */
+  .author__urls{
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
-    top: calc(100% + 10px) !important;
-    z-index: 9999 !important;          /* fix “behind content” */
-    display: none;                      /* theme toggles visibility */
-    min-width: 220px;
-    max-width: 80vw;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 8px 22px rgba(0,0,0,.15);
-    text-align: left !important;        /* items left-aligned like Robert’s */
+    top: calc(100% + 8px) !important;
+    display: none;                /* MM toggles .is--visible */
+    min-width: 220px !important;
+    background: #fff !important;  /* avoid “transparent” look */
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
+    z-index: 3000 !important;
   }
-  .author__urls.is--visible { display: block !important; }
-  .author__urls li, .author__urls a { text-align: left !important; }
+  .author__urls.is--visible{ display:block !important; }
+}
+
+/* Desktop: leave default theme behavior intact */
+@media (min-width: 1024px){
+  .author__urls-wrapper{ display:block; }
 }
