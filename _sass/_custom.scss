@@ -394,33 +394,53 @@
   }
 }
 
-
-/* ---- Sidebar + content spacing (stable on all screens) ---- */
-:root{
-  --masthead-h: 70px;      /* masthead height */
-  --sidebar-w: 200px;      /* sidebar width */
-  --sidebar-gap: 14px;     /* space between sidebar and content */
-  --page-gutter: 48px;     /* space from left edge of screen */
-}
-
-/* Desktop and up */
+/* ========= DESKTOP: fixed sidebar + exact content margin ========= */
 @media (min-width:1024px){
+  :root{
+    --masthead-h: 70px;      /* site header height */
+    --sidebar-w: 220px;      /* actual sidebar width */
+    --sidebar-gap: 16px;     /* space between sidebar and content */
+    --page-gutter: 60px;     /* distance from screen’s left edge */
+  }
+
+  /* Sidebar fixed under the masthead, no floats */
   .sidebar{
     position: fixed !important;
     top: var(--masthead-h) !important;
-    left: var(--page-gutter) !important;   /* keeps it off the very edge */
+    left: var(--page-gutter) !important;
     width: var(--sidebar-w) !important;
     float: none !important;
     z-index: 10;
   }
 
-  /* Reserve space for the sidebar with padding (not margin) so the main
-     remains centered on very wide monitors. */
-  .initial-content{
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
+  /* Kill theme floats so content doesn't drop under the sidebar */
+  #main,
+  .page,
+  .page__inner,
+  .page__content{
+    float: none !important;
+    clear: none !important;
+    display: block !important;
+  }
+
+  /* Start the content EXACTLY after the sidebar + gap */
+  .page{
+    margin-left: calc(var(--page-gutter) + var(--sidebar-w) + var(--sidebar-gap)) !important;
+    padding-left: 0 !important;
+  }
+
+  /* Remove any leftover left padding that created the “ocean” */
+  .initial-content,
+  .page__inner,
+  .page__content{
+    padding-left: 0 !important;
   }
 }
+
+/* Optional: tiny tightening on ultra-wide displays */
+@media (min-width:1600px){
+  :root{ --sidebar-gap: 12px; }
+}
+
 
 
