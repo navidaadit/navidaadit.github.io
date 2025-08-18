@@ -26,13 +26,6 @@ author:
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
   linkedin: "navidanjumaadit"
-  links:
-    - label: "UC Santa Barbara"
-      icon: "fas fa-university"
-      url: "https://www.ucsb.edu"
-    - label: "Department of ECE"
-      icon: "fas fa-microchip"
-      url: "https://www.ece.ucsb.edu"
 
 publication_category:
   books:
