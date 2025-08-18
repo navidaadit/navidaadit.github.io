@@ -345,25 +345,4 @@
   color: #1e40af !important;
 }
 
-/* =======================
-   SIDEBAR CLAMP + WRAP
-   (keeps sidebar from "bleeding" and allows long tokens to break)
-   ======================= */
-@media (min-width: 1024px){
-  .layout--single #main > .sidebar{
-    max-width: 320px !important;      /* adjust 300–340px if desired */
-    box-sizing: border-box !important; /* padding doesn't expand width */
-    width: auto !important;            /* let theme set base width */
-  }
-}
-/* Safe wrapping only inside the sidebar */
-.sidebar .author__bio,
-.sidebar .author__content p,
-.sidebar p,
-.sidebar li{
-  overflow-wrap: anywhere !important;
-  word-break: normal !important;
-  -webkit-hyphens: auto !important;
-  hyphens: auto !important;
-  text-align: left !important; /* ragged-right in the narrow column */
-}
+
