@@ -271,9 +271,7 @@
   text-align: left !important;
 }
 
-/* ---------- CENTER CAPTIONS IN FIGURE CARDS (robust) ----------
-   Use strong specificity + !important and keep block flow.
-   Works even if captions contain <em>, <a>, or other inlines. */
+/* ---------- CENTER CAPTIONS IN FIGURE CARDS (robust) ---------- */
 .page__content .figure-card > figcaption,
 .page__content .figure-card > .figcap,
 .layout--single .page__content .gallery-2x2 .figure-card > figcaption,
@@ -363,8 +361,6 @@
 
 /* Ensure readable text on white surfaces */
 body, .page, .page__content { color:#111827 !important; }
-.page__content a { color:#1d4ed8; }
-.page__content a:hover { color:#1e40af; }
 
 /* Cards, sections, and code blocks */
 .page__content .card,
@@ -403,3 +399,25 @@ label[for="theme-toggle"] {
   pointer-events: none !important;
 }
 
+/* ---------- LINKS: inherit color; turn blue only on hover/focus ---------- */
+.page__content a:not(.btn--cv):not(.no-link-style),
+.footer-bar a:not(.no-link-style) {
+  color: inherit !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.page__content a:not(.btn--cv):not(.no-link-style):visited,
+.footer-bar a:not(.no-link-style):visited {
+  color: inherit !important;
+}
+.page__content a:not(.btn--cv):not(.no-link-style):hover,
+.page__content a:not(.btn--cv):not(.no-link-style):focus-visible,
+.footer-bar a:not(.no-link-style):hover,
+.footer-bar a:not(.no-link-style):focus-visible {
+  color: #1d4ed8 !important;
+}
+.page__content a:not(.btn--cv):not(.no-link-style):active,
+.footer-bar a:not(.no-link-style):active {
+  color: #1e40af !important;
+}
