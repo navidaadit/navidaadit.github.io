@@ -406,3 +406,18 @@
 .footer-bar a:not(.no-link-style):active {
   color: #1e40af !important;
 }
+
+/* Sidebar: keep icon + text on one line (UCSB / Dept of ECE) */
+.sidebar .author__urls li,
+.sidebar .author__urls li a {
+  white-space: nowrap;
+}
+
+/* Bio: two-line layout + safe wrapping */
+.sidebar .author__bio {
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.sidebar .author__bio .bio-line-1 { font-weight: 600; }
+
