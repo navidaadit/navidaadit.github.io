@@ -178,7 +178,7 @@ For a complete and up-to-date list, visit
     <span class="pub-id">[P2]</span>
     <span class="pub-title">Pushing the Boundary of Quantum Advantage in Hard Combinatorial Optimization with Probabilistic Computers</span>  
     <span class="authors">Shuvro Chowdhury, <strong>Navid Anjum Aadit</strong>, Andrea Grimaldi, Eleonora Raimondo, Atharva Raut, P. Aaron Lott, Johan H. Mentink, Marek M. Rams, Federico Ricci-Tersenghi, Massimo Chiappini, et al.</span>  
-    <span class="pub-venue"><em>arXiv:2503.10302</em></span> (2025). <span class="pub-notes">In final review at <em>Nature Communications</em>.</span>
+    <span class="pub-venue"><em>arXiv:2503.10302</em></span> (2025). <span class="pub-notes">To appear at <em>Nature Communications</em>.</span>
     <div class="badges"><a href="https://arxiv.org/abs/2503.10302">Paper</a></div>
   </li>
 </ul>
