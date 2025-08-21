@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://navidaadit.github.io/sitemap.xml
