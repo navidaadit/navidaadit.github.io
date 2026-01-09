@@ -1,12 +1,12 @@
 # Basic Site Settings
 locale: "en-US"
 site_theme: "air"
- 
+
 # Keep a good SEO title but DON'T show it in the navbar (see masthead_title below)
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: &description "PhD Candidate, UCSB — Probabilistic Computing, Ising Machines, AI/ML, Quantum Computing"
+description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification; Probabilistic computing (p-bits), Ising/Boltzmann machines"
 
 url: https://navidaadit.github.io
 baseurl: ""
@@ -19,14 +19,14 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  # Two-line bio: first line fixed text, second line concise topics
+  # 4-line bio under the headshot
   bio: >-
-    <span class="bio-line-1">PhD Candidate, UCSB</span><br>
-    <span class="bio-line-2">Probabilistic computing •</span><br>
-    <span class="bio-line-3">Ising/Boltzmann •</span><br>
-    <span class="bio-line-4">FPGA/CMOS • ML/AI</span>
-  location: "UC Santa Barbara"
-  employer: "Department of ECE"
+    <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
+    <span class="bio-line-2">3D chips •</span><br>
+    <span class="bio-line-3">Multi-chiplet verification •</span><br>
+    <span class="bio-line-4">System measurement • Probabilistic computing</span>
+  location: "Stanford, CA"
+  employer: "Stanford University"
   email: "maadit@ucsb.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
