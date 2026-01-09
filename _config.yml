@@ -6,7 +6,7 @@ site_theme: "air"
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification; Probabilistic computing, Ising/Boltzmann machines"
+description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification;\\ Probabilistic computing, Ising/Boltzmann machines"
 
 url: https://navidaadit.github.io
 baseurl: ""
@@ -27,7 +27,7 @@ author:
     <span class="bio-line-4">System measurement • Probabilistic computing</span>
   location: "Stanford, CA"
   employer: "Stanford University"
-  email: "maadit@ucsb.edu"
+  email: "navidanj@stanford.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
   linkedin: "navidanjumaadit"
