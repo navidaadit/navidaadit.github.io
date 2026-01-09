@@ -44,34 +44,35 @@ author_profile: true
 </style>
 
 <div class="research-lead">
-I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</strong> with <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> (<strong>Ising/Boltzmann machines</strong>) and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>. My approach is <strong>full-stack</strong> — device physics → architectures → algorithms — advancing from single <abbr title="Field-Programmable Gate Array">FPGA</abbr> prototypes to multi-FPGA <strong>asynchronous</strong> fabrics targeting <strong>million-node</strong> p-computers.
+My current work supports the <strong>Scale AI</strong> effort under the <strong>Microelectronics Commons</strong> program, focused on <strong>3D chip design execution</strong> and <strong>system measurement &amp; verification</strong> for large-scale <strong>“Illusion” multi-chiplet</strong> designs.<br><br>
+Previously, I built <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</strong> with <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> (<strong>Ising/Boltzmann machines</strong>) and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>.
 </div>
 
 ## Research areas
 
 <div class="grid-3">
   <div class="card">
-    <h4>Distributed probabilistic computing</h4>
+    <h4>3D multi-chip systems & verification</h4>
     <ul>
-      <li>Balanced multi-chip mapping via probabilistic Potts partitioning</li>
-      <li>Asynchronous, latency-tolerant links that preserve solution quality</li>
-      <li>Roadmap and measurements toward 100k–1M+ p-bits</li>
+      <li>3D chip design execution and integration workflows</li>
+      <li>System measurement &amp; validation of silicon/prototypes</li>
+      <li>Verification strategies for large “Illusion” multi-chiplet systems</li>
     </ul>
   </div>
   <div class="card">
-    <h4>Probabilistic Generative AI & ML</h4>
+    <h4>Robust system measurement & bring-up</h4>
     <ul>
-      <li>Hardware-aware Deep Boltzmann Machines (DBMs) and EBMs</li>
-      <li>Contrastive-divergence at extreme sweep counts</li>
-      <li>Neural Quantum States (NQS) for quantum & scientific data</li>
+      <li>End-to-end measurement planning (test hooks → metrics)</li>
+      <li>Debug workflows spanning RTL/emulation to lab instruments</li>
+      <li>Scaling-aware validation: corner cases, failure modes, and observability</li>
     </ul>
   </div>
   <div class="card">
-    <h4>Quantum-inspired optimization & sampling</h4>
+    <h4>Probabilistic computing (prior work)</h4>
     <ul>
-      <li>Sparse fabrics that emulate dense couplings efficiently</li>
-      <li>Higher-order couplers to improve prefactors and scaling</li>
-      <li>APT, SQA, and non-local MC for hard instances</li>
+      <li>p-bit based Ising/Boltzmann machines on CMOS/FPGA</li>
+      <li>Distributed, latency-tolerant fabrics for extreme-scale sampling</li>
+      <li>Applications: optimization, energy-based ML, AI sampling</li>
     </ul>
   </div>
 </div>
@@ -80,35 +81,32 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 
 <div class="grid-3">
   <div class="card">
-    <h4>Device / physical layer</h4>
+    <h4>Silicon / system layer</h4>
     <ul>
-      <li>Physics-inspired <strong>p-bits</strong> (CMOS today; sMTJs next)</li>
-      <li>Monte-Carlo-faithful device models and noise tuning</li>
-      <li>Quality tracked by energy / free-energy metrics</li>
-      <li>Tight device-to-architecture co-design loops</li>
+      <li>3D integration constraints: testability, observability, bring-up</li>
+      <li>Measurement-driven iteration loops (hardware ↔ models)</li>
+      <li>Robustness: fault isolation and scaling bottlenecks</li>
     </ul>
   </div>
   <div class="card">
     <h4>Architecture</h4>
     <ul>
-      <li>Sparse IMs with multiplexed dense interactions</li>
-      <li>Higher-order interactions (e.g., XORSAT) realized efficiently</li>
-      <li>Balanced partitioning & async, latency-tolerant links</li>
-      <li>Chromatic, massively parallel Gibbs updates</li>
+      <li>Multi-chiplet partitioning and communication-aware design</li>
+      <li>Verification-friendly interfaces and debug visibility</li>
+      <li>Distributed probabilistic fabrics: async, delay-tolerant links (prior)</li>
     </ul>
   </div>
   <div class="card">
-    <h4>Algorithms</h4>
+    <h4>Algorithms / workflows</h4>
     <ul>
-      <li>SA / PT with non-local moves (ICM) at scale</li>
-      <li>Simulated Quantum Annealing (SQA)</li>
-      <li>DBM/EBM training and NQS sampling</li>
-      <li>Large-sweep, hardware-aware learning loops</li>
+      <li>Validation workflows across abstraction levels</li>
+      <li>Performance/robustness characterization with system-level metrics</li>
+      <li>SA/PT/ICM/SQA and hardware-aware learning loops (prior)</li>
     </ul>
   </div>
 </div>
 
-## Key figures of merit
+## Selected figures of merit (prior p-computer work)
 
 <div class="stat-row">
   <span class="stat-badge">1500B flips/s (measured)</span>
@@ -117,10 +115,9 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
   <span class="stat-badge">6-FPGA UCSB: ~50k p-bits (async links)</span>
   <span class="stat-badge">Synthesized 1M p-bits on 18× VP1902 (Siemens)</span>
   <span class="stat-badge">4,264 p-bits / ≈30k params (DBM)</span>
-  <span class="stat-badge">Multi-FPGA system to 1M+ nodes</span>
 </div>
 
-## Spotlight
+## Spotlight (selected prior work)
 
 <div class="gallery-2x2">
   <figure class="figure-card">
@@ -145,9 +142,12 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
   </figure>
 </div>
 
-## Methods I use 
+## Methods I use
 
 <ul class="pill-list">
+  <li>3D chip integration workflows</li>
+  <li>System measurement &amp; characterization</li>
+  <li>Hardware validation &amp; debug (RTL → system)</li>
   <li>Massively parallel (graph-colored) Gibbs</li>
   <li>Simulated Annealing (SA)</li>
   <li>Adaptive Parallel Tempering (APT)</li>
@@ -160,9 +160,10 @@ I build <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</
 </ul>
 
 ## Current directions
-- <strong>Million-node p-computers:</strong> partitioning and interconnects that preserve solution quality at extreme scale.  
-- <strong>Probabilistic AI &amp; NQS at scale:</strong> compact, hardware-efficient learning for scientific/quantum data.  
-- <strong>Heterogeneous p-computers:</strong> CMOS + sMTJs to keep improving flips/J and density.
+
+- <strong>3D chips & multi-chiplet verification:</strong> design execution plus system measurement/verification for large-scale “Illusion” multi-chiplet systems.  
+- <strong>Robust, scalable measurement:</strong> validation workflows that remain effective as systems scale in complexity and integration density.  
+- <strong>Cross-layer co-design:</strong> interfaces and architectures shaped by what is measurable, verifiable, and debuggable in real hardware.
 
 <div class="small-note">
 Full publication list: <a href="/publications/">Publications</a>
