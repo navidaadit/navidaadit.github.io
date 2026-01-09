@@ -34,27 +34,27 @@ author_profile: true
   </a>
 </p>
 
-I am a PhD candidate in **Electrical & Computer Engineering** at the **University of California, Santa Barbara** (expected Dec 2025).
+I am a **Postdoctoral Scholar** in **Electrical Engineering** at **Stanford University**, working with **Prof. Subhasish Mitra** in the **Robust Systems Group** (starting **January 2026**).
 
-I work on **probabilistic computing** with p-bits and **extreme-scale distributed architectures**, building **Ising/Boltzmann machines** on **CMOS/FPGA platforms** and developing hardware–software co-design for scalable **multi-chip systems**. Applications include **combinatorial optimization**, **energy-based machine learning**, **AI sampling**, and **quantum-inspired non-local algorithms**.
+I completed my **PhD in Electrical & Computer Engineering** at the **University of California, Santa Barbara** (**Dec 2025**), where I worked on **probabilistic computing** with p-bits and **extreme-scale distributed architectures** for **Ising/Boltzmann machines** on **CMOS/FPGA platforms**.
 
-My recent work scales p-computers across **multi-FPGA systems** with delay-tolerant communication and balanced partitioning to sustain solution quality at unprecedented sizes.
+At Stanford, my current work focuses on the **Scale AI project** under the **Microelectronics Commons** program, including **3D chip design execution** and **system measurement & verification** for large-scale **“Illusion” multi-chiplet** designs.
 
 <ul class="keyword-pills">
+  <li>3D chips</li>
+  <li>Multi-chiplet systems</li>
+  <li>System measurement</li>
+  <li>Hardware verification</li>
   <li>Probabilistic computing</li>
-  <li>Quantum computing</li>
   <li>Ising/Boltzmann machines</li>
-  <li>Distributed chips</li>
-  <li>FPGA accelerators</li>
-  <li>Energy-based ML</li>
 </ul>
 
 ---
 
 ## Research Highlights
-- **Distributed probabilistic computing** — Interconnect multi-FPGA / heterogeneous hardware over ultra-low-latency links; ~**1M p-bits** scaling.
-- **Probabilistic AI & ML** — Ising/Boltzmann samplers for generative AI, Bayesian inference, and scalable energy-based ML.
-- **Quantum-inspired optimization** — Hardware–software co-design blending probabilistic systems with quantum-classical workflows.
+- **3D multi-chip systems & verification** — Design execution for **3D chips** and **system measurement/verification** of large-scale **“Illusion” multi-chiplet** architectures.
+- **Extreme-scale architectures** — Building and analyzing scalable hardware systems where **interconnect + partitioning + verification** are first-class constraints.
+- **Probabilistic computing (PhD work)** — p-bit based **Ising/Boltzmann machines** for **combinatorial optimization**, **energy-based ML**, **AI sampling**, and **quantum-inspired algorithms**.
 
 ---
 
