@@ -44,8 +44,8 @@ author_profile: true
 </style>
 
 <div class="research-lead">
-My current work supports the <strong>Scale AI</strong> effort under the Microelectronics Commons program, focused on 3D chip design execution and system measurement &amp; verification for large-scale “Illusion” multi-chiplet designs.<br><br>
-Previously, I built CMOS/FPGA systems for probabilistic computing with <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> (Ising/Boltzmann machines) and distributed architectures for fast sampling, learning, and quantum-inspired optimization.
+My current work supports the <strong>Scale AI</strong> effort under the <strong>Microelectronics Commons</strong> program, focused on <strong>3D chip design execution</strong> and <strong>system measurement &amp; verification</strong> for large-scale “Illusion” multi-chiplet designs.<br><br>
+Previously, I built <strong>CMOS/FPGA systems</strong> for <strong>probabilistic computing</strong> with <abbr title="probabilistic bit (binary stochastic neuron)">p-bits</abbr> (<strong>Ising/Boltzmann machines</strong>) and <strong>distributed architectures</strong> for fast <strong>sampling</strong>, <strong>learning</strong>, and <strong>quantum-inspired optimization</strong>.
 </div>
 
 ## Research areas
@@ -161,9 +161,9 @@ Previously, I built CMOS/FPGA systems for probabilistic computing with <abbr tit
 
 ## Current directions
 
-- <strong>3D chips & multi-chiplet verification:</strong> design execution plus system measurement/verification for large-scale “Illusion” multi-chiplet systems.  
-- Robust, scalable measurement: validation workflows that remain effective as systems scale in complexity and integration density.  
-- Cross-layer co-design: interfaces and architectures shaped by what is measurable, verifiable, and debuggable in real hardware.
+- <strong>3D chips & multi-chiplet verification</strong>: design execution plus system measurement/verification for large-scale “Illusion” multi-chiplet systems.  
+- <strong>Robust, scalable measurement</strong>: validation workflows that remain effective as systems scale in complexity and integration density.  
+- <strong>Cross-layer co-design</strong>: interfaces and architectures shaped by what is measurable, verifiable, and debuggable in real hardware.
 
 <div class="small-note">
 Full publication list: <a href="/publications/">Publications</a>
