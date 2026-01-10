@@ -21,11 +21,12 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  # Sidebar bio: keep "Probabilistic computing" on SAME LINE as "System measurement"
+  # Sidebar bio: Probabilistic computing on its own line
   bio: >-
     <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
     <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
-    <span class="bio-line-3">System measurement • Probabilistic computing</span>
+    <span class="bio-line-3">System measurement</span><br>
+    <span class="bio-line-4">Probabilistic computing</span>
   location: "Stanford, CA"
   employer: "Stanford University"
   email: "navidanj@stanford.edu"
