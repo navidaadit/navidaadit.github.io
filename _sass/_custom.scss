@@ -8,6 +8,7 @@
 .initial-content,
 .page__inner,
 .page {
+  /* clamp on very wide monitors to stop overflow/stretch */
   max-width: min(1400px, 90vw);
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +17,7 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root { --content-max: 75%; }
+:root { --content-max: 75%; } /* simple size var (not theme-related) */
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -35,38 +36,38 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
+/* Desktop: consistent avatar */
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
+/* Phone: slightly smaller avatar, bio under photo, clean stacking */
+@media (max-width: 640px){
+  .author__avatar img { width: 110px; height: 110px; }
+  .author__content, .author__bio { display:block; margin-top:8px; }
+  .author__content p, .author__bio { text-align:left !important; }
+}
 
-/* ===== Sidebar affiliation logos (UPDATED) ===== */
-/* Make them sit under the avatar, LEFT aligned, not “spread out” */
-.sidebar .affil-logos{
-  display: flex !important;
+/* ===== Sidebar affiliation logos (tight, left-aligned; no spreading) ===== */
+.affil-logos{
+  display: inline-flex !important;     /* shrink-wrap row */
   align-items: center !important;
-  justify-content: flex-start !important;  /* key: no spreading */
+  justify-content: flex-start !important;
   gap: 10px !important;
-  width: 100% !important;                 /* avoid weird centering */
-  margin: 10px 0 8px 0 !important;
+  margin: 8px 0 10px 0 !important;     /* below avatar, above bio lines */
   padding: 0 !important;
 }
-.sidebar .affil-logo{
+.affil-logo{
   width: 18px !important;
   height: 18px !important;
   object-fit: contain !important;
   display: block !important;
   opacity: 0.95;
 }
-
-/* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
-  .author__avatar img { width: 110px; height: 110px; }
-  .author__content, .author__bio { display:block; margin-top:8px; }
-  .author__content p, .author__bio { text-align:left !important; }
-  .sidebar .affil-logo { width: 16px !important; height: 16px !important; }
+  .affil-logo{ width: 16px !important; height: 16px !important; }
 }
 
 /* Remove any built-in hero from the theme */
@@ -79,8 +80,8 @@
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 0 auto;
-  border-bottom: none;
+  margin: 0 auto 0 auto;  /* no bottom margin */
+  border-bottom: none;    /* no line */
 }
 
 /* ---------- Download CV button ---------- */
@@ -365,18 +366,20 @@
 }
 
 /* === Follow button: right edge, no effect on text alignment, button hugs text === */
-.author__urls-wrapper { text-align: initial !important; }
+.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
 
 /* Mobile/tablet only */
 @media (max-width:1023px){
+  /* Make the wrapper shrink to its contents and sit on the right */
   .author__urls-wrapper{
-    position: relative !important;
+    position: relative !important;   /* anchor for dropdown */
     display: block !important;
-    width: max-content !important;
-    margin-left: auto !important;
+    width: max-content !important;   /* shrink to button width */
+    margin-left: auto !important;    /* push to right edge */
     padding: 0 !important;
   }
 
+  /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
     display: inline-block !important;
     width: auto !important;
@@ -385,13 +388,14 @@
     white-space: nowrap !important;
   }
 
+  /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
     z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
@@ -400,6 +404,7 @@
   }
   .author__urls.is--visible{ display: block !important; }
 
+  /* Keep the bio and everything else left-aligned */
   .sidebar .author__content,
   .sidebar .author__content *,
   .sidebar .author__bio{
