@@ -14,27 +14,19 @@ url: https://navidaadit.github.io
 baseurl: ""
 repository: "navidaadit/navidaadit.github.io"
 
-# Hide the brand text in the masthead (prevents your name showing again at top-left)
-masthead_title: ""   # leave empty to suppress navbar title text
+# Show brand text in the masthead (we will append logos via CSS)
+masthead_title: "Navid Anjum Aadit"
 # logo: "/images/logo.svg"  # (optional) small logo instead of text
 
 author:
-  # Show your name + school logos beside it (sidebar header)
-  name: >-
-    Navid Anjum Aadit
-    <img class="uni-logo" src="/images/logos/buet.png" alt="BUET">
-    <img class="uni-logo" src="/images/logos/ucsb.png" alt="UCSB">
-    <img class="uni-logo" src="/images/logos/stanford.png" alt="Stanford">
-
+  name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-
   # Sidebar bio: Probabilistic computing on its own line
   bio: >-
     <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
     <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
     <span class="bio-line-3">System measurement</span><br>
     <span class="bio-line-4">Probabilistic computing</span>
-
   location: "Stanford, CA"
   employer: "Stanford University"
   email: "navidanj@stanford.edu"
