@@ -6,9 +6,9 @@ site_theme: "air"
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: >-
-  Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification;
-  Probabilistic computing, Ising/Boltzmann machines
+
+# SEO description: keep it SINGLE LINE (newlines won't render anyway)
+description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification; Probabilistic computing, Ising/Boltzmann machines"
 
 url: https://navidaadit.github.io
 baseurl: ""
@@ -21,12 +21,11 @@ masthead_title: ""   # leave empty to suppress navbar title text
 author:
   name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
-  # 4-line bio under the headshot
+  # Sidebar bio: keep "Probabilistic computing" on SAME LINE as "System measurement"
   bio: >-
     <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
-    <span class="bio-line-2">3D chips •</span><br>
-    <span class="bio-line-3">Multi-chiplet verification •</span><br>
-    <span class="bio-line-4">System measurement • Probabilistic computing</span>
+    <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
+    <span class="bio-line-3">System measurement • Probabilistic computing</span>
   location: "Stanford, CA"
   employer: "Stanford University"
   email: "navidanj@stanford.edu"
@@ -133,7 +132,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
       comment: true
   # _talks
   - scope:
