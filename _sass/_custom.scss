@@ -50,22 +50,22 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* ---------- Sidebar affiliation logos (safe inside <p>) ---------- */
+/* --- Affiliation logos (under headshot) --- */
 .affil-logos{
-  display: inline-flex;
+  display: flex;
+  justify-content: center;   /* centers under the avatar */
   align-items: center;
-  justify-content: flex-start;
   gap: 10px;
-  margin: 6px 0 10px 0;
-  padding: 0;
+  margin: 10px 0 10px 0;
 }
+
 .affil-logo{
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
-  display: block;
-  opacity: 0.95;
+  display: inline-block;
 }
+
 
 /* Remove any built-in hero from the theme */
 .page__hero,
