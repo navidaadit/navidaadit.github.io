@@ -43,11 +43,21 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* NEW: inline school logos beside your name */
+.author__name img.uni-logo {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  vertical-align: -3px;
+}
+
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
+  .author__name img.uni-logo { width: 16px; height: 16px; vertical-align: -2px; }
 }
 
 /* Remove any built-in hero from the theme */
