@@ -19,14 +19,22 @@ masthead_title: ""   # leave empty to suppress navbar title text
 # logo: "/images/logo.svg"  # (optional) small logo instead of text
 
 author:
-  name: ""                      # hide name under the headshot
+  # Show your name + school logos beside it (sidebar header)
+  name: >-
+    Navid Anjum Aadit
+    <img class="uni-logo" src="/images/logos/buet.png" alt="BUET">
+    <img class="uni-logo" src="/images/logos/ucsb.png" alt="UCSB">
+    <img class="uni-logo" src="/images/logos/stanford.png" alt="Stanford">
+
   avatar: "headshot.jpeg"
+
   # Sidebar bio: Probabilistic computing on its own line
   bio: >-
     <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
     <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
     <span class="bio-line-3">System measurement</span><br>
     <span class="bio-line-4">Probabilistic computing</span>
+
   location: "Stanford, CA"
   employer: "Stanford University"
   email: "navidanj@stanford.edu"
