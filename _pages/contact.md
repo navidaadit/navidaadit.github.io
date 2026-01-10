@@ -22,19 +22,21 @@ address{font-style:normal;line-height:1.55}
     <h3>Email</h3>
     <dl class="kv">
       <dt>Primary</dt>
-      <dd><a href="mailto:maadit@ucsb.edu">maadit@ucsb.edu</a></dd>
+      <dd><a href="mailto:navidanj@stanford.edu">navidanj@stanford.edu</a></dd>
       <dt>Personal</dt>
       <dd><a href="mailto:navidanjumaadit@gmail.com">navidanjumaadit@gmail.com</a></dd>
+      <dt>UCSB (legacy)</dt>
+      <dd><a href="mailto:maadit@ucsb.edu">maadit@ucsb.edu</a></dd>
     </dl>
   </div>
 
   <div class="card">
     <h3>Mailing Address</h3>
     <address>
-      1160 Harold Frank Hall<br>
-      Department of Electrical &amp; Computer Engineering<br>
-      University of California, Santa Barbara<br>
-      Santa Barbara, CA 93106, USA
+      Room 422, William H. Gates Building<br>
+      353 Jane Stanford Way<br>
+      Stanford University<br>
+      Stanford, CA 94305, USA
     </address>
   </div>
 </div>
