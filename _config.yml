@@ -2,36 +2,31 @@
 locale: "en-US"
 site_theme: "air"
 
-# Keep a good SEO title but DON'T show it in the navbar (see masthead_title below)
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
 
-# SEO description: keep it SINGLE LINE (newlines won't render anyway)
 description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification; Probabilistic computing, Ising/Boltzmann machines"
 
 url: https://navidaadit.github.io
 baseurl: ""
 repository: "navidaadit/navidaadit.github.io"
 
-# Hide the brand text in the masthead (prevents your name showing again at top-left)
-masthead_title: ""   # leave empty to suppress navbar title text
-# logo: "/images/logo.svg"  # (optional) small logo instead of text
+masthead_title: ""
 
 author:
-  name: ""                      # hide name under the headshot
+  name: ""
   avatar: "headshot.jpeg"
-  # Sidebar bio: add logos row under the lines
   bio: >-
-    <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
-    <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
-    <span class="bio-line-3">System measurement</span><br>
-    <span class="bio-line-4">Probabilistic computing</span>
     <div class="affil-logos" aria-label="Affiliations">
       <img class="affil-logo" src="/images/logos/stanford.png" alt="Stanford University">
       <img class="affil-logo" src="/images/logos/ucsb.png" alt="UC Santa Barbara">
       <img class="affil-logo" src="/images/logos/buet.png" alt="BUET">
     </div>
+    <span class="bio-line-1">Postdoctoral Scholar, Stanford</span><br>
+    <span class="bio-line-2">3D chips • Multi-chiplet verification</span><br>
+    <span class="bio-line-3">System measurement</span><br>
+    <span class="bio-line-4">Probabilistic computing</span>
   location: "Stanford, CA"
   employer: "Stanford University"
   email: "navidanj@stanford.edu"
@@ -95,7 +90,6 @@ collections:
     permalink: /:collection/:path/
 
 defaults:
-  # _posts
   - scope:
       path: ""
       type: posts
@@ -106,14 +100,12 @@ defaults:
       comments: true
       share: true
       related: true
-  # _pages
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: true
-  # _teaching
   - scope:
       path: ""
       type: teaching
@@ -122,7 +114,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _publications
   - scope:
       path: ""
       type: publications
@@ -131,7 +122,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
   - scope:
       path: ""
       type: portfolio
@@ -139,7 +129,6 @@ defaults:
       layout: single
       author_profile: true
       comment: true
-  # _talks
   - scope:
       path: ""
       type: talks
@@ -148,11 +137,9 @@ defaults:
       author_profile: true
       share: true
 
-# Outputting
 permalink: /:categories/:title/
 timezone: Etc/UTC
 
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -161,7 +148,6 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
-# Archives
 category_archive:
   type: liquid
   path: /categories/
@@ -169,7 +155,6 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# HTML Compression
 compress_html:
   clippings: all
   ignore:
