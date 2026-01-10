@@ -2,21 +2,26 @@
 locale: "en-US"
 site_theme: "air"
 
+# Keep a good SEO title but DON'T show it in the navbar (see masthead_title below)
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
 
+# SEO description: keep it SINGLE LINE (newlines won't render anyway)
 description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification; Probabilistic computing, Ising/Boltzmann machines"
 
 url: https://navidaadit.github.io
 baseurl: ""
 repository: "navidaadit/navidaadit.github.io"
 
-masthead_title: ""
+# Hide the brand text in the masthead (prevents your name showing again at top-left)
+masthead_title: ""   # leave empty to suppress navbar title text
+# logo: "/images/logo.svg"  # (optional) small logo instead of text
 
 author:
-  name: ""
+  name: ""                      # hide name under the headshot
   avatar: "headshot.jpeg"
+  # Sidebar bio: logos FIRST (under avatar), then text
   bio: >-
     <div class="affil-logos" aria-label="Affiliations">
       <img class="affil-logo" src="/images/logos/stanford.png" alt="Stanford University">
@@ -90,6 +95,7 @@ collections:
     permalink: /:collection/:path/
 
 defaults:
+  # _posts
   - scope:
       path: ""
       type: posts
@@ -100,12 +106,14 @@ defaults:
       comments: true
       share: true
       related: true
+  # _pages
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: true
+  # _teaching
   - scope:
       path: ""
       type: teaching
@@ -114,6 +122,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+  # _publications
   - scope:
       path: ""
       type: publications
@@ -122,6 +131,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+  # _portfolio
   - scope:
       path: ""
       type: portfolio
@@ -129,6 +139,7 @@ defaults:
       layout: single
       author_profile: true
       comment: true
+  # _talks
   - scope:
       path: ""
       type: talks
@@ -137,9 +148,11 @@ defaults:
       author_profile: true
       share: true
 
+# Outputting
 permalink: /:categories/:title/
 timezone: Etc/UTC
 
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -148,6 +161,7 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
+# Archives
 category_archive:
   type: liquid
   path: /categories/
@@ -155,7 +169,9 @@ tag_archive:
   type: liquid
   path: /tags/
 
+# HTML Compression
 compress_html:
   clippings: all
   ignore:
     envs: development
+
