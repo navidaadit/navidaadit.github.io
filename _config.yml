@@ -6,7 +6,9 @@ site_theme: "air"
 title: "Navid Anjum Aadit"
 title_separator: "-"
 name: &name "Navid Anjum Aadit"
-description: &description "Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification;\\ Probabilistic computing, Ising/Boltzmann machines"
+description: >-
+  Postdoctoral Scholar, Stanford — 3D chips, multi-chiplet systems, system measurement & verification;
+  Probabilistic computing, Ising/Boltzmann machines
 
 url: https://navidaadit.github.io
 baseurl: ""
