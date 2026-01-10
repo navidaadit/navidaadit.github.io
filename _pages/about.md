@@ -34,11 +34,11 @@ author_profile: true
   </a>
 </p>
 
-I am a **Postdoctoral Scholar** in **Electrical Engineering** at **Stanford University**, working with **Prof. Subhasish Mitra** in the **Robust Systems Group** (starting **January 2026**).
+I am a **Postdoctoral Scholar** in Electrical Engineering at **Stanford University**, working with Prof. Subhasish Mitra in the Robust Systems Group (starting January 2026).
 
-I completed my **PhD in Electrical & Computer Engineering** at the **University of California, Santa Barbara** (**Dec 2025**), where I worked on **probabilistic computing** with p-bits and **extreme-scale distributed architectures** for **Ising/Boltzmann machines** on **CMOS/FPGA platforms**.
+I completed my PhD in Electrical & Computer Engineering at the **University of California, Santa Barbara** (Dec 2025), where I worked on **probabilistic computing** with p-bits and **extreme-scale distributed architectures** for Ising/Boltzmann machines on CMOS/FPGA platforms.
 
-At Stanford, my current work focuses on the **Scale AI project** under the **Microelectronics Commons** program, including **3D chip design execution** and **system measurement & verification** for large-scale **“Illusion” multi-chiplet** designs.
+At Stanford, my current work focuses on the **Scale AI project** under the Microelectronics Commons program, including **3D chip design execution** and **system measurement & verification** for large-scale “Illusion” multi-chiplet designs.
 
 <ul class="keyword-pills">
   <li>3D chips</li>
@@ -52,9 +52,9 @@ At Stanford, my current work focuses on the **Scale AI project** under the **Mic
 ---
 
 ## Research Highlights
-- **3D multi-chip systems & verification** — Design execution for **3D chips** and **system measurement/verification** of large-scale **“Illusion” multi-chiplet** architectures.
-- **Extreme-scale architectures** — Building and analyzing scalable hardware systems where **interconnect + partitioning + verification** are first-class constraints.
-- **Probabilistic computing (PhD work)** — p-bit based **Ising/Boltzmann machines** for **combinatorial optimization**, **energy-based ML**, **AI sampling**, and **quantum-inspired algorithms**.
+- **Distributed probabilistic computing** — Interconnect multi-FPGA / heterogeneous hardware over ultra-low-latency links; ~**1M p-bits** scaling.
+- **Probabilistic AI & ML** — Ising/Boltzmann samplers for generative AI, Bayesian inference, and scalable energy-based ML.
+- **Quantum-inspired optimization** — Hardware–software co-design blending probabilistic systems with quantum-classical workflows.
 
 ---
 
