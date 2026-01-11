@@ -43,7 +43,6 @@
   object-fit: cover;
   border-radius: 50%;
 }
-
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
@@ -51,29 +50,21 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (CENTERED RELATIVE TO HEADSHOT WIDTH, NO EXTRA SPACING) --- */
-/* IMPORTANT: This centers to the AVATAR width, not the sidebar width. */
+/* --- Affiliation logos (tight + LEFT aligned, no extra spacing) --- */
 .sidebar .affil-logos{
-  width: 150px;                 /* match .author__avatar img */
-  margin: 6px auto 0 auto;       /* centers the 150px block under avatar */
-  display: flex;
-  justify-content: center;       /* center icons inside that 150px block */
+  display: inline-flex;     /* inline so it doesn’t create a big block gap */
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  padding: 0;
   line-height: 1;
+  margin: 0;                /* no added whitespace */
+  padding: 0;
 }
-
 .sidebar .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: block;
-}
-
-/* Mobile: match the smaller avatar */
-@media (max-width: 640px){
-  .sidebar .affil-logos{ width: 110px; }
+  display: inline-block;
 }
 
 /* Remove any built-in hero from the theme */
