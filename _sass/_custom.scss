@@ -43,6 +43,7 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
@@ -50,28 +51,29 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (CENTERED UNDER HEADSHOT, NO EXTRA SPACING) --- */
-/* Keep sidebar text left-aligned, but the logo row itself centered */
-.sidebar .author__bio { text-align: left !important; }
-
-/* Make the logo row a full-width block, center icons inside it */
-.sidebar .author__bio .affil-logos{
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 0 !important;      /* kills the weird extra vertical spacing */
+/* --- Affiliation logos (CENTERED RELATIVE TO HEADSHOT WIDTH, NO EXTRA SPACING) --- */
+/* IMPORTANT: This centers to the AVATAR width, not the sidebar width. */
+.sidebar .affil-logos{
+  width: 150px;                 /* match .author__avatar img */
+  margin: 6px auto 0 auto;       /* centers the 150px block under avatar */
+  display: flex;
+  justify-content: center;       /* center icons inside that 150px block */
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  line-height: 1;
 }
 
-/* Inline icons, tight spacing, no layout surprises */
-.sidebar .author__bio .affil-logo{
+.sidebar .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: inline-block !important;
-  vertical-align: middle;
-  margin: 0 6px !important;       /* controls horizontal spacing */
+  display: block;
+}
+
+/* Mobile: match the smaller avatar */
+@media (max-width: 640px){
+  .sidebar .affil-logos{ width: 110px; }
 }
 
 /* Remove any built-in hero from the theme */
