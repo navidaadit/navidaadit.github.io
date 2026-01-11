@@ -36,55 +36,54 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
-/* Desktop: consistent avatar */
-.author__avatar {
-  display: flex;
-  justify-content: center; /* hard-center the avatar inside sidebar */
+/* IMPORTANT: center the whole avatar BOX so the border/ring moves with the image */
+.author__avatar{
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Desktop: consistent avatar */
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
+  display: block;
 }
 
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
+  .author__avatar{ width: 110px; }
   .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos: align with avatar LEFT EDGE (desktop + mobile) --- */
-/* Key idea:
-   - Create a rail the same width as the avatar (150px / 110px)
-   - Center that rail in the sidebar (same as avatar)
-   - Left-align logos inside the rail, so their left edge matches avatar’s left edge
-*/
+/* --- Affiliation logos (same horizontal offset as avatar; left aligned within avatar-width box) --- */
 .affil-logos{
-  width: 150px;              /* match desktop avatar width */
-  margin-left: auto;         /* center the rail */
-  margin-right: auto;        /* center the rail */
-  display: flex;             /* row */
-  justify-content: flex-start; /* LEFT inside the rail */
+  width: 150px;              /* match avatar box width (desktop) */
+  margin-left: auto;         /* center the box */
+  margin-right: auto;        /* center the box */
+  display: flex;             /* real flex row */
+  justify-content: flex-start; /* LEFT within that centered box => same left edge as avatar */
   align-items: center;
   gap: 10px;
   line-height: 1;
-  margin-top: 6px;           /* small breathing room under avatar */
-  margin-bottom: 0;          /* keep tight */
   padding: 0;
+  margin-top: 6px;           /* tiny breathing room; set to 0 if you want it touching */
+  margin-bottom: 0;
 }
 
 .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: inline-block;
+  display: block;
 }
 
-/* Mobile rail matches mobile avatar */
 @media (max-width: 640px){
-  .affil-logos{ width: 110px; }  /* match mobile avatar width */
+  .affil-logos{ width: 110px; }  /* match avatar box width (mobile) */
 }
 
 /* Remove any built-in hero from the theme */
