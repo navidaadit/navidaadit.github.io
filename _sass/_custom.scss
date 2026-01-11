@@ -36,14 +36,15 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR FIXES (Avatar, Bio, Alignment)
+   AUTHOR SIDEBAR FIXES (Centering Avatar & Bio)
    =========================================================== */
 
-/* 1. Avatar Image */
+/* 1. Center the Avatar Image */
 .author__avatar {
   display: block;
-  text-align: center; /* Keeps the container centered */
+  text-align: center; /* Ensures container centers the img */
 }
+
 .author__avatar img {
   width: 150px;
   height: 150px;
@@ -53,15 +54,14 @@
   display: block;
 }
 
-/* 2. Name and Bio text alignment */
-/* DESKTOP DEFAULT: Left aligned (starts from very left) */
+/* 2. Center the Name and Bio text */
 .sidebar .author__content,
 .sidebar .author__bio {
-  text-align: left !important; 
+  text-align: center !important;
   width: 100%;
 }
 
-/* 3. Logos centered under avatar (Keep this centered as it looks better under the round image) */
+/* 3. Logos centered under avatar */
 .sidebar .affil-logos{
   display: flex !important;
   width: 100% !important;
@@ -73,6 +73,7 @@
   padding: 0 !important;
   flex-wrap: nowrap !important;
 }
+
 .sidebar .affil-logo{
   width: 22px;
   height: 22px;
@@ -80,52 +81,62 @@
   display: block !important;
 }
 
-/* 4. KEY FIX: Prevent "Stanford" text from dropping to new line */
-/* Use flexbox to force Icon + Text to stay on same line */
+/* 4. KEY FIX: Keep Location/Email/Links Left-Aligned */
+/* We target the wrapper of the buttons/icons specifically */
 .sidebar .author__urls-wrapper,
 .sidebar .author__urls {
   text-align: left !important;
   width: 100%;
 }
 
-.sidebar .author__urls ul li, 
-.sidebar .author__urls ul li a {
+/* === FIX #1: Make the left-aligned contact list start flush left (no indent) === */
+.sidebar .author__urls{
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.sidebar .author__urls li{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* === FIX #2: Prevent “Stanford …” text from wrapping under the icon === */
+.sidebar .author__urls li a{
   display: flex !important;
-  align-items: flex-start !important; /* Aligns top of icon with text */
-  gap: 10px !important; /* Space between icon and text */
-  text-align: left !important;
-  width: 100% !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+}
+.sidebar .author__urls li a i,
+.sidebar .author__urls li a svg{
+  flex: 0 0 auto !important;
+  margin-top: 2px;
+}
+.sidebar .author__urls li a span,
+.sidebar .author__urls li a .label{
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
 }
 
-/* Ensure the Icon itself behaves */
-.sidebar .author__urls i {
-  display: inline-block !important;
-  width: 18px !important; /* Fixed width for alignment */
-  text-align: center !important;
-  flex-shrink: 0 !important; /* Prevents icon from getting squashed */
-  margin-top: 4px !important; /* Optical alignment with text */
-  margin-right: 0 !important; /* Gap handles spacing */
-}
-
-/* 5. Mobile Adjustments */
+/* Phone adjustments */
 @media (max-width: 640px){
-  /* Smaller avatar */
   .author__avatar img { width: 110px; height: 110px; }
   
-  /* FORCE CENTER ON MOBILE: Avatar, Name, and Bio */
-  .author__content, 
-  .author__bio,
-  .sidebar .author__content,
-  .sidebar .author__bio { 
+  /* Ensure bio text stays centered on mobile too */
+  .author__content, .author__bio { 
       display: block; 
       margin-top: 8px; 
-      text-align: center !important; /* This ensures mobile is centered */
+      text-align: center !important; 
+  }
+
+  /* === FIX #3: HARD center avatar on mobile even if theme changes layout === */
+  .layout--single .sidebar .author__avatar{
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 }
-
-/* ===========================================================
-   HERO / CONTENT / PILLS
-   =========================================================== */
 
 /* Remove any built-in hero from the theme */
 .page__hero,
@@ -143,6 +154,7 @@
 
 /* ---------- Download CV button ---------- */
 .cv-row { margin: 0.5rem 0 1rem 0; }
+
 .page__content .btn--cv {
   display: inline-block;
   background-color: #4a6fdd;
@@ -186,6 +198,7 @@
   border: 1px solid #e5e7eb;
   background: #f7fafc;
 }
+
 /* True 4:3 box via aspect-ratio so captions stay below */
 .figure-card img {
   display:block;
@@ -196,11 +209,13 @@
   object-position: center !important;
   background: transparent !important;
 }
+
 /* Optional: make an image FILL its card (good for tall rack photos) */
 .figure-card.fill img {
   object-fit: cover !important;
   object-position: center !important;
 }
+
 /* 2×2 spotlight grid */
 .gallery-2x2{
   display:grid;
@@ -208,16 +223,16 @@
   gap:12px;
   margin:.6rem 0 1.2rem;
 }
+
 /* Shorter on phones */
 @media (max-width:980px){
   .gallery-2x2{ grid-template-columns:1fr; }
 }
+
 /* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ===========================================================
-   FOOTER: single slim bar
-   =========================================================== */
+/* ---------- Footer: single slim bar ---------- */
 .page__footer,
 .page__footer::before,
 .page__footer::after {
@@ -228,7 +243,6 @@
   min-height: 0 !important;
 }
 .page__footer-follow { display: none !important; }
-
 .footer-bar {
   display: flex !important;
   align-items: center !important;
@@ -246,7 +260,7 @@
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
-/* Responsive Footer */
+/* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
@@ -343,6 +357,7 @@
   line-height: 1.35 !important;
   color: #475569 !important;
 }
+
 /* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
@@ -432,6 +447,7 @@
     padding: 0 !important;
     text-align: left !important;     /* Reset text inside button/dropdown */
   }
+
   /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
     display: inline-block !important;
@@ -440,6 +456,7 @@
     line-height: 1.2 !important;
     white-space: nowrap !important;
   }
+
   /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
     position: absolute !important;
