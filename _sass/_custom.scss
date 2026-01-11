@@ -16,7 +16,7 @@
 /* ---------- Content width cap inside right column ---------- */
 :root {
   --content-max: 75%;
-  --logos-left-offset: 10px;   /* <--- adjust this (0px, 6px, 12px, etc.) */
+  --sidebar-left-offset: 10px;  /* <-- ONE KNOB for BOTH headshot + logos */
 }
 
 /* Limit inner text width (not hero/pills/CV button) */
@@ -36,19 +36,29 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
+/* Make the headshot obey the same left offset (desktop + mobile) */
+.sidebar .author__avatar{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: var(--sidebar-left-offset);
+}
+
+/* Desktop: consistent avatar */
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (tight + LEFT aligned + left offset) --- */
+/* --- Affiliation logos (tight + LEFT aligned + same offset as headshot) --- */
 .sidebar .affil-logos{
   display: inline-flex;
   justify-content: flex-start;
@@ -56,7 +66,7 @@
   gap: 10px;
   line-height: 1;
   margin: 0;
-  margin-left: var(--logos-left-offset); /* <--- this is the offset */
+  margin-left: var(--sidebar-left-offset); /* same knob */
   padding: 0;
 }
 .sidebar .affil-logo{
