@@ -1,5 +1,5 @@
 /* ===========================================================
-   Navid Aadit — site overrides
+   Navid Aadit — Site Overrides
    =========================================================== */
 
 /* ---------- Global width ---------- */
@@ -33,9 +33,7 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR — HYBRID ALIGNMENT
-   Top (Avatar/Bio) = CENTERED
-   Bottom (Links/Loc) = LEFT
+   AUTHOR SIDEBAR — ALIGNMENT & FIXES
    =========================================================== */
 
 /* 1. Center the Avatar */
@@ -79,17 +77,41 @@
   width: 100%;
 }
 
-/* 4. Keep Location/Links LEFT Aligned (Professional Look) */
+/* 4. Keep Location/Links LEFT Aligned */
 .sidebar .author__urls-wrapper,
 .sidebar .author__urls {
   text-align: left !important;
   width: 100%;
 }
-/* Ensure the button stays normal width but container allows left text */
+
+/* --- SIDEBAR LINK FIX (Prevents "Stanford" going to new line) --- */
+.sidebar .author__urls li {
+  display: flex !important;       /* Uses Flexbox to put Icon + Text in a row */
+  align-items: center !important; /* Vertically centers them */
+  flex-wrap: nowrap !important;   /* Prevents wrapping to new line */
+  margin-bottom: 6px !important;
+}
+
+.sidebar .author__urls li a {
+  display: inline-block !important; /* Forces link to sit INLINE */
+  width: auto !important;           /* Prevents it from filling the row */
+  text-decoration: none !important; /* Optional: remove underline if preferred */
+}
+
+/* Ensure the icon stays next to the text */
+.sidebar .author__urls li i,
+.sidebar .author__urls li .fa-fw {
+  margin-right: 10px !important;    /* Gap between Icon and Text */
+  width: 20px !important;           /* Fixed width for alignment */
+  text-align: center !important;
+  flex-shrink: 0 !important;        /* Prevents icon from getting squished */
+}
+
+/* Fix for the Follow Button */
 .author__urls-wrapper .btn {
     display: block;
     width: 100%;
-    text-align: center; /* Center the "Follow" button text itself */
+    text-align: center; 
     margin-bottom: 10px;
 }
 
