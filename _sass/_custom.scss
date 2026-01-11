@@ -17,7 +17,10 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root { --content-max: 75%; } /* simple size var (not theme-related) */
+:root {
+  --content-max: 75%;          /* simple size var (not theme-related) */
+  --sidebar-offset: 14px;      /* one knob: same left offset for avatar + logos (desktop + mobile) */
+}
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -36,54 +39,54 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
-/* IMPORTANT: center the whole avatar BOX so the border/ring moves with the image */
-.author__avatar{
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Desktop: consistent avatar */
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  display: block;
+}
+
+/* Force avatar wrapper to align-left with the SAME offset as logos */
+.sidebar .author__avatar{
+  display: block !important;
+  width: fit-content !important;
+  margin-left: var(--sidebar-offset) !important;
+  margin-right: auto !important;
+}
+.sidebar .author__avatar img{
+  display: block !important;
+  margin: 0 !important;              /* prevent theme auto-centering */
 }
 
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
-  .author__avatar{ width: 110px; }
   .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
+
+  /* keep the same offset behavior on phones too */
+  .sidebar .author__avatar{
+    margin-left: var(--sidebar-offset) !important;
+    margin-right: auto !important;
+  }
 }
 
-/* --- Affiliation logos (same horizontal offset as avatar; left aligned within avatar-width box) --- */
-.affil-logos{
-  width: 150px;              /* match avatar box width (desktop) */
-  margin-left: auto;         /* center the box */
-  margin-right: auto;        /* center the box */
-  display: flex;             /* real flex row */
-  justify-content: flex-start; /* LEFT within that centered box => same left edge as avatar */
+/* --- Affiliation logos (tight + left-aligned with SAME offset as headshot) --- */
+.sidebar .affil-logos{
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   line-height: 1;
+  margin: 6px 0 0 var(--sidebar-offset) !important;  /* <- same offset as avatar */
   padding: 0;
-  margin-top: 6px;           /* tiny breathing room; set to 0 if you want it touching */
-  margin-bottom: 0;
 }
-
-.affil-logo{
+.sidebar .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: block;
-}
-
-@media (max-width: 640px){
-  .affil-logos{ width: 110px; }  /* match avatar box width (mobile) */
+  display: inline-block;
 }
 
 /* Remove any built-in hero from the theme */
