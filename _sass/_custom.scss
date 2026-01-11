@@ -33,7 +33,7 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR — ALIGNMENT & FIXES
+   AUTHOR SIDEBAR — DESKTOP (DEFAULT)
    =========================================================== */
 
 /* 1. Center the Avatar */
@@ -69,7 +69,7 @@
   display: block !important;
 }
 
-/* 3. Center the Name and Bio Text */
+/* 3. Center the Name and Bio Text (Desktop) */
 .sidebar .author__content,
 .sidebar .author__bio,
 .sidebar .author__name {
@@ -77,49 +77,83 @@
   width: 100%;
 }
 
-/* 4. Keep Location/Links LEFT Aligned */
+/* 4. Keep Location/Links LEFT Aligned (Desktop) */
 .sidebar .author__urls-wrapper,
 .sidebar .author__urls {
   text-align: left !important;
   width: 100%;
 }
 
-/* --- SIDEBAR LINK FIX (Prevents "Stanford" going to new line) --- */
+/* 5. SIDEBAR LINK FIX (Prevents "Stanford" going to new line) */
 .sidebar .author__urls li {
-  display: flex !important;       /* Uses Flexbox to put Icon + Text in a row */
-  align-items: center !important; /* Vertically centers them */
-  flex-wrap: nowrap !important;   /* Prevents wrapping to new line */
+  display: flex !important;       
+  align-items: center !important; 
+  flex-wrap: nowrap !important;   
   margin-bottom: 6px !important;
 }
-
 .sidebar .author__urls li a {
-  display: inline-block !important; /* Forces link to sit INLINE */
-  width: auto !important;           /* Prevents it from filling the row */
-  text-decoration: none !important; /* Optional: remove underline if preferred */
+  display: inline-block !important; 
+  width: auto !important;           
+  text-decoration: none !important; 
 }
-
-/* Ensure the icon stays next to the text */
 .sidebar .author__urls li i,
 .sidebar .author__urls li .fa-fw {
-  margin-right: 10px !important;    /* Gap between Icon and Text */
-  width: 20px !important;           /* Fixed width for alignment */
+  margin-right: 10px !important;    
+  width: 20px !important;           
   text-align: center !important;
-  flex-shrink: 0 !important;        /* Prevents icon from getting squished */
+  flex-shrink: 0 !important;        
 }
 
-/* Fix for the Follow Button */
-.author__urls-wrapper .btn {
-    display: block;
-    width: 100%;
-    text-align: center; 
-    margin-bottom: 10px;
+/* ===========================================================
+   MOBILE / TABLET FIXES
+   (Force Centering & Hide/Show Follow Button)
+   =========================================================== */
+
+/* --- 1. DESKTOP ONLY: HIDE THE FOLLOW BUTTON --- */
+@media (min-width: 1024px) {
+  /* Hide the toggle button on laptop */
+  .author__urls-wrapper button {
+    display: none !important;
+  }
+  /* Ensure the links list is always visible */
+  .author__urls {
+    display: block !important;
+  }
 }
 
-/* Mobile adjustments */
-@media (max-width: 640px){
+/* --- 2. MOBILE ONLY: FORCE CENTER EVERYTHING --- */
+@media (max-width: 1023px){
+  /* Smaller Avatar */
   .author__avatar img { width: 110px; height: 110px; }
-  .author__content, .author__bio { text-align: center !important; margin-top: 8px; }
+
+  /* FORCE Center Name and Bio */
+  .author__content, 
+  .author__bio, 
+  .sidebar .author__content,
+  .sidebar .author__bio { 
+      text-align: center !important; 
+      margin-top: 8px; 
+      width: 100% !important;
+  }
+
+  /* Center the "Follow" Button */
+  .author__urls-wrapper {
+    display: block !important;
+    text-align: center !important; /* Centers the button */
+    width: 100% !important;
+  }
+  
+  /* Make the button look centered */
+  .author__urls-wrapper button {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-block !important;
+  }
 }
+
+/* ===========================================================
+   Standard Elements (Hero, Pills, Gallery, Footer)
+   =========================================================== */
 
 /* Remove built-in hero */
 .page__hero, .page__hero--overlay, .hero-landing { display: none !important; }
@@ -310,41 +344,3 @@
 .page__content a:not(.btn--cv):not(.no-link-style):hover, .page__content a:not(.btn--cv):not(.no-link-style):focus-visible,
 .footer-bar a:not(.no-link-style):hover, .footer-bar a:not(.no-link-style):focus-visible { color: #1d4ed8 !important; }
 .page__content a:not(.btn--cv):not(.no-link-style):active, .footer-bar a:not(.no-link-style):active { color: #1e40af !important; }
-
-/* Follow Button Wrapper */
-.author__urls-wrapper { text-align: initial !important; }
-@media (max-width:1023px){
-  .author__urls-wrapper{
-    position: relative !important;
-    display: block !important;
-    width: max-content !important;
-    margin-left: auto !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-  .author__urls-wrapper .btn{
-    display: inline-block !important;
-    width: auto !important;
-    padding: 7px 10px !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-  }
-  .author__urls{
-    position: absolute !important;
-    right: 0 !important;
-    left: auto !important;
-    top: calc(100% + 8px) !important;
-    min-width: 220px !important;
-    max-width: calc(100vw - 32px) !important;
-    z-index: 3000 !important;
-    background: #fff !important;
-    border: 1px solid #e5e7eb !important;
-    display: none;
-    text-align: left !important;
-  }
-  .author__urls.is--visible{ display: block !important; }
-}
-@media (min-width:1024px){
-  .sidebar{ z-index: 1 !important; }
-  .page__content{ position: relative; z-index: 2 !important; }
-}
