@@ -33,24 +33,25 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR — DESKTOP (DEFAULT)
+   AUTHOR SIDEBAR — THE FIXES
    =========================================================== */
 
-/* 1. Center the Avatar */
+/* --- 1. AVATAR & LOGOS (Global Center) --- */
 .author__avatar {
   display: block;
   text-align: center !important;
+  margin-bottom: 10px;
 }
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto;
+  margin: 0 auto !important; /* Force center physically */
   display: block;
 }
 
-/* 2. Center the Affiliation Logos */
+/* Center the Logos */
 .sidebar .affil-logos {
   display: flex !important;
   width: 100% !important;
@@ -69,26 +70,28 @@
   display: block !important;
 }
 
-/* 3. Center the Name and Bio Text (Desktop) */
+/* --- 2. TEXT CONTENT (Desktop: Left | Mobile: Center) --- */
+
+/* Default (Desktop): Keep bio centered (matches avatar) but links left */
 .sidebar .author__content,
 .sidebar .author__bio,
 .sidebar .author__name {
-  text-align: center !important;
+  text-align: center !important; 
   width: 100%;
 }
 
-/* 4. Keep Location/Links LEFT Aligned (Desktop) */
 .sidebar .author__urls-wrapper,
 .sidebar .author__urls {
   text-align: left !important;
   width: 100%;
 }
 
-/* 5. SIDEBAR LINK FIX (Prevents "Stanford" going to new line) */
+/* --- 3. FIXING THE LINKS (Stanford Line Break Issue) --- */
 .sidebar .author__urls li {
   display: flex !important;       
   align-items: center !important; 
   flex-wrap: nowrap !important;   
+  justify-content: flex-start;    /* Default left align */
   margin-bottom: 6px !important;
 }
 .sidebar .author__urls li a {
@@ -105,54 +108,68 @@
 }
 
 /* ===========================================================
-   MOBILE / TABLET FIXES
-   (Force Centering & Hide/Show Follow Button)
+   THE "FOLLOW" BUTTON LOGIC (Crucial Fix)
    =========================================================== */
 
-/* --- 1. DESKTOP ONLY: HIDE THE FOLLOW BUTTON --- */
+/* DESKTOP (Laptop): HIDE the button, SHOW the links */
 @media (min-width: 1024px) {
-  /* Hide the toggle button on laptop */
-  .author__urls-wrapper button {
-    display: none !important;
+  .author__urls-wrapper .btn {
+    display: none !important; /* Kill the button */
   }
-  /* Ensure the links list is always visible */
   .author__urls {
-    display: block !important;
+    display: block !important; /* Always show links */
   }
 }
 
-/* --- 2. MOBILE ONLY: FORCE CENTER EVERYTHING --- */
+/* MOBILE / TABLET: Fix Centering & Button */
 @media (max-width: 1023px){
-  /* Smaller Avatar */
-  .author__avatar img { width: 110px; height: 110px; }
+  
+  /* Center the container */
+  .sidebar, .author__profile {
+    width: 100% !important;
+    text-align: center !important;
+  }
 
-  /* FORCE Center Name and Bio */
-  .author__content, 
-  .author__bio, 
-  .sidebar .author__content,
-  .sidebar .author__bio { 
-      text-align: center !important; 
-      margin-top: 8px; 
-      width: 100% !important;
+  /* Force Avatar Center */
+  .author__avatar img { 
+    margin-left: auto !important; 
+    margin-right: auto !important; 
+    width: 130px; 
+    height: 130px; 
+  }
+
+  /* Force Bio/Name Center */
+  .author__content, .author__bio { 
+    text-align: center !important; 
+    margin-top: 8px; 
   }
 
   /* Center the "Follow" Button */
   .author__urls-wrapper {
     display: block !important;
-    text-align: center !important; /* Centers the button */
+    text-align: center !important;
     width: 100% !important;
   }
-  
-  /* Make the button look centered */
-  .author__urls-wrapper button {
-    margin-left: auto !important;
-    margin-right: auto !important;
+  .author__urls-wrapper .btn {
     display: inline-block !important;
+    width: auto !important;
+    margin: 10px auto !important;
   }
+
+  /* When button is clicked (links visible), center the links too? */
+  /* Usually better to keep links left-aligned for readability, 
+     but center the block itself. */
+  .author__urls {
+    display: none; /* Hidden by default on mobile until clicked */
+    text-align: left !important; 
+    max-width: 300px; /* Limit width so it doesn't look weird */
+    margin: 0 auto !important; /* Center the block of links */
+  }
+  .author__urls.is--visible { display: block !important; }
 }
 
 /* ===========================================================
-   Standard Elements (Hero, Pills, Gallery, Footer)
+   REST OF SITE STYLES
    =========================================================== */
 
 /* Remove built-in hero */
@@ -344,3 +361,10 @@
 .page__content a:not(.btn--cv):not(.no-link-style):hover, .page__content a:not(.btn--cv):not(.no-link-style):focus-visible,
 .footer-bar a:not(.no-link-style):hover, .footer-bar a:not(.no-link-style):focus-visible { color: #1d4ed8 !important; }
 .page__content a:not(.btn--cv):not(.no-link-style):active, .footer-bar a:not(.no-link-style):active { color: #1e40af !important; }
+
+/* Follow Button Wrapper */
+.author__urls-wrapper { text-align: initial !important; }
+@media (min-width:1024px){
+  .sidebar{ z-index: 1 !important; }
+  .page__content{ position: relative; z-index: 2 !important; }
+}
