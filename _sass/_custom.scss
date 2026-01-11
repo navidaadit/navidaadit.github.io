@@ -1,14 +1,11 @@
 /* ===========================================================
    Navid Aadit — site overrides
-   (grid layout, justified text, hero image, keyword pills,
-    spotlight images, and a single clean footer)
    =========================================================== */
 
 /* ---------- Global width ---------- */
 .initial-content,
 .page__inner,
 .page {
-  /* clamp on very wide monitors to stop overflow/stretch */
   max-width: min(1400px, 90vw);
   margin-left: auto;
   margin-right: auto;
@@ -17,7 +14,10 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root { --content-max: 75%; } /* simple size var (not theme-related) */
+:root {
+  --content-max: 75%;
+  --logos-left-offset: 10px;   /* <--- adjust this (0px, 6px, 12px, etc.) */
+}
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -36,28 +36,27 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
-/* Desktop: consistent avatar */
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
-/* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (tight + LEFT aligned, no extra spacing) --- */
+/* --- Affiliation logos (tight + LEFT aligned + left offset) --- */
 .sidebar .affil-logos{
-  display: inline-flex;     /* inline so it doesn’t create a big block gap */
+  display: inline-flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
   line-height: 1;
-  margin: 0;                /* no added whitespace */
+  margin: 0;
+  margin-left: var(--logos-left-offset); /* <--- this is the offset */
   padding: 0;
 }
 .sidebar .affil-logo{
@@ -77,8 +76,8 @@
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 0 auto;  /* no bottom margin */
-  border-bottom: none;    /* no line */
+  margin: 0 auto 0 auto;
+  border-bottom: none;
 }
 
 /* ---------- Download CV button ---------- */
@@ -128,7 +127,6 @@
   background: #f7fafc;
 }
 
-/* True 4:3 box via aspect-ratio so captions stay below */
 .figure-card img {
   display:block;
   width:100% !important;
@@ -139,13 +137,11 @@
   background: transparent !important;
 }
 
-/* Optional: make an image FILL its card (good for tall rack photos) */
 .figure-card.fill img {
   object-fit: cover !important;
   object-position: center !important;
 }
 
-/* 2×2 spotlight grid */
 .gallery-2x2{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -153,12 +149,10 @@
   margin:.6rem 0 1.2rem;
 }
 
-/* Shorter on phones */
 @media (max-width:980px){
   .gallery-2x2{ grid-template-columns:1fr; }
 }
 
-/* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
 /* ---------- Footer: single slim bar ---------- */
@@ -189,7 +183,6 @@
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
-/* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
@@ -212,13 +205,11 @@
   }
 }
 
-/* Justify body text globally BUT no hyphenation */
 .page__content {
   text-align: justify !important;
   text-justify: inter-word;
 }
 
-/* Don't justify lists/paragraphs inside white boxes */
 .page__content .card ul,
 .page__content .card ol,
 .page__content .card li,
@@ -233,7 +224,6 @@
   hyphens: none !important;
 }
 
-/* Make “card/section” boxes light */
 .page__content .card,
 .page__content .section {
   background: #ffffff !important;
@@ -241,7 +231,6 @@
   color: #111827 !important;
 }
 
-/* Turn off hyphenation, keep graceful wrapping */
 .page__content p,
 .page__content li,
 .page__content blockquote,
@@ -253,7 +242,6 @@
   overflow-wrap: break-word;
 }
 
-/* Keep non-paragraph UI bits left-aligned */
 .page__content h1,
 .page__content h2,
 .page__content h3,
@@ -273,7 +261,6 @@
   text-align: left !important;
 }
 
-/* ---------- CENTER CAPTIONS IN FIGURE CARDS ---------- */
 .page__content .figure-card > figcaption,
 .page__content .figure-card > .figcap,
 .layout--single .page__content .gallery-2x2 .figure-card > figcaption,
@@ -287,7 +274,6 @@
   color: #475569 !important;
 }
 
-/* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
@@ -295,7 +281,6 @@
   display: inline !important;
 }
 
-/* Teaching/service mobile overflow fix */
 .page__content .course-item {
   display:flex;
   align-items:flex-start;
@@ -313,7 +298,6 @@
   white-space: nowrap;
 }
 
-/* Publications ID tags */
 .cite-id, .pub-id, .id-badge, .entry-id, .label,
 [class^="id-"], [class*=" id-"] {
   border: 1px solid #e5e7eb !important;
@@ -324,14 +308,12 @@
   font-weight: 600;
 }
 
-/* Slimmer mobile dropdown menu */
 .greedy-nav .hidden-links li a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 1.2;
 }
 
-/* Inline reviewer list wrap-safety */
 .inline-list li{
   white-space:normal !important;
   overflow-wrap:anywhere !important;
@@ -339,7 +321,6 @@
   max-width:100% !important;
 }
 
-/* ---------- LINKS: inherit color; turn blue only on hover/focus ---------- */
 .page__content a:not(.btn--cv):not(.no-link-style),
 .footer-bar a:not(.no-link-style) {
   color: inherit !important;
@@ -362,21 +343,17 @@
   color: #1e40af !important;
 }
 
-/* === Follow button: right edge, no effect on text alignment, button hugs text === */
-.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
+.author__urls-wrapper { text-align: initial !important; }
 
-/* Mobile/tablet only */
 @media (max-width:1023px){
-  /* Make the wrapper shrink to its contents and sit on the right */
   .author__urls-wrapper{
-    position: relative !important;   /* anchor for dropdown */
+    position: relative !important;
     display: block !important;
-    width: max-content !important;   /* shrink to button width */
-    margin-left: auto !important;    /* push to right edge */
+    width: max-content !important;
+    margin-left: auto !important;
     padding: 0 !important;
   }
 
-  /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
     display: inline-block !important;
     width: auto !important;
@@ -385,14 +362,13 @@
     white-space: nowrap !important;
   }
 
-  /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
+    max-width: calc(100vw - 32px) !important;
     z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
@@ -401,7 +377,6 @@
   }
   .author__urls.is--visible{ display: block !important; }
 
-  /* Keep the bio and everything else left-aligned */
   .sidebar .author__content,
   .sidebar .author__content *,
   .sidebar .author__bio{
@@ -409,7 +384,6 @@
   }
 }
 
-/* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
 @media (min-width:1024px){
   .sidebar{ z-index: 1 !important; }
   .page__content{ position: relative; z-index: 2 !important; }
