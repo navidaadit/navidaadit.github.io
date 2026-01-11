@@ -36,7 +36,7 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR FIXES (Left Aligned & Fixed Icons)
+   AUTHOR SIDEBAR FIXES (Desktop Centered / Mobile Left)
    =========================================================== */
 
 /* 1. Avatar Image - LEFT ALIGNED */
@@ -62,15 +62,16 @@
   margin-left: 0 !important;
 }
 
-/* 3. Affiliation Logos - CENTERED UNDER AVATAR */
-.sidebar .affil-logos{
+/* 3. Affiliation Logos - HYBRID ALIGNMENT */
+/* DESKTOP DEFAULT: Center logos strictly under the 150px avatar */
+.sidebar .affil-logos {
   display: flex !important;
-  width: 150px !important;        /* Match the Desktop Avatar width exactly */
-  justify-content: center !important; /* Center logos within the 150px box */
+  width: 150px !important;        /* Matches Desktop Avatar width */
+  justify-content: center !important; /* Center logos inside that 150px box */
   align-items: center !important;
   gap: 10px !important;
   line-height: 1 !important;
-  margin: 8px 0 12px 0 !important; /* 0 left margin keeps box on the left */
+  margin: 8px 0 12px 0 !important;
   padding: 0 !important;
   flex-wrap: nowrap !important;
 }
@@ -83,23 +84,21 @@
 }
 
 /* 4. FIX FOR TEXT BREAKING NEW LINE AFTER ICON */
-/* This forces the icon and text to sit in a flexible row */
 .sidebar .author__urls li, 
 .sidebar .author__location {
     display: flex !important;
-    align-items: flex-start !important; /* Aligns top of icon with text */
+    align-items: flex-start !important; 
     flex-wrap: nowrap !important;
     text-align: left !important;
     margin-bottom: 6px !important;
 }
 
-/* Ensure the icon has space and doesn't sit on top of text */
 .sidebar .author__urls i, 
 .sidebar .author__location i {
-    margin-right: 10px !important; /* Space between icon and text */
-    min-width: 18px; /* Prevents icon from squishing */
+    margin-right: 10px !important; 
+    min-width: 18px; 
     text-align: center;
-    margin-top: 4px; /* Optical adjustment to align with text line-height */
+    margin-top: 4px; 
 }
 
 /* 5. General Links Left-Aligned */
@@ -109,14 +108,19 @@
   width: 100%;
 }
 
-/* Phone adjustments */
+/* ===========================================================
+   PHONE ADJUSTMENTS (Reverting Mobile to "Before")
+   =========================================================== */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
   
-  /* Update logos width to match smaller avatar */
-  .sidebar .affil-logos { width: 110px !important; }
+  /* REVERTING MOBILE LOGOS TO LEFT ALIGNED (Like before) */
+  /* This fixes the "shift" issue by removing the fixed width centering */
+  .sidebar .affil-logos { 
+      width: 100% !important; 
+      justify-content: flex-start !important; /* Strictly left aligned */
+  }
 
-  /* FORCE Left align on mobile too */
   .author__content, .author__bio { 
       display: block; 
       margin-top: 8px; 
