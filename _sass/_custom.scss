@@ -8,7 +8,6 @@
 .initial-content,
 .page__inner,
 .page {
-  /* clamp on very wide monitors to stop overflow/stretch */
   max-width: min(1400px, 90vw);
   margin-left: auto;
   margin-right: auto;
@@ -18,8 +17,8 @@
 
 /* ---------- Content width cap inside right column ---------- */
 :root {
-  --content-max: 75%;          /* simple size var (not theme-related) */
-  --sidebar-left-offset: 0px;  /* <<<<<< change THIS (e.g., 6px, 10px, 14px) */
+  --content-max: 75%;
+  --sidebar-left-offset: 0px;   /* <<<<<< set e.g. 10px or 14px */
 }
 
 /* Limit inner text width (not hero/pills/CV button) */
@@ -39,21 +38,21 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   SIDEBAR: headshot + logos share SAME LEFT OFFSET
-   (moves the ring too, because the wrapper moves)
+   SIDEBAR: move avatar + logos together WITHOUT breaking circle
+   (transform shifts the whole block; image stays centered)
    =========================================================== */
 
-/* Move the whole avatar block (wrapper) so the ring follows */
+/* Shift the whole avatar block (circle + image) */
 .sidebar .author__avatar{
-  text-align: left !important;                   /* kill theme centering */
-  padding-left: var(--sidebar-left-offset) !important;
+  text-align: left !important; /* keep sidebar left-aligned */
+  transform: translateX(var(--sidebar-left-offset)) !important;
 }
 
-/* Ensure the image is not auto-centered */
+/* Keep the image centered INSIDE the avatar container (prevents “kissing”) */
 .sidebar .author__avatar img{
   display: block !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Desktop: consistent avatar */
@@ -71,19 +70,18 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (tight + left aligned + SAME offset as headshot) --- */
+/* --- Affiliation logos: tight + left aligned + same shift as avatar --- */
 .sidebar .affil-logos{
-  display: flex;                               /* not inline-flex */
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
   line-height: 1;
-  margin: 0;                                   /* NO extra vertical spacing */
+  margin: 0;
   padding: 0;
-  padding-left: var(--sidebar-left-offset) !important;
+  transform: translateX(var(--sidebar-left-offset)) !important;
 }
 
-/* logo size */
 .sidebar .affil-logo{
   width: 22px;
   height: 22px;
@@ -101,8 +99,8 @@
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 0 auto;  /* no bottom margin */
-  border-bottom: none;    /* no line */
+  margin: 0 auto 0 auto;
+  border-bottom: none;
 }
 
 /* ---------- Download CV button ---------- */
@@ -177,7 +175,6 @@
   margin:.6rem 0 1.2rem;
 }
 
-/* Shorter on phones */
 @media (max-width:980px){
   .gallery-2x2{ grid-template-columns:1fr; }
 }
@@ -213,7 +210,6 @@
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
-/* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
@@ -311,7 +307,6 @@
   color: #475569 !important;
 }
 
-/* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
@@ -387,9 +382,8 @@
 }
 
 /* === Follow button: right edge, no effect on text alignment, button hugs text === */
-.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
+.author__urls-wrapper { text-align: initial !important; }
 
-/* Mobile/tablet only */
 @media (max-width:1023px){
   .author__urls-wrapper{
     position: relative !important;
@@ -429,7 +423,6 @@
   }
 }
 
-/* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
 @media (min-width:1024px){
   .sidebar{ z-index: 1 !important; }
   .page__content{ position: relative; z-index: 2 !important; }
