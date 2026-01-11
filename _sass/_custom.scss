@@ -17,15 +17,7 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root {
-  --content-max: 75%;            /* simple size var (not theme-related) */
-
-  /* Sidebar avatar + logos sizing */
-  --avatar-size: 150px;
-  --avatar-size-mobile: 110px;
-  --affil-logo-size: 22px;
-  --affil-gap: 10px;
-}
+:root { --content-max: 75%; } /* simple size var (not theme-related) */
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -44,60 +36,48 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
-/* Make avatar container a fixed-width centered box
-   so logos can align to the exact same center */
-.author__avatar {
-  width: var(--avatar-size);
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
+/* Desktop: consistent avatar */
 .author__avatar img {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  display: block;
 }
 
-/* Phone: slightly smaller avatar, clean stacking */
+/* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
-  .author__avatar { width: var(--avatar-size-mobile); }
-  .author__avatar img { width: var(--avatar-size-mobile); height: var(--avatar-size-mobile); }
+  .author__avatar img { width: 110px; height: 110px; }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos: SAME centered box width as avatar --- */
-.affil-logos-wrap{
-  width: var(--avatar-size);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 8px;     /* small, controlled gap under headshot */
-  margin-bottom: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-.affil-logos{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--affil-gap);
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-}
-.affil-logo{
-  width: var(--affil-logo-size);
-  height: var(--affil-logo-size);
-  object-fit: contain;
-  display: block;
+/* --- Affiliation logos (centered under headshot; no spacing blow-ups) --- */
+/* IMPORTANT: scope to sidebar so main-content justification never stretches them */
+.sidebar .affil-logos{
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center !important;   /* centered under avatar */
+  align-items: center !important;
+  gap: 10px !important;
+  line-height: 1 !important;
+  margin: 6px 0 0 0 !important;         /* tight (no big gap) */
+  padding: 0 !important;
+  text-align: center !important;         /* immune if any text-align leaks */
+  flex-wrap: nowrap !important;
 }
 
-/* Mobile: keep the SAME logic with the smaller avatar box */
-@media (max-width: 640px){
-  .affil-logos-wrap{ width: var(--avatar-size-mobile); }
+.sidebar .affil-logo{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block !important;             /* avoid inline whitespace behavior */
+}
+
+/* Keep sidebar text left-aligned (logos stay centered) */
+.sidebar .author__content,
+.sidebar .author__content *,
+.sidebar .author__bio{
+  text-align: left !important;
 }
 
 /* Remove any built-in hero from the theme */
@@ -153,9 +133,9 @@
 }
 
 /* ---------- Spotlight / Research gallery images ---------- */
-.figure-card {
-  overflow: hidden;
-  border-radius: 10px;
+.figure-card { 
+  overflow: hidden; 
+  border-radius: 10px; 
   position: relative;
   border: 1px solid #e5e7eb;
   background: #f7fafc;
@@ -245,8 +225,8 @@
   }
 }
 
-/* Justify body text globally BUT no hyphenation */
-.page__content {
+/* Justify main content only (NOT sidebar/author area) */
+.layout--single .page__content {
   text-align: justify !important;
   text-justify: inter-word;
 }
