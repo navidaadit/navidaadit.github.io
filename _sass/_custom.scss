@@ -1,11 +1,14 @@
 /* ===========================================================
    Navid Aadit — site overrides
+   (grid layout, justified text, hero image, keyword pills,
+    spotlight images, and a single clean footer)
    =========================================================== */
 
 /* ---------- Global width ---------- */
 .initial-content,
 .page__inner,
 .page {
+  /* clamp on very wide monitors to stop overflow/stretch */
   max-width: min(1400px, 90vw);
   margin-left: auto;
   margin-right: auto;
@@ -14,14 +17,14 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root { --content-max: 75%; }
+:root { --content-max: 75%; } /* simple size var (not theme-related) */
 
-/* Limit inner text width */
+/* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
   max-width: var(--content-max);
 }
 
-/* Justified body text */
+/* Justified body text (base) */
 .layout--single .page__content p {
   text-align: justify;
   text-justify: inter-word;
@@ -33,126 +36,142 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ===========================================================
-   AUTHOR SIDEBAR FIXES
+   AUTHOR SIDEBAR FIXES (Centering Avatar & Bio)
    =========================================================== */
 
-/* 1. Reset list spacing so text starts at the "very left" */
-.sidebar .author__urls ul {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  list-style-type: none !important;
-}
-
-/* 2. Fix "Stanford" dropping to new line (Flexbox on the LINK) */
-.sidebar .author__urls li a {
-  display: flex !important;
-  align-items: flex-start !important; /* Aligns top of text with top of icon */
-  justify-content: flex-start !important;
-  width: 100% !important;
-  gap: 10px !important; /* Gap between icon and text */
-  text-decoration: none !important;
-  padding: 2px 0 !important; /* Slight vertical breathing room */
-}
-
-/* 3. Ensure Icon stays nicely sized and doesn't get squashed */
-.sidebar .author__urls li a i {
-  flex-shrink: 0 !important; /* Prevents icon from shrinking */
-  width: 20px !important;    /* Fixed width for perfect alignment */
-  text-align: center !important;
-  margin-top: 4px !important; /* Optical alignment for text baseline */
-  margin-right: 0 !important; /* Gap is handled by flex-gap above */
-}
-
-/* 4. Desktop Text Alignment (Left) */
-.sidebar .author__content,
-.sidebar .author__bio {
-  text-align: left !important;
-  width: 100%;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-}
-
-/* 5. Avatar: Desktop (Center the image inside the block) */
+/* 1. Center the Avatar Image */
 .author__avatar {
   display: block;
-  width: 100%;
-  text-align: center;
+  text-align: center; /* Ensures container centers the img */
 }
+
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto; /* Centers it horizontally */
+  margin: 0 auto; /* Physically centers the image block */
   display: block;
 }
 
-/* 6. Affiliation Logos (Centered under avatar) */
-.sidebar .affil-logos {
+/* 2. Center the Name and Bio text */
+.sidebar .author__content,
+.sidebar .author__bio {
+  text-align: center !important;
+  width: 100%;
+}
+
+/* 3. Logos centered under avatar */
+.sidebar .affil-logos{
   display: flex !important;
   width: 100% !important;
-  justify-content: center !important;
+  justify-content: center !important;   /* centered flex items */
   align-items: center !important;
   gap: 10px !important;
-  margin: 8px auto 12px auto !important;
+  line-height: 1 !important;
+  margin: 8px auto 12px auto !important; /* Spacing */
   padding: 0 !important;
+  flex-wrap: nowrap !important;
 }
-.sidebar .affil-logo {
+
+.sidebar .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
   display: block !important;
 }
 
-/* 7. MOBILE FIXES (Force Avatar Center) */
-@media (max-width: 1023px) {
-  /* Override the theme's default floats */
-  .sidebar, .author__profile, .author__avatar {
-    float: none !important;
-    text-align: center !important;
-    width: 100% !important;
+/* 4. KEY FIX: Keep Location/Email/Links Left-Aligned */
+/* We target the wrapper of the buttons/icons specifically */
+.sidebar .author__urls-wrapper,
+.sidebar .author__urls {
+  text-align: left !important;
+  width: 100%;
+}
+
+/* === FIX A: Left column starts FLUSH left (no indent) === */
+.sidebar .author__urls{
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.sidebar .author__urls li{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* === FIX B (your issue): force icon + text on SAME line for ALL rows (even non-links) === */
+.sidebar .author__urls li{
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  min-width: 0 !important;
+}
+.sidebar .author__urls li i,
+.sidebar .author__urls li svg{
+  flex: 0 0 auto !important;
+  margin-top: 2px;
+}
+/* When the theme uses <a> inside <li> */
+.sidebar .author__urls li a{
+  display: contents !important; /* let the LI flex control layout */
+}
+/* If theme wraps text in span/label, make it the wrapping column */
+.sidebar .author__urls li span,
+.sidebar .author__urls li .label{
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+/* If the text is a plain node, this still helps by preventing weird breaks */
+.sidebar .author__urls li{
+  white-space: normal !important;
+}
+
+/* Phone adjustments */
+@media (max-width: 640px){
+  .author__avatar img { width: 110px; height: 110px; }
+
+  /* Ensure bio text stays centered on mobile too */
+  .author__content, .author__bio { 
+    display: block; 
+    margin-top: 8px; 
+    text-align: center !important; 
   }
-  
-  .author__avatar {
+
+  /* === FIX C (your issue): HARD center avatar on mobile even if theme floats it === */
+  .layout--single .sidebar .author__avatar{
+    float: none !important;
+    width: 100% !important;
+    margin: 0 auto !important;
     display: flex !important;
     justify-content: center !important;
-    margin: 0 auto 10px auto !important;
-  }
-  
-  .author__avatar img {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto !important; /* Force center */
-    float: none !important;
-  }
-  
-  /* Ensure name/bio are also centered on mobile */
-  .sidebar .author__content,
-  .sidebar .author__bio {
     text-align: center !important;
+  }
+  .layout--single .sidebar .author__avatar img{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
   }
 }
 
-/* ===========================================================
-   HERO / CONTENT / PILLS
-   =========================================================== */
-
-/* Remove built-in hero */
+/* Remove any built-in hero from the theme */
 .page__hero,
 .page__hero--overlay,
 .hero-landing { display: none !important; }
 
-/* Hero image */
+/* Hero image (no crop, 80%, centered, no extra gap) */
 .hero-img {
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 0 auto;
-  border-bottom: none;
+  margin: 0 auto 0 auto;  /* no bottom margin */
+  border-bottom: none;    /* no line */
 }
 
 /* ---------- Download CV button ---------- */
 .cv-row { margin: 0.5rem 0 1rem 0; }
+
 .page__content .btn--cv {
   display: inline-block;
   background-color: #4a6fdd;
@@ -196,6 +215,8 @@
   border: 1px solid #e5e7eb;
   background: #f7fafc;
 }
+
+/* True 4:3 box via aspect-ratio so captions stay below */
 .figure-card img {
   display:block;
   width:100% !important;
@@ -205,24 +226,30 @@
   object-position: center !important;
   background: transparent !important;
 }
+
+/* Optional: make an image FILL its card (good for tall rack photos) */
 .figure-card.fill img {
   object-fit: cover !important;
   object-position: center !important;
 }
+
+/* 2×2 spotlight grid */
 .gallery-2x2{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
   margin:.6rem 0 1.2rem;
 }
+
+/* Shorter on phones */
 @media (max-width:980px){
   .gallery-2x2{ grid-template-columns:1fr; }
 }
+
+/* Icons in Recognition list */
 .page__content i.fas { color: #3b82f6; margin-right: 6px; }
 
-/* ===========================================================
-   FOOTER: single slim bar
-   =========================================================== */
+/* ---------- Footer: single slim bar ---------- */
 .page__footer,
 .page__footer::before,
 .page__footer::after {
@@ -233,7 +260,6 @@
   min-height: 0 !important;
 }
 .page__footer-follow { display: none !important; }
-
 .footer-bar {
   display: flex !important;
   align-items: center !important;
@@ -251,6 +277,7 @@
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
+/* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
@@ -273,45 +300,70 @@
   }
 }
 
+/* Justify main content only (NOT sidebar/author area) */
 .layout--single .page__content {
   text-align: justify !important;
   text-justify: inter-word;
 }
 
-/* Reset justification for boxes/cards */
-.page__content .card ul, .page__content .card ol, .page__content .card li, .page__content .card p,
-.page__content .section ul, .page__content .section ol, .page__content .section li, .page__content .section p {
+/* Don't justify lists/paragraphs inside white boxes */
+.page__content .card ul,
+.page__content .card ol,
+.page__content .card li,
+.page__content .card p,
+.page__content .section ul,
+.page__content .section ol,
+.page__content .section li,
+.page__content .section p {
   text-align: left !important;
   text-justify: auto !important;
   -webkit-hyphens: none !important;
   hyphens: none !important;
 }
 
-.page__content .card, .page__content .section {
+/* Make “card/section” boxes light */
+.page__content .card,
+.page__content .section {
   background: #ffffff !important;
   border-color: #e5e7eb !important;
   color: #111827 !important;
 }
 
-.page__content p, .page__content li, .page__content blockquote, .page__content .figcap, .page__content .small-note {
+/* Turn off hyphenation, keep graceful wrapping */
+.page__content p,
+.page__content li,
+.page__content blockquote,
+.page__content .figcap,
+.page__content .small-note {
   -webkit-hyphens: none !important;
   hyphens: none !important;
   word-break: normal !important;
   overflow-wrap: break-word;
 }
 
-/* Left align headers and UI elements */
-.page__content h1, .page__content h2, .page__content h3, .page__content h4, .page__content h5, .page__content h6,
-.page__content .keyword-pills, .page__content .keyword-pills *,
-.page__content .pill-list, .page__content .pill-list *,
-.page__content .stat-row, .page__content .stat-row *,
-.page__content .card h4, .page__content .cv-row,
-.footer-bar, .footer-bar * {
+/* Keep non-paragraph UI bits left-aligned */
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5,
+.page__content h6,
+.page__content .keyword-pills,
+.page__content .keyword-pills *,
+.page__content .pill-list,
+.page__content .pill-list *,
+.page__content .stat-row,
+.page__content .stat-row *,
+.page__content .card h4,
+.page__content .cv-row,
+.footer-bar,
+.footer-bar * {
   text-align: left !important;
 }
 
-/* Figure Captions: Centered */
-.page__content .figure-card > figcaption, .page__content .figure-card > .figcap,
+/* ---------- CENTER CAPTIONS IN FIGURE CARDS ---------- */
+.page__content .figure-card > figcaption,
+.page__content .figure-card > .figcap,
 .layout--single .page__content .gallery-2x2 .figure-card > figcaption,
 .layout--single .page__content .gallery-2x2 .figure-card > .figcap {
   display: block !important;
@@ -322,19 +374,36 @@
   line-height: 1.35 !important;
   color: #475569 !important;
 }
-.page__content .figure-card > figcaption *, .page__content .figure-card > .figcap * {
+
+/* Ensure children inherit centering, never override it */
+.page__content .figure-card > figcaption *,
+.page__content .figure-card > .figcap * {
   text-align: inherit !important;
   margin: 0 !important;
   display: inline !important;
 }
 
-/* Teaching/service fix */
-.page__content .course-item { display:flex; align-items:flex-start; gap:10px; flex-wrap: wrap; }
-.page__content .course-item > div { flex: 1 1 0; min-width: 0; overflow-wrap: anywhere; word-break: normal; }
-.page__content .course-item .badge { flex: 0 0 auto; white-space: nowrap; }
+/* Teaching/service mobile overflow fix */
+.page__content .course-item {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  flex-wrap: wrap;
+}
+.page__content .course-item > div {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.page__content .course-item .badge {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
 
-/* Publications IDs */
-.cite-id, .pub-id, .id-badge, .entry-id, .label, [class^="id-"], [class*=" id-"] {
+/* Publications ID tags */
+.cite-id, .pub-id, .id-badge, .entry-id, .label,
+[class^="id-"], [class*=" id-"] {
   border: 1px solid #e5e7eb !important;
   background: #f3f4f6 !important;
   color: #111827 !important;
@@ -343,32 +412,60 @@
   font-weight: 600;
 }
 
-/* Mobile dropdown */
-.greedy-nav .hidden-links li a { padding-top: 10px; padding-bottom: 10px; line-height: 1.2; }
-.inline-list li{ white-space:normal !important; overflow-wrap:anywhere !important; word-break:normal !important; max-width:100% !important; }
+/* Slimmer mobile dropdown menu */
+.greedy-nav .hidden-links li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 1.2;
+}
 
-/* Links */
-.page__content a:not(.btn--cv):not(.no-link-style), .footer-bar a:not(.no-link-style) {
+/* Inline reviewer list wrap-safety */
+.inline-list li{
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  max-width:100% !important;
+}
+
+/* ---------- LINKS: inherit color; turn blue only on hover/focus ---------- */
+.page__content a:not(.btn--cv):not(.no-link-style),
+.footer-bar a:not(.no-link-style) {
   color: inherit !important;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
-.page__content a:not(.btn--cv):not(.no-link-style):hover, .footer-bar a:not(.no-link-style):hover {
+.page__content a:not(.btn--cv):not(.no-link-style):visited,
+.footer-bar a:not(.no-link-style):visited {
+  color: inherit !important;
+}
+.page__content a:not(.btn--cv):not(.no-link-style):hover,
+.page__content a:not(.btn--cv):not(.no-link-style):focus-visible,
+.footer-bar a:not(.no-link-style):hover,
+.footer-bar a:not(.no-link-style):focus-visible {
   color: #1d4ed8 !important;
 }
+.page__content a:not(.btn--cv):not(.no-link-style):active,
+.footer-bar a:not(.no-link-style):active {
+  color: #1e40af !important;
+}
 
-/* Follow Button (Mobile only) */
-.author__urls-wrapper { text-align: initial !important; }
+/* === Follow button: right edge, no effect on text alignment, button hugs text === */
+.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
+
+/* Mobile/tablet only */
 @media (max-width:1023px){
+  /* Make the wrapper shrink to its contents and sit on the right */
   .author__urls-wrapper{
-    position: relative !important;
+    position: relative !important;   /* anchor for dropdown */
     display: block !important;
-    width: max-content !important;
-    margin-left: auto !important;
+    width: max-content !important;   /* shrink to button width */
+    margin-left: auto !important;    /* push to right edge */
     padding: 0 !important;
-    text-align: left !important;
+    text-align: left !important;     /* Reset text inside button/dropdown */
   }
+
+  /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
     display: inline-block !important;
     width: auto !important;
@@ -376,23 +473,26 @@
     line-height: 1.2 !important;
     white-space: nowrap !important;
   }
+
+  /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
     z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
     display: none;
-    text-align: left !important;
+    text-align: left !important; /* content inside dropdown is left aligned */
   }
   .author__urls.is--visible{ display: block !important; }
 }
 
+/* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
 @media (min-width:1024px){
   .sidebar{ z-index: 1 !important; }
   .page__content{ position: relative; z-index: 2 !important; }
