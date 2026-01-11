@@ -17,11 +17,7 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root {
-  --content-max: 75%;
-  --avatar-desktop: 150px;
-  --avatar-mobile: 110px;
-}
+:root { --content-max: 75%; } /* simple size var (not theme-related) */
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -42,78 +38,42 @@
 /* ---------- Author block (avatar + bio) ---------- */
 /* Desktop: consistent avatar */
 .author__avatar img {
-  width: var(--avatar-desktop);
-  height: var(--avatar-desktop);
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* Phone: slightly smaller avatar */
+/* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
-  .author__avatar img { width: var(--avatar-mobile); height: var(--avatar-mobile); }
+  .author__avatar img { width: 110px; height: 110px; }
+  .author__content, .author__bio { display:block; margin-top:8px; }
+  .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* ===========================================================
-   MOBILE FIX: make headshot + affiliation centered like Athena
-   This overrides the theme’s table/table-cell/floats on mobile.
-   =========================================================== */
-@media (max-width: 1023px){
-
-  /* Kill table/table-cell layout if the theme uses it */
-  .sidebar .author__profile,
-  .sidebar .author__avatar,
-  .sidebar .author__content,
-  .sidebar .author__bio {
-    display: block !important;
-    float: none !important;
-    width: 100% !important;
-  }
-
-  /* Center ONLY the avatar block */
-  .sidebar .author__avatar {
-    text-align: center !important;
-    margin: 0 auto !important;
-  }
-  .sidebar .author__avatar img {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Keep your text left-aligned (don’t center the whole sidebar) */
-  .sidebar .author__content,
-  .sidebar .author__bio,
-  .sidebar .author__content * ,
-  .sidebar .author__bio * {
-    text-align: left !important;
-  }
-}
-
-/* --- Affiliation logos (tight + centered under headshot) --- */
-.affil-logos{
+/* --- Affiliation logos (CENTERED RELATIVE TO HEADSHOT WIDTH, NO EXTRA SPACING) --- */
+/* IMPORTANT: This centers to the AVATAR width, not the sidebar width. */
+.sidebar .affil-logos{
+  width: 150px;                 /* match .author__avatar img */
+  margin: 6px auto 0 auto;       /* centers the 150px block under avatar */
   display: flex;
+  justify-content: center;       /* center icons inside that 150px block */
   align-items: center;
-  justify-content: center;
-
-  /* IMPORTANT: make the logo-row width match the headshot,
-     so it’s centered relative to the headshot, not the sidebar */
-  width: var(--avatar-desktop);
-  margin: 4px auto 0 auto;
-  padding: 0;
   gap: 10px;
+  padding: 0;
   line-height: 1;
 }
 
-.affil-logo{
+.sidebar .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
   display: block;
 }
 
-/* Match logo-row width to the smaller mobile avatar */
+/* Mobile: match the smaller avatar */
 @media (max-width: 640px){
-  .affil-logos{ width: var(--avatar-mobile); }
+  .sidebar .affil-logos{ width: 110px; }
 }
 
 /* Remove any built-in hero from the theme */
