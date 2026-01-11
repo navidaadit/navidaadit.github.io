@@ -8,6 +8,7 @@
 .initial-content,
 .page__inner,
 .page {
+  /* clamp on very wide monitors to stop overflow/stretch */
   max-width: min(1400px, 90vw);
   margin-left: auto;
   margin-right: auto;
@@ -16,10 +17,7 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root {
-  --content-max: 75%;
-  --sidebar-left-offset: 0px;   /* <<<<<< set e.g. 10px or 14px */
-}
+:root { --content-max: 75%; } /* simple size var (not theme-related) */
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -37,25 +35,12 @@
 /* Clear legacy floats */
 .page::after { content: ""; display: block; clear: both; }
 
-/* ===========================================================
-   SIDEBAR: move avatar + logos together WITHOUT breaking circle
-   (transform shifts the whole block; image stays centered)
-   =========================================================== */
-
-/* Shift the whole avatar block (circle + image) */
-.sidebar .author__avatar{
-  text-align: left !important; /* keep sidebar left-aligned */
-  transform: translateX(var(--sidebar-left-offset)) !important;
-}
-
-/* Keep the image centered INSIDE the avatar container (prevents “kissing”) */
-.sidebar .author__avatar img{
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
+/* ---------- Author block (avatar + bio) ---------- */
 /* Desktop: consistent avatar */
+.author__avatar {
+  display: flex;
+  justify-content: center; /* hard-center the avatar inside sidebar */
+}
 .author__avatar img {
   width: 150px;
   height: 150px;
@@ -70,23 +55,36 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos: tight + left aligned + same shift as avatar --- */
-.sidebar .affil-logos{
-  display: flex;
-  justify-content: flex-start;
+/* --- Affiliation logos: align with avatar LEFT EDGE (desktop + mobile) --- */
+/* Key idea:
+   - Create a rail the same width as the avatar (150px / 110px)
+   - Center that rail in the sidebar (same as avatar)
+   - Left-align logos inside the rail, so their left edge matches avatar’s left edge
+*/
+.affil-logos{
+  width: 150px;              /* match desktop avatar width */
+  margin-left: auto;         /* center the rail */
+  margin-right: auto;        /* center the rail */
+  display: flex;             /* row */
+  justify-content: flex-start; /* LEFT inside the rail */
   align-items: center;
   gap: 10px;
   line-height: 1;
-  margin: 0;
+  margin-top: 6px;           /* small breathing room under avatar */
+  margin-bottom: 0;          /* keep tight */
   padding: 0;
-  transform: translateX(var(--sidebar-left-offset)) !important;
 }
 
-.sidebar .affil-logo{
+.affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: block;
+  display: inline-block;
+}
+
+/* Mobile rail matches mobile avatar */
+@media (max-width: 640px){
+  .affil-logos{ width: 110px; }  /* match mobile avatar width */
 }
 
 /* Remove any built-in hero from the theme */
@@ -99,8 +97,8 @@
   display: block;
   width: 80%;
   height: auto;
-  margin: 0 auto 0 auto;
-  border-bottom: none;
+  margin: 0 auto 0 auto;  /* no bottom margin */
+  border-bottom: none;    /* no line */
 }
 
 /* ---------- Download CV button ---------- */
@@ -175,6 +173,7 @@
   margin:.6rem 0 1.2rem;
 }
 
+/* Shorter on phones */
 @media (max-width:980px){
   .gallery-2x2{ grid-template-columns:1fr; }
 }
@@ -210,6 +209,7 @@
 .footer-left  { opacity: .92; }
 .footer-right { opacity: .92; text-align: right; }
 
+/* ---------- Responsive ---------- */
 .page { margin-top: 1rem; }
 @media (max-width: 520px) {
   .footer-bar { flex-wrap: wrap; row-gap: 4px; }
@@ -307,6 +307,7 @@
   color: #475569 !important;
 }
 
+/* Ensure children inherit centering, never override it */
 .page__content .figure-card > figcaption *,
 .page__content .figure-card > .figcap * {
   text-align: inherit !important;
@@ -382,17 +383,20 @@
 }
 
 /* === Follow button: right edge, no effect on text alignment, button hugs text === */
-.author__urls-wrapper { text-align: initial !important; }
+.author__urls-wrapper { text-align: initial !important; } /* hard reset if anything leaked */
 
+/* Mobile/tablet only */
 @media (max-width:1023px){
+  /* Make the wrapper shrink to its contents and sit on the right */
   .author__urls-wrapper{
-    position: relative !important;
+    position: relative !important;   /* anchor for dropdown */
     display: block !important;
-    width: max-content !important;
-    margin-left: auto !important;
+    width: max-content !important;   /* shrink to button width */
+    margin-left: auto !important;    /* push to right edge */
     padding: 0 !important;
   }
 
+  /* Button: just big enough for its text */
   .author__urls-wrapper .btn{
     display: inline-block !important;
     width: auto !important;
@@ -401,13 +405,14 @@
     white-space: nowrap !important;
   }
 
+  /* Dropdown: anchored to the button’s right edge, above content */
   .author__urls{
     position: absolute !important;
     right: 0 !important;
     left: auto !important;
     top: calc(100% + 8px) !important;
     min-width: 220px !important;
-    max-width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important; /* safe mobile gutter */
     z-index: 3000 !important;
     background: #fff !important;
     border: 1px solid #e5e7eb !important;
@@ -416,6 +421,7 @@
   }
   .author__urls.is--visible{ display: block !important; }
 
+  /* Keep the bio and everything else left-aligned */
   .sidebar .author__content,
   .sidebar .author__content *,
   .sidebar .author__bio{
@@ -423,6 +429,7 @@
   }
 }
 
+/* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
 @media (min-width:1024px){
   .sidebar{ z-index: 1 !important; }
   .page__content{ position: relative; z-index: 2 !important; }
