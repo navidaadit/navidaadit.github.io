@@ -18,8 +18,13 @@
 
 /* ---------- Content width cap inside right column ---------- */
 :root {
-  --content-max: 75%;          /* simple size var (not theme-related) */
-  --sidebar-offset: 14px;      /* one knob: same left offset for avatar + logos (desktop + mobile) */
+  --content-max: 75%;            /* simple size var (not theme-related) */
+
+  /* Sidebar avatar + logos sizing */
+  --avatar-size: 150px;
+  --avatar-size-mobile: 110px;
+  --affil-logo-size: 22px;
+  --affil-gap: 10px;
 }
 
 /* Limit inner text width (not hero/pills/CV button) */
@@ -39,54 +44,60 @@
 .page::after { content: ""; display: block; clear: both; }
 
 /* ---------- Author block (avatar + bio) ---------- */
-/* Desktop: consistent avatar */
+/* Make avatar container a fixed-width centered box
+   so logos can align to the exact same center */
+.author__avatar {
+  width: var(--avatar-size);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 .author__avatar img {
-  width: 150px;
-  height: 150px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   object-fit: cover;
   border-radius: 50%;
+  display: block;
 }
 
-/* Force avatar wrapper to align-left with the SAME offset as logos */
-.sidebar .author__avatar{
-  display: block !important;
-  width: fit-content !important;
-  margin-left: var(--sidebar-offset) !important;
-  margin-right: auto !important;
-}
-.sidebar .author__avatar img{
-  display: block !important;
-  margin: 0 !important;              /* prevent theme auto-centering */
-}
-
-/* Phone: slightly smaller avatar, bio under photo, clean stacking */
+/* Phone: slightly smaller avatar, clean stacking */
 @media (max-width: 640px){
-  .author__avatar img { width: 110px; height: 110px; }
+  .author__avatar { width: var(--avatar-size-mobile); }
+  .author__avatar img { width: var(--avatar-size-mobile); height: var(--avatar-size-mobile); }
   .author__content, .author__bio { display:block; margin-top:8px; }
   .author__content p, .author__bio { text-align:left !important; }
-
-  /* keep the same offset behavior on phones too */
-  .sidebar .author__avatar{
-    margin-left: var(--sidebar-offset) !important;
-    margin-right: auto !important;
-  }
 }
 
-/* --- Affiliation logos (tight + left-aligned with SAME offset as headshot) --- */
-.sidebar .affil-logos{
-  display: inline-flex;
-  justify-content: flex-start;
+/* --- Affiliation logos: SAME centered box width as avatar --- */
+.affil-logos-wrap{
+  width: var(--avatar-size);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;     /* small, controlled gap under headshot */
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.affil-logos{
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: var(--affil-gap);
   line-height: 1;
-  margin: 6px 0 0 var(--sidebar-offset) !important;  /* <- same offset as avatar */
+  margin: 0;
   padding: 0;
 }
-.sidebar .affil-logo{
-  width: 22px;
-  height: 22px;
+.affil-logo{
+  width: var(--affil-logo-size);
+  height: var(--affil-logo-size);
   object-fit: contain;
-  display: inline-block;
+  display: block;
+}
+
+/* Mobile: keep the SAME logic with the smaller avatar box */
+@media (max-width: 640px){
+  .affil-logos-wrap{ width: var(--avatar-size-mobile); }
 }
 
 /* Remove any built-in hero from the theme */
@@ -142,9 +153,9 @@
 }
 
 /* ---------- Spotlight / Research gallery images ---------- */
-.figure-card { 
-  overflow: hidden; 
-  border-radius: 10px; 
+.figure-card {
+  overflow: hidden;
+  border-radius: 10px;
   position: relative;
   border: 1px solid #e5e7eb;
   background: #f7fafc;
