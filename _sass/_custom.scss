@@ -35,34 +35,42 @@
 /* Clear legacy floats */
 .page::after { content: ""; display: block; clear: both; }
 
-/* ---------- Author block (avatar + bio) ---------- */
-/* Desktop: consistent avatar */
+/* ===========================================================
+   AUTHOR SIDEBAR FIXES (Centering Avatar & Bio)
+   =========================================================== */
+
+/* 1. Center the Avatar Image */
+.author__avatar {
+  display: block;
+  text-align: center; /* Ensures container centers the img */
+}
+
 .author__avatar img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
+  margin: 0 auto; /* Physically centers the image block */
+  display: block;
 }
 
-/* Phone: slightly smaller avatar, bio under photo, clean stacking */
-@media (max-width: 640px){
-  .author__avatar img { width: 110px; height: 110px; }
-  .author__content, .author__bio { display:block; margin-top:8px; }
-  .author__content p, .author__bio { text-align:left !important; }
+/* 2. Center the Name and Bio text */
+.sidebar .author__content,
+.sidebar .author__bio {
+  text-align: center !important;
+  width: 100%;
 }
 
-/* --- Affiliation logos (centered under headshot; no spacing blow-ups) --- */
-/* IMPORTANT: scope to sidebar so main-content justification never stretches them */
+/* 3. Logos centered under avatar */
 .sidebar .affil-logos{
   display: flex !important;
   width: 100% !important;
-  justify-content: center !important;   /* centered under avatar */
+  justify-content: center !important;   /* centered flex items */
   align-items: center !important;
   gap: 10px !important;
   line-height: 1 !important;
-  margin: 6px 0 0 0 !important;         /* tight (no big gap) */
+  margin: 8px auto 12px auto !important; /* Spacing */
   padding: 0 !important;
-  text-align: center !important;         /* immune if any text-align leaks */
   flex-wrap: nowrap !important;
 }
 
@@ -70,14 +78,27 @@
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: block !important;             /* avoid inline whitespace behavior */
+  display: block !important;
 }
 
-/* Keep sidebar text left-aligned (logos stay centered) */
-.sidebar .author__content,
-.sidebar .author__content *,
-.sidebar .author__bio{
+/* 4. KEY FIX: Keep Location/Email/Links Left-Aligned */
+/* We target the wrapper of the buttons/icons specifically */
+.sidebar .author__urls-wrapper,
+.sidebar .author__urls {
   text-align: left !important;
+  width: 100%;
+}
+
+/* Phone adjustments */
+@media (max-width: 640px){
+  .author__avatar img { width: 110px; height: 110px; }
+  
+  /* Ensure bio text stays centered on mobile too */
+  .author__content, .author__bio { 
+      display: block; 
+      margin-top: 8px; 
+      text-align: center !important; 
+  }
 }
 
 /* Remove any built-in hero from the theme */
@@ -387,6 +408,7 @@
     width: max-content !important;   /* shrink to button width */
     margin-left: auto !important;    /* push to right edge */
     padding: 0 !important;
+    text-align: left !important;     /* Reset text inside button/dropdown */
   }
 
   /* Button: just big enough for its text */
@@ -411,15 +433,9 @@
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
     display: none;
+    text-align: left !important; /* content inside dropdown is left aligned */
   }
   .author__urls.is--visible{ display: block !important; }
-
-  /* Keep the bio and everything else left-aligned */
-  .sidebar .author__content,
-  .sidebar .author__content *,
-  .sidebar .author__bio{
-    text-align: left !important;
-  }
 }
 
 /* === LAYER ORDER FIX (desktop): keep content above fixed sidebar === */
