@@ -34,8 +34,8 @@ author:
     <span class="bio-line-3">System measurement</span><br>
     <span class="bio-line-4">Probabilistic computing</span>
 
-  location: "<a href='https://campus-map.stanford.edu/'>Stanford, CA</a>"
-  employer: "<a href='https://www.stanford.edu/'>Stanford University</a>"
+  location: '<a href="https://campus-map.stanford.edu/" target="_blank" rel="noopener">Stanford, CA</a>'
+  employer: '<a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford University</a>'
   email: "navidanj@stanford.edu"
   googlescholar: "https://scholar.google.com/citations?user=KXA0nl4AAAAJ&hl=en"
   github: "OPUSLab"
