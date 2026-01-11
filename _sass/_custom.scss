@@ -17,7 +17,15 @@
 }
 
 /* ---------- Content width cap inside right column ---------- */
-:root { --content-max: 75%; } /* simple size var (not theme-related) */
+:root {
+  --content-max: 75%;         /* simple size var (not theme-related) */
+  --avatar-size: 150px;       /* MUST match .author__avatar img width */
+}
+
+/* Phone: smaller avatar (keep in sync with variable) */
+@media (max-width: 640px){
+  :root { --avatar-size: 110px; }
+}
 
 /* Limit inner text width (not hero/pills/CV button) */
 .layout--single .page__content > *:not(.hero-img):not(.keyword-pills):not(.cv-row) {
@@ -43,6 +51,10 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* Make sure avatar is centered in its sidebar column */
+.sidebar .author__avatar { text-align: center; }
+
 /* Phone: slightly smaller avatar, bio under photo, clean stacking */
 @media (max-width: 640px){
   .author__avatar img { width: 110px; height: 110px; }
@@ -50,25 +62,27 @@
   .author__content p, .author__bio { text-align:left !important; }
 }
 
-/* --- Affiliation logos (tight + centered under headshot) --- */
-.affil-logos{
-  display: inline-flex;       /* inline so it doesn’t add block spacing */
-  justify-content: center;
+/* --- Affiliation logos (CENTERED RELATIVE TO HEADSHOT, no extra spacing) --- */
+/* Keep bio text left-aligned (only the logo row is centered) */
+.sidebar .author__bio { text-align: left !important; }
+
+.sidebar .author__bio .affil-logos{
+  display: flex;
+  width: var(--avatar-size);        /* same width as the headshot */
+  margin: 0 auto 0 auto;            /* center the row under the headshot */
+  justify-content: center;          /* center logos within that row */
   align-items: center;
-  gap: 10px;
+  gap: 8px;                         /* tight (not spread out) */
   line-height: 1;
-  margin: 0;                  /* <-- this is what fixes your spacing */
   padding: 0;
 }
 
-.affil-logo{
+.sidebar .author__bio .affil-logo{
   width: 22px;
   height: 22px;
   object-fit: contain;
-  display: inline-block;
+  display: block;
 }
-
-
 
 /* Remove any built-in hero from the theme */
 .page__hero,
